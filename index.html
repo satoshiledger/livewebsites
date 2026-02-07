@@ -3,261 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Puerto Rico LLC | Bookkeeping, Act 60 & Compliance 2026</title>
+    <title>Satoshi Ledger LLC | PR Tax & Compliance</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        .gradient-nav { background: linear-gradient(90deg, #0f172a 0%, #1e3a8a 100%); }
-        .hero-gradient { background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); }
-        details > summary { list-style: none; }
-        details > summary::-webkit-details-marker { display: none; }
-        .calendar-card:hover { border-color: #3b82f6; transform: translateY(-2px); }
+        .hero-bg { background: linear-gradient(135deg, #020617 0%, #1e3a8a 100%); }
+        [data-lang="es"] { display: none; } /* Default hide Spanish */
+        .lang-active { font-weight: 800; color: #2563eb; border-bottom: 2px solid #2563eb; }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-900 font-sans leading-relaxed">
+<body class="bg-slate-50 text-slate-900 font-sans">
 
     <nav class="bg-white border-b sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-2xl font-black text-blue-900">PuertoRico<span class="text-blue-600">LLC</span></div>
-            <div class="hidden lg:flex space-x-8 font-semibold text-sm uppercase tracking-wide">
-                <a href="#services" class="hover:text-blue-600">Services</a>
-                <a href="#entities" class="hover:text-blue-600">LLC vs Corp</a>
-                <a href="#calendar" class="hover:text-blue-600">Compliance</a>
-                <a href="#faq" class="hover:text-blue-600">20 FAQs</a>
-                <a href="#contact" class="bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition shadow-sm">Get Started</a>
+            <div class="text-2xl font-black text-blue-900">Satoshi<span class="text-blue-600 font-light">Ledger</span></div>
+            
+            <div class="flex items-center gap-6">
+                <div class="flex gap-2 text-xs font-bold uppercase tracking-widest border rounded-full px-3 py-1 bg-slate-50">
+                    <button onclick="setLanguage('en')" id="btn-en" class="lang-active cursor-pointer">EN</button>
+                    <span class="text-slate-300">|</span>
+                    <button onclick="setLanguage('es')" id="btn-es" class="cursor-pointer">ES</button>
+                </div>
+
+                <div class="hidden lg:flex space-x-8 font-semibold text-sm uppercase items-center">
+                    <a href="#services" class="hover:text-blue-600">
+                        <span data-lang="en">Services</span>
+                        <span data-lang="es">Servicios</span>
+                    </a>
+                    <a href="#contact" class="bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition shadow-sm">
+                        <span data-lang="en">Schedule a Consultation</span>
+                        <span data-lang="es">Programar Consulta</span>
+                    </a>
+                </div>
             </div>
         </div>
     </nav>
 
-    <header class="hero-gradient text-white py-24 px-6">
-        <div class="max-w-5xl mx-auto text-center">
-            <h1 class="text-5xl md:text-7xl font-extrabold mb-6">Master Your Puerto Rico <span class="text-blue-200 underline decoration-blue-400">Tax Decree</span></h1>
-            <p class="text-xl mb-10 text-blue-100 max-w-3xl mx-auto">Expert Bookkeeping, Forensic Audits, and Act 60 Compliance. We handle the SURI, CRIM, and Hacienda complexities so you can focus on growth.</p>
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="#contact" class="bg-white text-blue-900 font-bold px-8 py-4 rounded-xl shadow-xl hover:bg-slate-100 transition">Schedule a Consultation</a>
-                <a href="#calendar" class="border border-white/40 px-8 py-4 rounded-xl font-bold hover:bg-white/10 transition">View Compliance Calendar</a>
+    <header class="hero-bg text-white py-24 px-6 text-center">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-5xl md:text-6xl font-extrabold mb-6 italic tracking-tight">
+                <span data-lang="en">Precision Finance for the Island Entrepreneur</span>
+                <span data-lang="es">Finanzas de Precisión para el Empresario de la Isla</span>
+            </h1>
+            <p class="text-xl mb-10 text-blue-100 font-light leading-relaxed">
+                <span data-lang="en">Satoshi Ledger LLC: Strategic Bookkeeping and Act 60 compliance designed to protect your wealth.</span>
+                <span data-lang="es">Satoshi Ledger LLC: Contabilidad estratégica y cumplimiento con la Ley 60 diseñado para proteger su patrimonio.</span>
+            </p>
+            <div class="flex flex-wrap justify-center gap-6">
+                <a href="#contact" class="bg-white text-blue-900 font-bold px-10 py-4 rounded-xl shadow-2xl hover:bg-slate-100 transition">
+                    <span data-lang="en">Get Started</span>
+                    <span data-lang="es">Comenzar</span>
+                </a>
             </div>
         </div>
     </header>
 
-    <section id="services" class="py-20 max-w-7xl mx-auto px-6">
-        <h2 class="text-3xl font-bold text-center text-slate-900 mb-16">Our Specialized Services</h2>
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="bg-white p-8 rounded-3xl shadow-sm border hover:shadow-lg transition">
-                <i class="fas fa-file-invoice-dollar text-3xl text-blue-600 mb-4"></i>
-                <h3 class="text-xl font-bold mb-2">Incorporation & Filing</h3>
-                <p class="text-slate-600 text-sm">LLC and Corporate formation via the Dept. of State. We handle EIN, SURI, and Municipal License (Patente) setup.</p>
-            </div>
-            <div class="bg-white p-8 rounded-3xl shadow-sm border hover:shadow-lg transition">
-                <i class="fas fa-search-plus text-3xl text-blue-600 mb-4"></i>
-                <h3 class="text-xl font-bold mb-2">Forensic Audits</h3>
-                <p class="text-slate-600 text-sm">Deep-dive residency verification (travel logs, utility bills) to ensure you are 100% audit-defensible against the IRS.</p>
-            </div>
-            <div class="bg-white p-8 rounded-3xl shadow-sm border hover:shadow-lg transition">
-                <i class="fas fa-calculator text-3xl text-blue-600 mb-4"></i>
-                <h3 class="text-xl font-bold mb-2">Bookkeeping & Analysis</h3>
-                <p class="text-slate-600 text-sm">GAAP bookkeeping including monthly IVU filings and budget analysis for maintaining decree requirements.</p>
-            </div>
-            <div class="bg-white p-8 rounded-3xl shadow-sm border hover:shadow-lg transition">
-                <i class="fas fa-user-md text-3xl text-blue-600 mb-4"></i>
-                <h3 class="text-xl font-bold mb-2">Physician & Specialist Decrees</h3>
-                <p class="text-slate-600 text-sm">Specialized filings for Qualified Physicians and health professionals under Act 60 Chapter 5.</p>
-            </div>
-            <div class="bg-white p-8 rounded-3xl shadow-sm border hover:shadow-lg transition">
-                <i class="fas fa-rocket text-3xl text-blue-600 mb-4"></i>
-                <h3 class="text-xl font-bold mb-2">Young Entrepreneur/PyME</h3>
-                <p class="text-slate-600 text-sm">Leverage incentives for entrepreneurs under 35 and small PyMEs (2% tax frameworks).</p>
-            </div>
-            <div class="bg-white p-8 rounded-3xl shadow-sm border hover:shadow-lg transition border-blue-200 bg-blue-50">
-                <i class="fas fa-shield-alt text-3xl text-blue-600 mb-4"></i>
-                <h3 class="text-xl font-bold mb-2">2026 Strategy</h3>
-                <p class="text-slate-600 text-sm">Strategic planning for the new 4% individual tax framework effective Jan 1, 2026.</p>
-            </div>
-        </div>
-    </section>
+    <footer class="py-12 bg-slate-950 text-white text-center text-xs">
+        <p class="opacity-40 tracking-widest uppercase font-bold">Satoshi Ledger LLC | DBA PuertoRicoLLC.com</p>
+        <p class="opacity-20 mt-2 italic">
+            <span data-lang="en">Compliance and accounting services. Not a law firm.</span>
+            <span data-lang="es">Servicios de contabilidad y cumplimiento. No es una firma de abogados.</span>
+        </p>
+    </footer>
 
-    <section id="entities" class="bg-slate-900 text-white py-20 px-6">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-3xl font-bold mb-12 text-center italic">LLC, Corporation, or S-Corp?</h2>
-            <div class="grid md:grid-cols-2 gap-12">
-                <div>
-                    <h3 class="text-xl font-bold text-blue-400 mb-4">Partnership vs. S-Corp Election</h3>
-                    <p class="mb-6 opacity-80 text-sm leading-relaxed">
-                        In Puerto Rico, an LLC is a legal structure, but how it is taxed makes the difference. 
-                        <strong>Choosing LLC/Partnership:</strong> Ideal for flexibility where all income flows to your personal return. 
-                        <strong>Choosing S-Corp:</strong> Beneficial when profits exceed $60k-$100k, allowing you to split salary from distributions to save on self-employment taxes.
-                    </p>
-                    <ul class="space-y-4 text-sm font-medium">
-                        <li class="flex items-center gap-3"><i class="fas fa-check text-green-400"></i> LLCs offer simpler compliance for new ventures.</li>
-                        <li class="flex items-center gap-3"><i class="fas fa-check text-green-400"></i> S-Corps require "Reasonable Salary" and payroll.</li>
-                        <li class="flex items-center gap-3"><i class="fas fa-check text-green-400"></i> Corporations face double taxation unless exempt.</li>
-                    </ul>
-                </div>
-                <div class="bg-white/5 p-8 rounded-3xl border border-white/10 overflow-x-auto">
-                    <table class="w-full text-sm">
-                        <thead>
-                            <tr class="border-b border-white/10">
-                                <th class="text-left pb-4">Feature</th>
-                                <th class="text-left pb-4 text-blue-400">LLC</th>
-                                <th class="text-left pb-4 text-blue-400">S-Corp</th>
-                            </tr>
-                        </thead>
-                        <tbody class="opacity-90">
-                            <tr class="border-b border-white/5"><td class="py-4">Taxation</td><td class="py-4">Pass-Through</td><td class="py-4">Pass-Through</td></tr>
-                            <tr class="border-b border-white/5"><td class="py-4">Self-Employment Tax</td><td class="py-4">On all profit</td><td class="py-4">On salary only</td></tr>
-                            <tr class="border-b border-white/5"><td class="py-4">Payroll Needed?</td><td class="py-4 text-red-400 font-bold">No</td><td class="py-4 text-green-400 font-bold">Yes</td></tr>
-                            <tr><td class="py-4">Ownership Rules</td><td class="py-4">Flexible</td><td class="py-4">Strict (No foreigns)</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </section>
+    <script>
+        function setLanguage(lang) {
+            // Update UI
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                el.style.display = (el.getAttribute('data-lang') === lang) ? 'inline-block' : 'none';
+            });
 
-    <section id="calendar" class="py-24 px-6 max-w-7xl mx-auto">
-        <h2 class="text-4xl font-black text-slate-900 mb-4 text-center">2026 Compliance Calendar</h2>
-        <p class="text-center text-slate-600 mb-16 max-w-2xl mx-auto">Missed deadlines can lead to decree revocation. Stay compliant across SURI, CRIM, and Hacienda.</p>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div class="bg-white p-6 rounded-2xl border shadow-sm calendar-card transition">
-                <div class="text-blue-600 font-black text-xl mb-2 italic">Monthly</div>
-                <h4 class="font-bold mb-1">20th of Month</h4>
-                <p class="text-xs text-slate-500 uppercase tracking-tighter font-bold">IVU Filing (SURI)</p>
-                <p class="mt-3 text-sm text-slate-600">File State (10.5%) and Municipal (1%) Sales Tax returns.</p>
-            </div>
-            <div class="bg-white p-6 rounded-2xl border shadow-sm calendar-card transition border-blue-100 bg-blue-50">
-                <div class="text-blue-600 font-black text-xl mb-2 italic">April 15</div>
-                <h4 class="font-bold mb-1">Annual Reports</h4>
-                <p class="text-xs text-slate-500 uppercase tracking-tighter font-bold">State & Tax Returns</p>
-                <p class="mt-3 text-sm text-slate-600">Income Tax returns for individuals and C-Corps; LLC $150 Annual Fee.</p>
-            </div>
-            <div class="bg-white p-6 rounded-2xl border shadow-sm calendar-card transition">
-                <div class="text-blue-600 font-black text-xl mb-2 italic">April 22</div>
-                <h4 class="font-bold mb-1">Municipal Patent</h4>
-                <p class="text-xs text-slate-500 uppercase tracking-tighter font-bold">Business Volume</p>
-                <p class="mt-3 text-sm text-slate-600">Declaration of Volume of Business due to the local municipality.</p>
-            </div>
-            <div class="bg-white p-6 rounded-2xl border shadow-sm calendar-card transition border-blue-100 bg-blue-50">
-                <div class="text-blue-600 font-black text-xl mb-2 italic">May 15</div>
-                <h4 class="font-bold mb-1">CRIM Property Tax</h4>
-                <p class="text-xs text-slate-500 uppercase tracking-tighter font-bold">Personal Property</p>
-                <p class="mt-3 text-sm text-slate-600">Mandatory Personal Property Tax return even if renting space.</p>
-            </div>
-        </div>
-    </section>
+            // Update Toggle Button Styles
+            document.getElementById('btn-en').classList.toggle('lang-active', lang === 'en');
+            document.getElementById('btn-es').classList.toggle('lang-active', lang === 'es');
 
-    <section id="faq" class="bg-slate-200 py-24 px-6">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-4xl font-extrabold text-center text-slate-900 mb-16 italic underline decoration-blue-600">Top 20 Act 60 & Compliance FAQs</h2>
-            
-            <div class="grid gap-6">
-                <div class="space-y-4">
-                    <h3 class="text-sm font-black text-blue-700 uppercase tracking-widest px-2">1. Residency & Individual Investor</h3>
-                    <details class="group bg-white p-6 rounded-2xl shadow-sm">
-                        <summary class="font-bold cursor-pointer flex justify-between items-center text-slate-800">
-                            What is the 183-day presence test?
-                            <span class="text-blue-500 group-open:rotate-180 transition-transform">▼</span>
-                        </summary>
-                        <p class="mt-4 text-slate-600 text-sm">To be a bona fide resident, you must be in PR for 183+ days, or meet multi-year harbors (549 days over 3 years).</p>
-                    </details>
-                    <details class="group bg-white p-6 rounded-2xl shadow-sm">
-                        <summary class="font-bold cursor-pointer flex justify-between items-center text-slate-800">
-                            What are the annual donation and property rules?
-                            <span class="text-blue-500 group-open:rotate-180 transition-transform">▼</span>
-                        </summary>
-                        <p class="mt-4 text-slate-600 text-sm">Decree holders must donate $10,000 annually to approved non-profits and purchase a home in PR within 2 years of moving.</p>
-                    </details>
-                    <details class="group bg-white p-6 rounded-2xl shadow-sm">
-                        <summary class="font-bold cursor-pointer flex justify-between items-center text-slate-800">
-                            Are crypto capital gains 100% exempt?
-                            <span class="text-blue-500 group-open:rotate-180 transition-transform">▼</span>
-                        </summary>
-                        <p class="mt-4 text-slate-600 text-sm">Gains accrued *after* you become a PR resident are 100% exempt. Pre-residency gains are still taxable by the IRS.</p>
-                    </details>
-                    <details class="group bg-white p-6 rounded-2xl shadow-sm">
-                        <summary class="font-bold cursor-pointer flex justify-between items-center text-slate-800">
-                            What is the "Closer Connection" test?
-                            <span class="text-blue-500 group-open:rotate-180 transition-transform">▼</span>
-                        </summary>
-                        <p class="mt-4 text-slate-600 text-sm">You must prove your primary social, family, and financial ties are in PR, not the mainland.</p>
-                    </details>
-                    <details class="group bg-white p-6 rounded-2xl shadow-sm">
-                        <summary class="font-bold cursor-pointer flex justify-between items-center text-slate-800">
-                            How are dividends and interest from U.S. banks taxed?
-                            <span class="text-blue-500 group-open:rotate-180 transition-transform">▼</span>
-                        </summary>
-                        <p class="mt-4 text-slate-600 text-sm">PR-sourced interest is exempt; however, interest from U.S. sources may still be subject to federal income tax.</p>
-                    </details>
-                </div>
+            // Save preference
+            localStorage.setItem('preferredLang', lang);
+        }
 
-                <div class="space-y-4">
-                    <h3 class="text-sm font-black text-blue-700 uppercase tracking-widest px-2">2. Export Services & PyMEs</h3>
-                    <details class="group bg-white p-6 rounded-2xl shadow-sm">
-                        <summary class="font-bold cursor-pointer flex justify-between items-center text-slate-800">
-                            What is the 4% Export Services rate?
-                            <span class="text-blue-500 group-open:rotate-180 transition-transform">▼</span>
-                        </summary>
-                        <p class="mt-4 text-slate-600 text-sm">Eligible businesses exporting services (consulting, software) to clients outside PR pay only a 4% corporate tax rate.</p>
-                    </details>
-                    <details class="group bg-white p-6 rounded-2xl shadow-sm">
-                        <summary class="font-bold cursor-pointer flex justify-between items-center text-slate-800">
-                            Who is a "Young Entrepreneur" (Act 60 Chapter 3)?
-                            <span class="text-blue-500 group-open:rotate-180 transition-transform">▼</span>
-                        </summary>
-                        <p class="mt-4 text-slate-600 text-sm">Entrepreneurs aged 16–35 qualify for 100% tax exemption on the first $500k of net income for 3 years.</p>
-                    </details>
-                    <details class="group bg-white p-6 rounded-2xl shadow-sm">
-                        <summary class="font-bold cursor-pointer flex justify-between items-center text-slate-800">
-                            What is a "New PyME" 2% tax rate?
-                            <span class="text-blue-500 group-open:rotate-180 transition-transform">▼</span>
-                        </summary>
-                        <p class="mt-4 text-slate-600 text-sm">Special incentives allow for a 2% corporate tax rate for small and medium enterprises during initial operating years.</p>
-                    </details>
-                    <details class="group bg-white p-6 rounded-2xl shadow-sm">
-                        <summary class="font-bold cursor-pointer flex justify-between items-center text-slate-800">
-                            Are local PR sales included in the 4% rate?
-                            <span class="text-blue-500 group-open:rotate-180 transition-transform">▼</span>
-                        </summary>
-                        <p class="mt-4 text-slate-600 text-sm">No. The 4% rate applies strictly to services exported. Local sales are taxed at standard corporate rates.</p>
-                    </details>
-                    <details class="group bg-white p-6 rounded-2xl shadow-sm">
-                        <summary class="font-bold cursor-pointer flex justify-between items-center text-slate-800">
-                            What is the tax rate for Qualified Physicians?
-                            <span class="text-blue-500 group-open:rotate-180 transition-transform">▼</span>
-                        </summary>
-                        <p class="mt-4 text-slate-600 text-sm">Qualifying specialists and physicians enjoy a flat 4% income tax rate on professional services.</p>
-                    </details>
-                </div>
-
-                <div class="space-y-4">
-                    <h3 class="text-sm font-black text-blue-700 uppercase tracking-widest px-2">3. Entity Setup & Compliance</h3>
-                    <details class="group bg-white p-6 rounded-2xl shadow-sm">
-                        <summary class="font-bold cursor-pointer flex justify-between items-center text-slate-800">
-                            LLC vs. Corporation: Which is better?
-                            <span class="text-blue-500 group-open:rotate-180 transition-transform">▼</span>
-                        </summary>
-                        <p class="mt-4 text-slate-600 text-sm">LLCs offer pass-through flexibility and fewer corporate formalities compared to traditional Corporations.</p>
-                    </details>
-                    <details class="group bg-white p-6 rounded-2xl shadow-sm">
-                        <summary class="font-bold cursor-pointer flex justify-between items-center text-slate-800">
-                            What is SURI and why is it mandatory?
-                            <span class="text-blue-500 group-open:rotate-180 transition-transform">▼</span>
-                        </summary>
-                        <p class="mt-4 text-slate-600 text-sm">SURI is the digital platform for Hacienda. It is where you register your Merchant's Number and file monthly IVU.</p>
-                    </details>
-                    <details class="group bg-white p-6 rounded-2xl shadow-sm">
-                        <summary class="font-bold cursor-pointer flex justify-between items-center text-slate-800">
-                            What is a Municipal Patent?
-                            <span class="text-blue-500 group-open:rotate-180 transition-transform">▼</span>
-                        </summary>
-                        <p class="mt-4 text-slate-600 text-sm">A "Volume of Business" tax paid to the municipality where you operate, due annually every April.</p>
-                    </details>
-                    <details class="group bg-white p-6 rounded-2xl shadow-sm">
-                        <summary class="font-bold cursor-pointer flex justify-between items-center text-slate-800">
-                            How does FICA work for PR employees?
-                            <span class="text-blue-500 group-open:rotate-180 transition-transform">▼</span>
-                        </summary>
-                        <p class="mt-4 text-slate-600 text-sm">Social Security and Medicare (FICA) are identical to the US mainland: 15.3% total split between employer/employee.</p>
-                    </details>
-                    <details class="group bg-white p-6 rounded-2xl shadow-sm">
-                        <summary class="font-bold cursor-pointer flex justify-between items
+        // Initialize from saved preference or default to English
+        window.onload = () => {
+            const savedLang = localStorage.getItem('preferredLang') || 'en';
+            setLanguage(savedLang);
+        };
+    </script>
+</body>
+</html>
