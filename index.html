@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Satoshi Ledger LLC | PR Tax & Compliance</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .hero-bg { 
+            background: linear-gradient(135deg, #020617 0%, #1e3a8a 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="60" fill="none"/><circle cx="30" cy="30" r="1" fill="rgba(255,255,255,0.05)"/></svg>');
+            opacity: 0.3;
+        }
+        [data-lang="es"] { display: none; }
+        .lang-active { 
+            font-weight: 800; 
+            color: #2563eb; 
+            border-bottom: 2px solid #2563eb; 
+        }
+        html { scroll-behavior: smooth; }
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .mobile-menu.active {
+            max-height: 600px;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans">
+
+    <nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-black text-blue-900 uppercase tracking-tighter">
+                    Satoshi<span class="text-blue-600 font-light">Ledger</span>
+                </div>
+                
+                <div class="hidden lg:flex items-center gap-8">
+                    <div class="flex gap-2 text-xs font-bold uppercase tracking-widest border rounded-full px-3 py-1 bg-slate-50">
+                        <button onclick="setLanguage('en')" id="btn-en" class="lang-active cursor-pointer transition-all">EN</button>
+                        <span class="text-slate-300">|</span>
+                        <button onclick="setLanguage('es')" id="btn-es" class="cursor-pointer transition-all">ES</button>
+                    </div>
+                    
+                    <div class="flex space-x-6 font-semibold text-sm uppercase items-center text-slate-600">
+                        <a href="act60-mastery.html" class="hover:text-blue-600 transition">Act 60</a>
+                        <a href="llc-formation.html" class="hover:text-blue-600 transition">LLC Setup</a>
+                        <a href="forensic-audit.html" class="hover:text-blue-600 transition">Audits</a>
+                        <a href="bookkeeping-payroll.html" class="hover:text-blue-600 transition">Accounting</a>
+                        <a href="#contact" class="bg-blue-600 text-white px-6 py-2.5 rounded-lg hover:bg-blue-700 transition shadow-md">
+                            <span data-lang="en">Consultation</span>
+                            <span data-lang="es">Consulta</span>
+                        </a>
+                    </div>
+                </div>
+
+                <button onclick="toggleMobileMenu()" class="lg:hidden text-2xl text-slate-700">
+                    <i class="fas fa-bars" id="menu-icon"></i>
+                </button>
+            </div>
+            
+            <div id="mobile-menu" class="mobile-menu lg:hidden">
+                <div class="py-4 space-y-4 font-semibold text-center">
+                    <a href="act60-mastery.html" class="block py-2">Act 60 Mastery</a>
+                    <a href="llc-formation.html" class="block py-2">LLC Formation</a>
+                    <a href="forensic-audit.html" class="block py-2">Forensic Audits</a>
+                    <a href="bookkeeping-payroll.html" class="block py-2">Bookkeeping</a>
+                    <a href="#contact" class="block bg-blue-600 text-white py-3 rounded-lg mx-4">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-bg text-white py-28 px-6 text-center">
+        <div class="max-w-4xl mx-auto relative z-10 animate-fade-in-up">
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-6 italic tracking-tight leading-tight">
+                <span data-lang="en">Tax & Compliance Mastery for PR Entrepreneurs</span>
+                <span data-lang="es">Maestría Fiscal para Empresarios de PR</span>
+            </h1>
+            <p class="text-xl md:text-2xl mb-12 text-blue-100 font-light max-w-3xl mx-auto">
+                <span data-lang="en">From Act 60 setup to Forensic Audits and Bitcoin accounting. We protect your wealth and your decree.</span>
+                <span data-lang="es">Desde Ley 60 hasta Auditorías Forenses y contabilidad Bitcoin. Protegemos su patrimonio y decreto.</span>
+            </p>
+            <div class="flex flex-wrap justify-center gap-6">
+                <a href="#contact" class="bg-white text-blue-900 font-bold px-10 py-4 rounded-xl shadow-2xl hover:scale-105 transition transform">
+                    <span data-lang="en">Get Started</span>
+                    <span data-lang="es">Comenzar</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section id="services" class="py-24 px-6 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-black mb-4">Our Specialized Services</h2>
+                <p class="text-slate-500">Click a service to view full requirements, blackout dates, and pricing.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="p-8 border-2 border-slate-100 rounded-3xl hover:border-blue-500 hover:shadow-xl transition group flex flex-col">
+                    <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-file-contract text-blue-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Act 60 Mastery</h3>
+                    <p class="text-slate-500 text-sm mb-4">Individual Investor, Export Services, and Young Entrepreneur setup.</p>
+                    <div class="text-blue-600 font-bold text-sm mb-6">Starting at $499</div>
+                    <a href="act60-mastery.html" class="mt-auto bg-slate-900 text-white text-center py-3 rounded-xl hover:bg-blue-600 transition text-sm font-bold">Learn More</a>
+                </div>
+
+                <div class="p-8 border-2 border-slate-100 rounded-3xl hover:border-blue-500 hover:shadow-xl transition group flex flex-col">
+                    <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-building text-blue-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">LLC Formation</h3>
+                    <p class="text-slate-500 text-sm mb-4">Incorporation, EIN, SURI, and Registered Agent procurement.</p>
+                    <div class="text-blue-600 font-bold text-sm mb-6">$250 Professional Fee</div>
+                    <a href="llc-formation.html" class="mt-auto bg-slate-900 text-white text-center py-3 rounded-xl hover:bg-blue-600 transition text-sm font-bold">Learn More</a>
+                </div>
+
+                <div class="p-8 border-2 border-slate-100 rounded-3xl hover:border-blue-500 hover:shadow-xl transition group flex flex-col">
+                    <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-search-dollar text-blue-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Forensic & Budget</h3>
+                    <p class="text-slate-500 text-sm mb-4">3-month deep-dive transaction audit for defensible business budgeting.</p>
+                    <div class="text-blue-600 font-bold text-sm mb-6">Starting at $499</div>
+                    <a href="forensic-audit.html" class="mt-auto bg-slate-900 text-white text-center py-3 rounded-xl hover:bg-blue-600 transition text-sm font-bold">Learn More</a>
+                </div>
+
+                <div class="p-8 border-2 border-slate-100 rounded-3xl hover:border-blue-500 hover:shadow-xl transition group flex flex-col">
+                    <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-calculator text-blue-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Bookkeeping & Payroll</h3>
+                    <p class="text-slate-500 text-sm mb-4">Monthly reconciliation, payroll compliance, and annual filings.</p>
+                    <div class="text-blue-600 font-bold text-sm mb-6">Starting at $199</div>
+                    <a href="bookkeeping-payroll.html" class="mt-auto bg-slate-900 text-white text-center py-3 rounded-xl hover:bg-blue-600 transition text-sm font-bold">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="calc" class="bg-slate-900 text-white py-24 px-6">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center underline decoration-blue-500 underline-offset-8">LLC Pass-Through vs. S-Corp Election</h2>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="space-y-6">
+                    <div class="bg-white/10 p-6 rounded-2xl border border-white/20">
+                        <label class="block text-sm font-bold mb-2">Annual Net Profit ($)</label>
+                        <input type="text" id="netProfitDisplay" value="100,000" class="w-full p-4 rounded-xl text-slate-900 font-bold text-2xl" oninput="formatAndUpdateProfit(this)">
+                        <input type="range" id="profitSlider" value="100000" min="0" max="500000" step="5000" class="w-full mt-4" oninput="updateProfitFromSlider(this.value)">
+                    </div>
+                    <div class="bg-white/10 p-6 rounded-2xl border border-white/20">
+                        <label class="block text-sm font-bold mb-2">Reasonable Salary (40-60% recommended)</label>
+                        <div class="flex items-center gap-4">
+                            <input type="range" id="salaryPercent" value="50" min="30" max="70" step="5" class="flex-1" oninput="calculateTaxes()">
+                            <span id="salaryPercentDisplay" class="text-2xl font-black text-blue-400">50%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white/5 p-8 rounded-3xl border border-white/10">
+                    <table class="w-full text-left text-sm">
+                        <tr class="border-b border-white/20 font-bold"><td class="py-2">Category</td><td class="text-blue-400">LLC</td><td class="text-green-400">S-Corp</td></tr>
+                        <tr><td class="py-2">FICA Tax (15.3%)</td><td id="llcFica" class="text-red-400">$15,300</td><td id="scorpFica" class="text-green-400">$7,650</td></tr>
+                        <tr><td class="py-2">Compliance Costs</td><td>$0</td><td class="text-orange-300">$3,500</td></tr>
+                        <tr class="bg-green-900/20 font-black text-xl"><td class="py-4">Net Savings</td><td>—</td><td id="totalSavings" class="text-green-400">$4,150</td></tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 px-6 bg-slate-50">
+        <div class="max-w-4xl mx-auto bg-white p-12 rounded-[3rem] shadow-xl">
+            <h2 class="text-3xl font-bold mb-8 text-center">Schedule Your Consultation</h2>
+            <form id="contact-form" class="space-y-6">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <input type="text" placeholder="Name" class="p-4 border-2 rounded-xl outline-none focus:border-blue-600" required>
+                    <input type="email" placeholder="Email" class="p-4 border-2 rounded-xl outline-none focus:border-blue-600" required>
+                </div>
+                <select class="w-full p-4 border-2 rounded-xl outline-none" required>
+                    <option value="" disabled selected>Select Interest...</option>
+                    <option>Act 60 Compliance</option>
+                    <option>LLC/S-Corp Setup</option>
+                    <option>Forensic Audit</option>
+                </select>
+                <button type="submit" class="w-full bg-blue-600 text-white font-bold py-5 rounded-xl hover:bg-blue-700 transition uppercase tracking-widest">Submit Request</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="py-12 bg-slate-950 text-white text-center">
+        <p class="text-xs opacity-40 italic">Tax compliance and accounting services. Not a law firm.</p>
+        <p class="text-xs opacity-20 mt-4">© 2026 Satoshi Ledger LLC. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('active');
+        }
+
+        function calculateTaxes() {
+            const netProfit = parseFloat(document.getElementById('netProfitDisplay').value.replace(/,/g, '')) || 0;
+            const salaryPercent = document.getElementById('salaryPercent').value;
+            const salary = netProfit * (salaryPercent / 100);
+            
+            const llcFica = netProfit * 0.153;
+            const scorpFica = salary * 0.153;
+            const compliance = 3500;
+            const savings = llcFica - (scorpFica + compliance);
+
+            document.getElementById('llcFica').textContent = '$' + llcFica.toLocaleString();
+            document.getElementById('scorpFica').textContent = '$' + scorpFica.toLocaleString();
+            document.getElementById('salaryPercentDisplay').textContent = salaryPercent + '%';
+            document.getElementById('totalSavings').textContent = '$' + Math.max(0, savings).toLocaleString();
+        }
+
+        function formatAndUpdateProfit(input) {
+            let val = input.value.replace(/[^\d]/g, '');
+            input.value = val ? parseInt(val).toLocaleString() : '';
+            document.getElementById('profitSlider').value = val || 0;
+            calculateTaxes();
+        }
+
+        function updateProfitFromSlider(val) {
+            document.getElementById('netProfitDisplay').value = parseInt(val).toLocaleString();
+            calculateTaxes();
+        }
+
+        // Initialize
+        window.onload = calculateTaxes;
+    </script>
+</body>
+</html>
