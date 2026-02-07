@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         .hero-bg { background: linear-gradient(135deg, #020617 0%, #1e3a8a 100%); }
-        [data-lang="es"] { display: none; } /* Default hide Spanish */
-        .lang-active { font-weight: 800; color: #2563eb; border-bottom: 2px solid #2563eb; }
+        details > summary { list-style: none; cursor: pointer; }
+        details > summary::-webkit-details-marker { display: none; }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900 font-sans">
@@ -17,75 +17,149 @@
     <nav class="bg-white border-b sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <div class="text-2xl font-black text-blue-900">Satoshi<span class="text-blue-600 font-light">Ledger</span></div>
-            
-            <div class="flex items-center gap-6">
-                <div class="flex gap-2 text-xs font-bold uppercase tracking-widest border rounded-full px-3 py-1 bg-slate-50">
-                    <button onclick="setLanguage('en')" id="btn-en" class="lang-active cursor-pointer">EN</button>
-                    <span class="text-slate-300">|</span>
-                    <button onclick="setLanguage('es')" id="btn-es" class="cursor-pointer">ES</button>
-                </div>
-
-                <div class="hidden lg:flex space-x-8 font-semibold text-sm uppercase items-center">
-                    <a href="#services" class="hover:text-blue-600">
-                        <span data-lang="en">Services</span>
-                        <span data-lang="es">Servicios</span>
-                    </a>
-                    <a href="#contact" class="bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition shadow-sm">
-                        <span data-lang="en">Schedule a Consultation</span>
-                        <span data-lang="es">Programar Consulta</span>
-                    </a>
-                </div>
+            <div class="hidden lg:flex space-x-8 font-semibold text-sm uppercase items-center">
+                <a href="#services" class="hover:text-blue-600">Services</a>
+                <a href="#calc" class="hover:text-blue-600">Tax Model</a>
+                <a href="#calendar" class="hover:text-blue-600">Deadlines</a>
+                <a href="#faq" class="hover:text-blue-600">FAQs</a>
+                <a href="#contact" class="bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition shadow-md">Schedule a Consultation</a>
             </div>
         </div>
     </nav>
 
     <header class="hero-bg text-white py-24 px-6 text-center">
         <div class="max-w-4xl mx-auto">
-            <h1 class="text-5xl md:text-6xl font-extrabold mb-6 italic tracking-tight">
-                <span data-lang="en">Precision Finance for the Island Entrepreneur</span>
-                <span data-lang="es">Finanzas de Precisión para el Empresario de la Isla</span>
-            </h1>
-            <p class="text-xl mb-10 text-blue-100 font-light leading-relaxed">
-                <span data-lang="en">Satoshi Ledger LLC: Strategic Bookkeeping and Act 60 compliance designed to protect your wealth.</span>
-                <span data-lang="es">Satoshi Ledger LLC: Contabilidad estratégica y cumplimiento con la Ley 60 diseñado para proteger su patrimonio.</span>
-            </p>
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-6 italic tracking-tight">Precision Finance for the Island Entrepreneur</h1>
+            <p class="text-xl mb-10 text-blue-100 font-light leading-relaxed">Satoshi Ledger LLC: Strategic Bookkeeping, Forensic Audits, and Act 60 compliance designed to protect your wealth and your decree.</p>
             <div class="flex flex-wrap justify-center gap-6">
-                <a href="#contact" class="bg-white text-blue-900 font-bold px-10 py-4 rounded-xl shadow-2xl hover:bg-slate-100 transition">
-                    <span data-lang="en">Get Started</span>
-                    <span data-lang="es">Comenzar</span>
+                <a href="#contact" class="bg-white text-blue-900 font-bold px-10 py-4 rounded-xl shadow-2xl hover:bg-slate-100 transition">Get Started</a>
+                <a href="https://instagram.com/SatoshiLedger" target="_blank" class="flex items-center gap-2 border border-white/30 px-10 py-4 rounded-xl font-bold hover:bg-white/10 transition">
+                    <i class="fab fa-instagram"></i> @SatoshiLedger
                 </a>
             </div>
         </div>
     </header>
 
+    <section id="calc" class="bg-slate-900 text-white py-24 px-6">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold mb-12 text-center italic underline decoration-blue-500 underline-offset-8">LLC Pass-Through vs. S-Corp Election</h2>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <p class="text-blue-200 font-semibold uppercase text-sm tracking-widest">The Strategy</p>
+                    <h3 class="text-3xl font-bold leading-tight">Save ~$7,650 annually on FICA by electing S-Corp status.</h3>
+                    <p class="opacity-70 text-sm">In an LLC, all $100k of net profit is subject to 15.3% Self-Employment tax. By electing S-Corp status and paying a $50k "reasonable salary," you shield the other $50k from FICA.</p>
+                </div>
+                <div class="bg-white/5 p-8 rounded-[2rem] border border-white/10 shadow-2xl overflow-x-auto">
+                    <table class="w-full text-left">
+                        <thead>
+                            <tr class="border-b border-white/20">
+                                <th class="pb-4 font-bold text-sm">Feature</th>
+                                <th class="pb-4 font-bold text-blue-400">LLC (Default)</th>
+                                <th class="pb-4 font-bold text-green-400">S-Corp Election</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-sm opacity-90">
+                            <tr class="border-b border-white/5"><td class="py-4 font-light">Reasonable Salary</td><td class="py-4">$0</td><td class="py-4">$50,000</td></tr>
+                            <tr class="border-b border-white/5"><td class="py-4 font-light italic">FICA Tax (15.3%)</td><td class="py-4 text-red-400">$15,300</td><td class="py-4 text-green-400 font-bold">$7,650</td></tr>
+                            <tr class="border-b border-white/5"><td class="py-4 font-light italic">PR Income Tax (2025 Brackets)</td><td class="py-4">~$13,500</td><td class="py-4">~$4,620*</td></tr>
+                            <tr><td class="py-4 font-bold text-green-300">Net Tax Savings</td><td class="py-4 text-slate-500">None</td><td class="py-4 font-black text-xl text-green-400">~$7,650/yr</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="calendar" class="py-24 px-6 max-w-7xl mx-auto">
+        <h2 class="text-4xl font-black text-center mb-4">The Compliance Roadmap</h2>
+        <p class="text-center text-slate-500 mb-16">Failure to meet Q1 deadlines can jeopardize your status.</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="p-8 border rounded-[2rem] bg-white shadow-sm border-blue-50">
+                <span class="text-blue-600 font-black text-lg">Jan 31</span>
+                <h4 class="font-bold mt-2 uppercase text-xs tracking-widest text-slate-400">Reconciliation</h4>
+                <p class="mt-4 text-sm text-slate-600 leading-relaxed">Form 499R-3 and Federal Form 940 (FUTA) due for employers.</p>
+            </div>
+            <div class="p-8 border rounded-[2rem] bg-white shadow-sm border-blue-50 bg-blue-50/50">
+                <span class="text-blue-600 font-black text-lg">Mar 15</span>
+                <h4 class="font-bold mt-2 uppercase text-xs tracking-widest text-slate-400">Entity Returns</h4>
+                <p class="mt-4 text-sm text-slate-600 leading-relaxed">Income Tax returns for **Partnerships** and **S-Corps** are due.</p>
+            </div>
+            <div class="p-8 border rounded-[2rem] bg-white shadow-sm border-blue-50">
+                <span class="text-blue-600 font-black text-lg">Apr 15</span>
+                <h4 class="font-bold mt-2 uppercase text-xs tracking-widest text-slate-400">Main Filings</h4>
+                <p class="mt-4 text-sm text-slate-600 leading-relaxed">Individual Returns, C-Corps, and LLC $150 Annual Fee.</p>
+            </div>
+            <div class="p-8 border rounded-[2rem] bg-white shadow-sm border-blue-50 bg-blue-50/50">
+                <span class="text-blue-600 font-black text-lg">May 15</span>
+                <h4 class="font-bold mt-2 uppercase text-xs tracking-widest text-slate-400">Property Tax</h4>
+                <p class="mt-4 text-sm text-slate-600 leading-relaxed">CRIM Personal Property Tax return and payment due.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="bg-slate-200 py-24 px-6">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-black text-center mb-12 uppercase italic tracking-tighter">Frequently Asked Questions</h2>
+            <div class="space-y-4">
+                <details class="bg-white p-6 rounded-2xl shadow-sm group">
+                    <summary class="font-bold flex justify-between items-center text-slate-800">
+                        Who qualifies as a "Young Entrepreneur"?
+                        <span class="text-blue-500 group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <p class="mt-4 text-sm text-slate-600">Residents aged 16-35 starting a new business qualify for 100% exemption on the first $500k of net income for 3 years.</p>
+                </details>
+                <details class="bg-white p-6 rounded-2xl shadow-sm group">
+                    <summary class="font-bold flex justify-between items-center text-slate-800">
+                        When is a "Reasonable Salary" required?
+                        <span class="text-blue-500 group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <p class="mt-4 text-sm text-slate-600">If you elect S-Corp status to save on FICA, you must pay yourself a salary consistent with industry standards to avoid IRS audits.</p>
+                </details>
+                <details class="bg-white p-6 rounded-2xl shadow-sm group">
+                    <summary class="font-bold flex justify-between items-center text-slate-800">
+                        Do I need to pay IVU on exported services?
+                        <span class="text-blue-500 group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <p class="mt-4 text-sm text-slate-600">Services exported outside PR are typically 0% IVU rated, but monthly SURI returns are still mandatory.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 px-6">
+        <div class="max-w-5xl mx-auto flex flex-col md:flex-row bg-white rounded-[3rem] shadow-2xl overflow-hidden border border-slate-100">
+            <div class="md:w-2/5 bg-blue-900 p-12 text-white flex flex-col justify-center">
+                <h2 class="text-4xl font-bold mb-6 italic underline decoration-blue-500 underline-offset-8">Secure Your Strategy.</h2>
+                <p class="opacity-80 mb-10 text-lg leading-relaxed font-light">The IRS and Hacienda are tightening compliance. Get a consultation with Satoshi Ledger LLC today.</p>
+                <div class="flex items-center gap-4 text-blue-400 group">
+                    <i class="fab fa-instagram text-2xl group-hover:scale-110 transition"></i>
+                    <a href="https://instagram.com/SatoshiLedger" target="_blank" class="font-bold tracking-widest uppercase text-sm">@SatoshiLedger</a>
+                </div>
+            </div>
+            <div class="md:w-3/5 p-12">
+                <form action="https://formspree.io/f/YOUR_ID" method="POST" class="space-y-4">
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <input type="text" name="name" class="p-4 border border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-blue-600 transition" placeholder="Full Name" required>
+                        <input type="email" name="email" class="p-4 border border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-blue-600 transition" placeholder="Email Address" required>
+                    </div>
+                    <input type="tel" name="phone" class="w-full p-4 border border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-blue-600 transition" placeholder="Phone Number" required>
+                    <select name="interest" class="w-full p-4 border border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-blue-600 appearance-none bg-white">
+                        <option>Act 60 Individual / Export Decree</option>
+                        <option>LLC Incorporation & SURI Setup</option>
+                        <option>Forensic Residency Audit</option>
+                        <option>Bookkeeping & Payroll</option>
+                    </select>
+                    <button type="submit" class="w-full bg-blue-600 text-white font-black py-5 rounded-xl hover:bg-blue-700 shadow-xl transition-all active:scale-95">Request My Consultation</button>
+                    <p class="text-[10px] text-center text-slate-400 mt-4 italic uppercase tracking-widest">We will reach out to you within 24 business hours.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
     <footer class="py-12 bg-slate-950 text-white text-center text-xs">
         <p class="opacity-40 tracking-widest uppercase font-bold">Satoshi Ledger LLC | DBA PuertoRicoLLC.com</p>
-        <p class="opacity-20 mt-2 italic">
-            <span data-lang="en">Compliance and accounting services. Not a law firm.</span>
-            <span data-lang="es">Servicios de contabilidad y cumplimiento. No es una firma de abogados.</span>
-        </p>
+        <p class="opacity-20 mt-2">Compliance and accounting services. Not a law firm.</p>
     </footer>
 
-    <script>
-        function setLanguage(lang) {
-            // Update UI
-            document.querySelectorAll('[data-lang]').forEach(el => {
-                el.style.display = (el.getAttribute('data-lang') === lang) ? 'inline-block' : 'none';
-            });
-
-            // Update Toggle Button Styles
-            document.getElementById('btn-en').classList.toggle('lang-active', lang === 'en');
-            document.getElementById('btn-es').classList.toggle('lang-active', lang === 'es');
-
-            // Save preference
-            localStorage.setItem('preferredLang', lang);
-        }
-
-        // Initialize from saved preference or default to English
-        window.onload = () => {
-            const savedLang = localStorage.getItem('preferredLang') || 'en';
-            setLanguage(savedLang);
-        };
-    </script>
 </body>
 </html>
