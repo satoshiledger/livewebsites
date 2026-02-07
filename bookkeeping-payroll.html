@@ -45,4 +45,73 @@
             <div class="py-4 space-y-4 font-semibold text-center">
                 <a href="index.html" class="block py-2">Home</a>
                 <a href="act60-mastery.html" class="block py-2">Act 60 Mastery</a>
-                <a href="
+                <a href="llc-formation.html" class="block py-2">LLC Formation</a>
+                <a href="forensic-audit.html" class="block py-2">Forensic Audits</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-bg text-white py-20 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="inline-block bg-blue-600 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-6">
+                <span data-lang="en">Starting at $199/month</span>
+                <span data-lang="es">Desde $199/mes</span>
+            </div>
+            <h1 class="text-5xl md:text-6xl font-extrabold mb-6">
+                <span data-lang="en">Bookkeeping & Payroll</span>
+                <span data-lang="es">Contabilidad y Nómina</span>
+            </h1>
+            <p class="text-xl text-blue-100 mb-8">
+                <span data-lang="en">Reliable monthly accounting and local compliance for your Puerto Rico operations.</span>
+                <span data-lang="es">Contabilidad mensual confiable y cumplimiento local para sus operaciones en Puerto Rico.</span>
+            </p>
+        </div>
+    </header>
+
+    <section class="py-20 px-6">
+        <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
+            <div class="bg-white p-8 rounded-3xl shadow-lg border border-slate-100">
+                <h3 class="text-2xl font-bold mb-4">Monthly Bookkeeping</h3>
+                <ul class="space-y-3 text-slate-600 text-sm">
+                    <li>✓ Daily transaction categorization</li>
+                    <li>✓ Bank & credit card reconciliation</li>
+                    <li>✓ PR-sourced income tracking</li>
+                    <li>✓ GAAP-compliant financial statements</li>
+                </ul>
+            </div>
+            <div class="bg-white p-8 rounded-3xl shadow-lg border border-slate-100">
+                <h3 class="text-2xl font-bold mb-4">Payroll Compliance</h3>
+                <ul class="space-y-3 text-slate-600 text-sm">
+                    <li>✓ Federal FICA/FUTA filings</li>
+                    <li>✓ Local SUTA/Disability insurance</li>
+                    <li>✓ Christmas Bonus (Aguinaldo) tracking</li>
+                    <li>✓ Annual W-2/W-3 preparation</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 bg-slate-950 text-white text-center">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-2xl font-black uppercase mb-2">Satoshi<span class="text-blue-500 font-light">Ledger</span></div>
+            <p class="text-xs opacity-30 italic mb-6">Tax compliance and accounting services. Not a law firm.</p>
+            <p class="text-xs opacity-20">© 2026 Satoshi Ledger LLC</p>
+        </div>
+    </footer>
+
+    <script>
+        function setLanguage(lang) {
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                el.style.display = (el.getAttribute('data-lang') === lang) ? 'inline-block' : 'none';
+            });
+            document.getElementById('btn-en').classList.toggle('lang-active', lang === 'en');
+            document.getElementById('btn-es').classList.toggle('lang-active', lang === 'es');
+            localStorage.setItem('preferredLang', lang);
+        }
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('active');
+        }
+        window.addEventListener('load', () => setLanguage(localStorage.getItem('preferredLang') || 'en'));
+    </script>
+</body>
+</html>
