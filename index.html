@@ -7,62 +7,361 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        .hero-bg { background: linear-gradient(135deg, #020617 0%, #1e3a8a 100%); }
-        details > summary { list-style: none; cursor: pointer; }
+        .hero-bg { 
+            background: linear-gradient(135deg, #020617 0%, #1e3a8a 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="60" fill="none"/><circle cx="30" cy="30" r="1" fill="rgba(255,255,255,0.05)"/></svg>');
+            opacity: 0.3;
+        }
+        [data-lang="es"] { display: none; }
+        .lang-active { 
+            font-weight: 800; 
+            color: #2563eb; 
+            border-bottom: 2px solid #2563eb; 
+        }
+        details > summary { 
+            list-style: none; 
+            cursor: pointer; 
+            user-select: none;
+        }
         details > summary::-webkit-details-marker { display: none; }
+        html { scroll-behavior: smooth; }
+        
+        /* Mobile menu */
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .mobile-menu.active {
+            max-height: 500px;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        /* Gradient text */
+        .gradient-text {
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #3b82f6;
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #2563eb;
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900 font-sans">
 
-    <nav class="bg-white border-b sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-2xl font-black text-blue-900">Satoshi<span class="text-blue-600 font-light">Ledger</span></div>
-            <div class="hidden lg:flex space-x-8 font-semibold text-sm uppercase items-center">
-                <a href="#services" class="hover:text-blue-600">Services</a>
-                <a href="#calc" class="hover:text-blue-600">Tax Model</a>
-                <a href="#calendar" class="hover:text-blue-600">Deadlines</a>
-                <a href="#faq" class="hover:text-blue-600">FAQs</a>
-                <a href="#contact" class="bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition shadow-md">Schedule a Consultation</a>
+    <!-- Navigation -->
+    <nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="text-2xl font-black text-blue-900 uppercase tracking-tighter">
+                    Satoshi<span class="text-blue-600 font-light">Ledger</span>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex items-center gap-8">
+                    <!-- Language Toggle -->
+                    <div class="flex gap-2 text-xs font-bold uppercase tracking-widest border rounded-full px-3 py-1 bg-slate-50">
+                        <button onclick="setLanguage('en')" id="btn-en" class="lang-active cursor-pointer transition-all">EN</button>
+                        <span class="text-slate-300">|</span>
+                        <button onclick="setLanguage('es')" id="btn-es" class="cursor-pointer transition-all">ES</button>
+                    </div>
+                    
+                    <!-- Menu Items -->
+                    <div class="flex space-x-6 font-semibold text-sm uppercase items-center">
+                        <a href="#services" class="hover:text-blue-600 transition">
+                            <span data-lang="en">Services</span>
+                            <span data-lang="es">Servicios</span>
+                        </a>
+                        <a href="#calc" class="hover:text-blue-600 transition">
+                            <span data-lang="en">Tax Model</span>
+                            <span data-lang="es">Modelo Fiscal</span>
+                        </a>
+                        <a href="#calendar" class="hover:text-blue-600 transition">
+                            <span data-lang="en">Deadlines</span>
+                            <span data-lang="es">Fechas Límite</span>
+                        </a>
+                        <a href="#faq" class="hover:text-blue-600 transition">
+                            <span data-lang="en">FAQs</span>
+                            <span data-lang="es">Preguntas</span>
+                        </a>
+                        <a href="#contact" class="bg-blue-600 text-white px-6 py-2.5 rounded-lg hover:bg-blue-700 transition shadow-md hover:shadow-lg">
+                            <span data-lang="en">Consultation</span>
+                            <span data-lang="es">Consulta</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button onclick="toggleMobileMenu()" class="lg:hidden text-2xl text-slate-700 hover:text-blue-600 transition">
+                    <i class="fas fa-bars" id="menu-icon"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="mobile-menu lg:hidden">
+                <div class="py-4 space-y-4">
+                    <!-- Language Toggle Mobile -->
+                    <div class="flex justify-center gap-2 text-xs font-bold uppercase tracking-widest border rounded-full px-3 py-2 bg-slate-50 w-fit mx-auto">
+                        <button onclick="setLanguage('en')" id="btn-en-mobile" class="lang-active cursor-pointer transition-all">EN</button>
+                        <span class="text-slate-300">|</span>
+                        <button onclick="setLanguage('es')" id="btn-es-mobile" class="cursor-pointer transition-all">ES</button>
+                    </div>
+                    
+                    <a href="#services" onclick="toggleMobileMenu()" class="block py-2 hover:text-blue-600 transition font-semibold text-center">
+                        <span data-lang="en">Services</span>
+                        <span data-lang="es">Servicios</span>
+                    </a>
+                    <a href="#calc" onclick="toggleMobileMenu()" class="block py-2 hover:text-blue-600 transition font-semibold text-center">
+                        <span data-lang="en">Tax Model</span>
+                        <span data-lang="es">Modelo Fiscal</span>
+                    </a>
+                    <a href="#calendar" onclick="toggleMobileMenu()" class="block py-2 hover:text-blue-600 transition font-semibold text-center">
+                        <span data-lang="en">Deadlines</span>
+                        <span data-lang="es">Fechas Límite</span>
+                    </a>
+                    <a href="#faq" onclick="toggleMobileMenu()" class="block py-2 hover:text-blue-600 transition font-semibold text-center">
+                        <span data-lang="en">FAQs</span>
+                        <span data-lang="es">Preguntas</span>
+                    </a>
+                    <a href="#contact" onclick="toggleMobileMenu()" class="block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition shadow-md text-center font-bold">
+                        <span data-lang="en">Schedule Consultation</span>
+                        <span data-lang="es">Programar Consulta</span>
+                    </a>
+                </div>
             </div>
         </div>
     </nav>
 
-    <header class="hero-bg text-white py-24 px-6 text-center">
-        <div class="max-w-4xl mx-auto">
-            <h1 class="text-5xl md:text-7xl font-extrabold mb-6 italic tracking-tight">Precision Finance for the Island Entrepreneur</h1>
-            <p class="text-xl mb-10 text-blue-100 font-light leading-relaxed">Satoshi Ledger LLC: Strategic Bookkeeping, Forensic Audits, and Act 60 compliance designed to protect your wealth and your decree.</p>
+    <!-- Hero Section -->
+    <header class="hero-bg text-white py-28 px-6 text-center relative">
+        <div class="max-w-4xl mx-auto relative z-10 animate-fade-in-up">
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-6 italic tracking-tight leading-tight">
+                <span data-lang="en">Tax & Compliance Experts for Puerto Rico Entrepreneurs</span>
+                <span data-lang="es">Expertos en Impuestos y Cumplimiento para Empresarios de Puerto Rico</span>
+            </h1>
+            <p class="text-xl md:text-2xl mb-12 text-blue-100 font-light leading-relaxed max-w-3xl mx-auto">
+                <span data-lang="en">Specializing in Act 60, Digital Assets, and Bitcoin businesses. Strategic bookkeeping and compliance designed to protect your wealth and decree.</span>
+                <span data-lang="es">Especializados en Ley 60, activos digitales y negocios de Bitcoin. Contabilidad estratégica y cumplimiento diseñado para proteger su patrimonio y decreto.</span>
+            </p>
             <div class="flex flex-wrap justify-center gap-6">
-                <a href="#contact" class="bg-white text-blue-900 font-bold px-10 py-4 rounded-xl shadow-2xl hover:bg-slate-100 transition">Get Started</a>
-                <a href="https://instagram.com/SatoshiLedger" target="_blank" class="flex items-center gap-2 border border-white/30 px-10 py-4 rounded-xl font-bold hover:bg-white/10 transition">
-                    <i class="fab fa-instagram"></i> @SatoshiLedger
+                <a href="#contact" class="bg-white text-blue-900 font-bold px-10 py-4 rounded-xl shadow-2xl hover:bg-slate-100 hover:scale-105 transition transform">
+                    <span data-lang="en">Get Started</span>
+                    <span data-lang="es">Comenzar</span>
+                </a>
+                <a href="https://instagram.com/SatoshiLedger" target="_blank" class="flex items-center gap-3 border-2 border-white/30 px-10 py-4 rounded-xl font-bold hover:bg-white/10 hover:border-white/50 transition">
+                    <i class="fab fa-instagram text-xl"></i> @SatoshiLedger
                 </a>
             </div>
         </div>
     </header>
 
+    <!-- Services Section -->
+    <section id="services" class="py-24 px-6 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-black mb-4">
+                    <span data-lang="en">Our Services</span>
+                    <span data-lang="es">Nuestros Servicios</span>
+                </h2>
+                <p class="text-slate-600 text-lg max-w-2xl mx-auto">
+                    <span data-lang="en">Comprehensive tax and compliance solutions for Act 60 decree holders</span>
+                    <span data-lang="es">Soluciones integrales de impuestos y cumplimiento para titulares de decretos de la Ley 60</span>
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Service 1 -->
+                <div class="p-8 border-2 border-slate-100 rounded-3xl hover:border-blue-500 hover:shadow-xl transition group">
+                    <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-blue-600 transition">
+                        <i class="fas fa-file-invoice text-2xl text-blue-600 group-hover:text-white transition"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">
+                        <span data-lang="en">Act 60 Compliance</span>
+                        <span data-lang="es">Cumplimiento Ley 60</span>
+                    </h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        <span data-lang="en">Individual & Export decree setup, annual reporting, and audit protection.</span>
+                        <span data-lang="es">Configuración de decretos individuales y de exportación, informes anuales y protección de auditorías.</span>
+                    </p>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="p-8 border-2 border-slate-100 rounded-3xl hover:border-blue-500 hover:shadow-xl transition group">
+                    <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-blue-600 transition">
+                        <i class="fas fa-building text-2xl text-blue-600 group-hover:text-white transition"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">
+                        <span data-lang="en">LLC Formation</span>
+                        <span data-lang="es">Formación de LLC</span>
+                    </h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        <span data-lang="en">Complete incorporation, SURI registration, and entity structuring.</span>
+                        <span data-lang="es">Incorporación completa, registro SURI y estructuración de entidades.</span>
+                    </p>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="p-8 border-2 border-slate-100 rounded-3xl hover:border-blue-500 hover:shadow-xl transition group">
+                    <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-blue-600 transition">
+                        <i class="fas fa-calculator text-2xl text-blue-600 group-hover:text-white transition"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">
+                        <span data-lang="en">Bookkeeping & Payroll</span>
+                        <span data-lang="es">Contabilidad y Nómina</span>
+                    </h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        <span data-lang="en">Monthly bookkeeping, payroll processing, and quarterly tax filings.</span>
+                        <span data-lang="es">Contabilidad mensual, procesamiento de nómina y presentaciones fiscales trimestrales.</span>
+                    </p>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="p-8 border-2 border-slate-100 rounded-3xl hover:border-blue-500 hover:shadow-xl transition group">
+                    <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-blue-600 transition">
+                        <i class="fas fa-search text-2xl text-blue-600 group-hover:text-white transition"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">
+                        <span data-lang="en">Forensic Audits</span>
+                        <span data-lang="es">Auditorías Forenses</span>
+                    </h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        <span data-lang="en">Residency verification and compliance reviews to protect your decree status.</span>
+                        <span data-lang="es">Verificación de residencia y revisiones de cumplimiento para proteger su estado de decreto.</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tax Calculator Section -->
     <section id="calc" class="bg-slate-900 text-white py-24 px-6">
         <div class="max-w-6xl mx-auto">
-            <h2 class="text-3xl font-bold mb-12 text-center italic underline decoration-blue-500 underline-offset-8">LLC Pass-Through vs. S-Corp Election</h2>
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-center italic underline decoration-blue-500 underline-offset-8">
+                <span data-lang="en">LLC Pass-Through vs. S-Corp Election</span>
+                <span data-lang="es">LLC "Pass-Through" vs. Elección de S-Corp</span>
+            </h2>
+            <p class="text-center text-blue-200 mb-12 text-lg">
+                <span data-lang="en">Strategic tax planning can save you thousands annually</span>
+                <span data-lang="es">La planificación fiscal estratégica puede ahorrarle miles anualmente</span>
+            </p>
+            
             <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Left Side - Explanation -->
                 <div class="space-y-6">
-                    <p class="text-blue-200 font-semibold uppercase text-sm tracking-widest">The Strategy</p>
-                    <h3 class="text-3xl font-bold leading-tight">Save ~$7,650 annually on FICA by electing S-Corp status.</h3>
-                    <p class="opacity-70 text-sm">In an LLC, all $100k of net profit is subject to 15.3% Self-Employment tax. By electing S-Corp status and paying a $50k "reasonable salary," you shield the other $50k from FICA.</p>
+                    <div class="inline-block bg-blue-600 text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-4">
+                        <span data-lang="en">The Strategy</span>
+                        <span data-lang="es">La Estrategia</span>
+                    </div>
+                    <h3 class="text-3xl md:text-4xl font-bold leading-tight">
+                        <span data-lang="en">Save ~$7,650 annually on FICA taxes</span>
+                        <span data-lang="es">Ahorre ~$7,650 anuales en impuestos FICA</span>
+                    </h3>
+                    <p class="opacity-80 text-base leading-relaxed">
+                        <span data-lang="en">Example: $100,000 Net Profit in a Services Business. An S-Corp election shields distributions from the 15.3% Self-Employment tax. By paying a reasonable salary of $50K, you only pay FICA on that portion.</span>
+                        <span data-lang="es">Ejemplo: $100,000 de Ganancia Neta en un Negocio de Servicios. Una elección de S-Corp protege las distribuciones del impuesto de 15.3% de Trabajo por Cuenta Propia. Al pagar un salario razonable de $50K, solo paga FICA sobre esa porción.</span>
+                    </p>
+                    <div class="flex items-center gap-3 bg-green-900/30 border border-green-500/30 rounded-2xl p-4">
+                        <i class="fas fa-check-circle text-green-400 text-2xl"></i>
+                        <span class="font-semibold">
+                            <span data-lang="en">IRS-Compliant Strategy</span>
+                            <span data-lang="es">Estrategia Compatible con IRS</span>
+                        </span>
+                    </div>
                 </div>
-                <div class="bg-white/5 p-8 rounded-[2rem] border border-white/10 shadow-2xl overflow-x-auto">
+                
+                <!-- Right Side - Comparison Table -->
+                <div class="bg-white/5 backdrop-blur p-8 rounded-3xl border border-white/10 shadow-2xl">
                     <table class="w-full text-left">
                         <thead>
                             <tr class="border-b border-white/20">
-                                <th class="pb-4 font-bold text-sm">Feature</th>
-                                <th class="pb-4 font-bold text-blue-400">LLC (Default)</th>
-                                <th class="pb-4 font-bold text-green-400">S-Corp Election</th>
+                                <th class="pb-4 font-bold text-sm">
+                                    <span data-lang="en">Category</span>
+                                    <span data-lang="es">Categoría</span>
+                                </th>
+                                <th class="pb-4 font-bold text-blue-400">LLC</th>
+                                <th class="pb-4 font-bold text-green-400">S-Corp</th>
                             </tr>
                         </thead>
-                        <tbody class="text-sm opacity-90">
-                            <tr class="border-b border-white/5"><td class="py-4 font-light">Reasonable Salary</td><td class="py-4">$0</td><td class="py-4">$50,000</td></tr>
-                            <tr class="border-b border-white/5"><td class="py-4 font-light italic">FICA Tax (15.3%)</td><td class="py-4 text-red-400">$15,300</td><td class="py-4 text-green-400 font-bold">$7,650</td></tr>
-                            <tr class="border-b border-white/5"><td class="py-4 font-light italic">PR Income Tax (2025 Brackets)</td><td class="py-4">~$13,500</td><td class="py-4">~$4,620*</td></tr>
-                            <tr><td class="py-4 font-bold text-green-300">Net Tax Savings</td><td class="py-4 text-slate-500">None</td><td class="py-4 font-black text-xl text-green-400">~$7,650/yr</td></tr>
+                        <tbody class="text-sm">
+                            <tr class="border-b border-white/5">
+                                <td class="py-4 font-light">
+                                    <span data-lang="en">Net Profit</span>
+                                    <span data-lang="es">Ganancia Neta</span>
+                                </td>
+                                <td class="py-4">$100,000</td>
+                                <td class="py-4">$100,000</td>
+                            </tr>
+                            <tr class="border-b border-white/5">
+                                <td class="py-4 font-light">
+                                    <span data-lang="en">Reasonable Salary</span>
+                                    <span data-lang="es">Salario Razonable</span>
+                                </td>
+                                <td class="py-4">$0</td>
+                                <td class="py-4">$50,000</td>
+                            </tr>
+                            <tr class="border-b border-white/5">
+                                <td class="py-4 font-light italic">
+                                    <span data-lang="en">FICA Tax (15.3%)</span>
+                                    <span data-lang="es">Impuesto FICA (15.3%)</span>
+                                </td>
+                                <td class="py-4 text-red-400 font-bold">$15,300</td>
+                                <td class="py-4 text-green-400 font-bold">$7,650</td>
+                            </tr>
+                            <tr class="border-b border-white/5">
+                                <td class="py-4 font-light italic">
+                                    <span data-lang="en">PR Income Tax</span>
+                                    <span data-lang="es">Impuesto PR</span>
+                                </td>
+                                <td class="py-4">~$13,500</td>
+                                <td class="py-4">~$4,620</td>
+                            </tr>
+                            <tr class="bg-green-900/20">
+                                <td class="py-4 font-bold text-green-300">
+                                    <span data-lang="en">Annual Savings</span>
+                                    <span data-lang="es">Ahorro Anual</span>
+                                </td>
+                                <td class="py-4 text-slate-500">—</td>
+                                <td class="py-4 font-black text-2xl text-green-400">$7,650</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -70,96 +369,449 @@
         </div>
     </section>
 
+    <!-- Calendar Section -->
     <section id="calendar" class="py-24 px-6 max-w-7xl mx-auto">
-        <h2 class="text-4xl font-black text-center mb-4">The Compliance Roadmap</h2>
-        <p class="text-center text-slate-500 mb-16">Failure to meet Q1 deadlines can jeopardize your status.</p>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div class="p-8 border rounded-[2rem] bg-white shadow-sm border-blue-50">
-                <span class="text-blue-600 font-black text-lg">Jan 31</span>
-                <h4 class="font-bold mt-2 uppercase text-xs tracking-widest text-slate-400">Reconciliation</h4>
-                <p class="mt-4 text-sm text-slate-600 leading-relaxed">Form 499R-3 and Federal Form 940 (FUTA) due for employers.</p>
+        <div class="text-center mb-4">
+            <h2 class="text-4xl md:text-5xl font-black mb-4">
+                <span data-lang="en">The Compliance Roadmap</span>
+                <span data-lang="es">Calendario de Cumplimiento</span>
+            </h2>
+            <p class="text-slate-500 text-lg">
+                <span data-lang="en">Failure to meet Q1 deadlines can jeopardize your decree status</span>
+                <span data-lang="es">No cumplir con las fechas límite del primer trimestre puede poner en peligro su estado de decreto</span>
+            </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
+            <!-- Jan 31 -->
+            <div class="p-8 border-2 border-blue-100 rounded-3xl bg-white shadow-lg hover:shadow-2xl hover:border-blue-400 transition transform hover:-translate-y-2">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-blue-600 font-black text-2xl">Jan 31</span>
+                    <i class="fas fa-calendar-check text-blue-300 text-2xl"></i>
+                </div>
+                <h4 class="font-bold uppercase text-xs tracking-widest text-slate-400 mb-3">
+                    <span data-lang="en">Reconciliation</span>
+                    <span data-lang="es">Reconciliación</span>
+                </h4>
+                <p class="text-sm text-slate-600 leading-relaxed">
+                    <span data-lang="en">Form 499R-3 (Reconciliation) and Federal Form 940 (FUTA) due for employers.</span>
+                    <span data-lang="es">Formulario 499R-3 (Reconciliación) y Formulario Federal 940 (FUTA) vencen para empleadores.</span>
+                </p>
             </div>
-            <div class="p-8 border rounded-[2rem] bg-white shadow-sm border-blue-50 bg-blue-50/50">
-                <span class="text-blue-600 font-black text-lg">Mar 15</span>
-                <h4 class="font-bold mt-2 uppercase text-xs tracking-widest text-slate-400">Entity Returns</h4>
-                <p class="mt-4 text-sm text-slate-600 leading-relaxed">Income Tax returns for **Partnerships** and **S-Corps** are due.</p>
+            
+            <!-- Mar 15 -->
+            <div class="p-8 border-2 border-blue-100 rounded-3xl bg-gradient-to-br from-blue-50 to-white shadow-lg hover:shadow-2xl hover:border-blue-400 transition transform hover:-translate-y-2">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-blue-600 font-black text-2xl">Mar 15</span>
+                    <i class="fas fa-file-alt text-blue-300 text-2xl"></i>
+                </div>
+                <h4 class="font-bold uppercase text-xs tracking-widest text-slate-400 mb-3">
+                    <span data-lang="en">Entity Returns</span>
+                    <span data-lang="es">Planillas de Entidades</span>
+                </h4>
+                <p class="text-sm text-slate-600 leading-relaxed">
+                    <span data-lang="en">Income Tax returns for <strong>Partnerships</strong> and <strong>S-Corps</strong> are due (Pass-Through entities).</span>
+                    <span data-lang="es">Vencimiento de planillas para <strong>Sociedades</strong> y <strong>S-Corps</strong> (entidades "pass-through").</span>
+                </p>
             </div>
-            <div class="p-8 border rounded-[2rem] bg-white shadow-sm border-blue-50">
-                <span class="text-blue-600 font-black text-lg">Apr 15</span>
-                <h4 class="font-bold mt-2 uppercase text-xs tracking-widest text-slate-400">Main Filings</h4>
-                <p class="mt-4 text-sm text-slate-600 leading-relaxed">Individual Returns, C-Corps, and LLC $150 Annual Fee.</p>
+            
+            <!-- Apr 15 -->
+            <div class="p-8 border-2 border-blue-100 rounded-3xl bg-white shadow-lg hover:shadow-2xl hover:border-blue-400 transition transform hover:-translate-y-2">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-blue-600 font-black text-2xl">Apr 15</span>
+                    <i class="fas fa-landmark text-blue-300 text-2xl"></i>
+                </div>
+                <h4 class="font-bold uppercase text-xs tracking-widest text-slate-400 mb-3">
+                    <span data-lang="en">Main Filings</span>
+                    <span data-lang="es">Presentaciones Principales</span>
+                </h4>
+                <p class="text-sm text-slate-600 leading-relaxed">
+                    <span data-lang="en">Individual/C-Corp Returns and LLC $150 Annual Fee due to the Dept. of State.</span>
+                    <span data-lang="es">Planillas de Individuos/C-Corp y Cargo Anual de $150 para LLCs al Depto. de Estado.</span>
+                </p>
             </div>
-            <div class="p-8 border rounded-[2rem] bg-white shadow-sm border-blue-50 bg-blue-50/50">
-                <span class="text-blue-600 font-black text-lg">May 15</span>
-                <h4 class="font-bold mt-2 uppercase text-xs tracking-widest text-slate-400">Property Tax</h4>
-                <p class="mt-4 text-sm text-slate-600 leading-relaxed">CRIM Personal Property Tax return and payment due.</p>
+            
+            <!-- May 15 -->
+            <div class="p-8 border-2 border-blue-100 rounded-3xl bg-gradient-to-br from-blue-50 to-white shadow-lg hover:shadow-2xl hover:border-blue-400 transition transform hover:-translate-y-2">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-blue-600 font-black text-2xl">May 15</span>
+                    <i class="fas fa-home text-blue-300 text-2xl"></i>
+                </div>
+                <h4 class="font-bold uppercase text-xs tracking-widest text-slate-400 mb-3">
+                    <span data-lang="en">Property Tax</span>
+                    <span data-lang="es">Impuesto de Propiedad</span>
+                </h4>
+                <p class="text-sm text-slate-600 leading-relaxed">
+                    <span data-lang="en">CRIM Personal Property Tax return and payment due.</span>
+                    <span data-lang="es">Vencimiento de la planilla de Contribución sobre la Propiedad Mueble (CRIM).</span>
+                </p>
             </div>
         </div>
     </section>
 
-    <section id="faq" class="bg-slate-200 py-24 px-6">
+    <!-- FAQ Section -->
+    <section id="faq" class="bg-slate-100 py-24 px-6">
         <div class="max-w-4xl mx-auto">
-            <h2 class="text-3xl font-black text-center mb-12 uppercase italic tracking-tighter">Frequently Asked Questions</h2>
+            <h2 class="text-4xl md:text-5xl font-black text-center mb-4">
+                <span data-lang="en">Frequently Asked Questions</span>
+                <span data-lang="es">Preguntas Frecuentes</span>
+            </h2>
+            <p class="text-center text-slate-600 mb-12">
+                <span data-lang="en">Get answers to common questions about Act 60 and tax compliance</span>
+                <span data-lang="es">Obtenga respuestas a preguntas comunes sobre la Ley 60 y el cumplimiento fiscal</span>
+            </p>
+            
             <div class="space-y-4">
-                <details class="bg-white p-6 rounded-2xl shadow-sm group">
-                    <summary class="font-bold flex justify-between items-center text-slate-800">
-                        Who qualifies as a "Young Entrepreneur"?
-                        <span class="text-blue-500 group-open:rotate-180 transition-transform">▼</span>
+                <!-- Act 60 Basics -->
+                <details class="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition group">
+                    <summary class="font-bold flex justify-between items-center text-slate-800 cursor-pointer">
+                        <span>
+                            <span data-lang="en">What is Act 60 and who qualifies?</span>
+                            <span data-lang="es">¿Qué es la Ley 60 y quién califica?</span>
+                        </span>
+                        <span class="text-blue-500 group-open:rotate-180 transition-transform text-xl">▼</span>
                     </summary>
-                    <p class="mt-4 text-sm text-slate-600">Residents aged 16-35 starting a new business qualify for 100% exemption on the first $500k of net income for 3 years.</p>
+                    <p class="mt-4 text-sm text-slate-600 leading-relaxed pl-4 border-l-4 border-blue-200">
+                        <span data-lang="en">Act 60 combines tax incentives for individuals and businesses in Puerto Rico. Individual Resident Investors (Chapter 2) get 0% tax on capital gains, dividends, and interest. Export Services businesses (Chapter 3) get 4% corporate tax rate and other benefits. You must be a bona fide PR resident and meet specific requirements.</span>
+                        <span data-lang="es">La Ley 60 combina incentivos fiscales para individuos y empresas en Puerto Rico. Los Inversionistas Residentes Individuales (Capítulo 2) obtienen 0% de impuestos sobre ganancias de capital, dividendos e intereses. Las empresas de Servicios de Exportación (Capítulo 3) obtienen una tasa de impuesto corporativo del 4% y otros beneficios. Debe ser residente de buena fe de PR y cumplir requisitos específicos.</span>
+                    </p>
                 </details>
-                <details class="bg-white p-6 rounded-2xl shadow-sm group">
-                    <summary class="font-bold flex justify-between items-center text-slate-800">
-                        When is a "Reasonable Salary" required?
-                        <span class="text-blue-500 group-open:rotate-180 transition-transform">▼</span>
+
+                <!-- Young Entrepreneur -->
+                <details class="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition group">
+                    <summary class="font-bold flex justify-between items-center text-slate-800 cursor-pointer">
+                        <span>
+                            <span data-lang="en">Who qualifies as a "Young Entrepreneur" and what are the benefits?</span>
+                            <span data-lang="es">¿Quién califica como "Joven Empresario" y cuáles son los beneficios?</span>
+                        </span>
+                        <span class="text-blue-500 group-open:rotate-180 transition-transform text-xl">▼</span>
                     </summary>
-                    <p class="mt-4 text-sm text-slate-600">If you elect S-Corp status to save on FICA, you must pay yourself a salary consistent with industry standards to avoid IRS audits.</p>
+                    <p class="mt-4 text-sm text-slate-600 leading-relaxed pl-4 border-l-4 border-blue-200">
+                        <span data-lang="en">Puerto Rico residents aged 16-35 starting a new business qualify for 100% tax exemption on the first $500,000 of net income for 3 years. After year 3, the rate increases to 2% (years 4-8) and 4% (years 9-13). This is one of the most generous startup incentives in the world.</span>
+                        <span data-lang="es">Los residentes de Puerto Rico de 16 a 35 años que inicien un nuevo negocio califican para una exención fiscal del 100% sobre los primeros $500,000 de ingresos netos durante 3 años. Después del año 3, la tasa aumenta a 2% (años 4-8) y 4% (años 9-13). Este es uno de los incentivos para startups más generosos del mundo.</span>
+                    </p>
                 </details>
-                <details class="bg-white p-6 rounded-2xl shadow-sm group">
-                    <summary class="font-bold flex justify-between items-center text-slate-800">
-                        Do I need to pay IVU on exported services?
-                        <span class="text-blue-500 group-open:rotate-180 transition-transform">▼</span>
+
+                <!-- PYMES -->
+                <details class="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition group">
+                    <summary class="font-bold flex justify-between items-center text-slate-800 cursor-pointer">
+                        <span>
+                            <span data-lang="en">What are PYMES incentives and how do they differ from Act 60?</span>
+                            <span data-lang="es">¿Qué son los incentivos para PYMES y cómo difieren de la Ley 60?</span>
+                        </span>
+                        <span class="text-blue-500 group-open:rotate-180 transition-transform text-xl">▼</span>
                     </summary>
-                    <p class="mt-4 text-sm text-slate-600">Services exported outside PR are typically 0% IVU rated, but monthly SURI returns are still mandatory.</p>
+                    <p class="mt-4 text-sm text-slate-600 leading-relaxed pl-4 border-l-4 border-blue-200">
+                        <span data-lang="en">PYMES (Small and Medium Enterprises) incentives target local businesses with revenues under $3M serving the local PR market. Benefits include 4% corporate tax, 1% municipal tax, and exemptions on property and excise taxes. Unlike Act 60 Export Services, PYMES can serve local customers while still getting tax benefits.</span>
+                        <span data-lang="es">Los incentivos para PYMES (Pequeñas y Medianas Empresas) se dirigen a negocios locales con ingresos bajo $3M que sirven al mercado local de PR. Los beneficios incluyen 4% de impuesto corporativo, 1% de impuesto municipal y exenciones en impuestos sobre la propiedad y arbitrios. A diferencia de los Servicios de Exportación de la Ley 60, las PYMES pueden servir a clientes locales mientras obtienen beneficios fiscales.</span>
+                    </p>
+                </details>
+
+                <!-- LLC Incorporation -->
+                <details class="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition group">
+                    <summary class="font-bold flex justify-between items-center text-slate-800 cursor-pointer">
+                        <span>
+                            <span data-lang="en">How do I incorporate an LLC in Puerto Rico?</span>
+                            <span data-lang="es">¿Cómo incorporo una LLC en Puerto Rico?</span>
+                        </span>
+                        <span class="text-blue-500 group-open:rotate-180 transition-transform text-xl">▼</span>
+                    </summary>
+                    <p class="mt-4 text-sm text-slate-600 leading-relaxed pl-4 border-l-4 border-blue-200">
+                        <span data-lang="en">LLC incorporation in PR requires: (1) Filing Articles of Organization with the Department of State ($150 filing fee + $150 annual fee), (2) Obtaining an EIN from the IRS, (3) Registering with Hacienda for a SURI merchant registration, (4) Registering as an employer if you have employees. We handle the entire process including operating agreements and compliance setup.</span>
+                        <span data-lang="es">La incorporación de LLC en PR requiere: (1) Presentar Artículos de Organización en el Departamento de Estado (tarifa de presentación de $150 + tarifa anual de $150), (2) Obtener un EIN del IRS, (3) Registrarse con Hacienda para una inscripción de comerciante SURI, (4) Registrarse como empleador si tiene empleados. Manejamos todo el proceso incluyendo acuerdos operativos y configuración de cumplimiento.</span>
+                    </p>
+                </details>
+
+                <!-- LLC vs S-Corp -->
+                <details class="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition group">
+                    <summary class="font-bold flex justify-between items-center text-slate-800 cursor-pointer">
+                        <span>
+                            <span data-lang="en">Should I elect S-Corp status for my LLC?</span>
+                            <span data-lang="es">¿Debería elegir el estado de S-Corp para mi LLC?</span>
+                        </span>
+                        <span class="text-blue-500 group-open:rotate-180 transition-transform text-xl">▼</span>
+                    </summary>
+                    <p class="mt-4 text-sm text-slate-600 leading-relaxed pl-4 border-l-4 border-blue-200">
+                        <span data-lang="en">S-Corp election makes sense if: (1) Your net profit exceeds $60K annually, (2) You provide services (not passive income), (3) You can justify a reasonable salary. The savings come from avoiding 15.3% Self-Employment tax on distributions. However, you'll have payroll compliance requirements and additional accounting costs. We analyze your specific situation to determine if it's worth it.</span>
+                        <span data-lang="es">La elección de S-Corp tiene sentido si: (1) Su ganancia neta supera $60K anualmente, (2) Proporciona servicios (no ingresos pasivos), (3) Puede justificar un salario razonable. Los ahorros provienen de evitar el 15.3% de impuesto de Trabajo por Cuenta Propia en las distribuciones. Sin embargo, tendrá requisitos de cumplimiento de nómina y costos contables adicionales. Analizamos su situación específica para determinar si vale la pena.</span>
+                    </p>
+                </details>
+
+                <!-- Reasonable Salary -->
+                <details class="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition group">
+                    <summary class="font-bold flex justify-between items-center text-slate-800 cursor-pointer">
+                        <span>
+                            <span data-lang="en">What is a "Reasonable Salary" for S-Corp owners?</span>
+                            <span data-lang="es">¿Qué es un "Salario Razonable" para propietarios de S-Corp?</span>
+                        </span>
+                        <span class="text-blue-500 group-open:rotate-180 transition-transform text-xl">▼</span>
+                    </summary>
+                    <p class="mt-4 text-sm text-slate-600 leading-relaxed pl-4 border-l-4 border-blue-200">
+                        <span data-lang="en">The IRS requires S-Corp owners who work in the business to pay themselves a salary comparable to what similar professionals earn in the market. For consultants/developers in PR, this is typically $40K-$80K depending on experience. Paying yourself $10K while taking $200K in distributions will trigger an audit. We help you document a defensible salary based on industry data.</span>
+                        <span data-lang="es">El IRS requiere que los propietarios de S-Corp que trabajan en el negocio se paguen un salario comparable a lo que profesionales similares ganan en el mercado. Para consultores/desarrolladores en PR, esto es típicamente $40K-$80K dependiendo de la experiencia. Pagarse $10K mientras toma $200K en distribuciones provocará una auditoría. Le ayudamos a documentar un salario defendible basado en datos de la industria.</span>
+                    </p>
+                </details>
+
+                <!-- Bitcoin/Crypto Taxes -->
+                <details class="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition group">
+                    <summary class="font-bold flex justify-between items-center text-slate-800 cursor-pointer">
+                        <span>
+                            <span data-lang="en">How are Bitcoin and cryptocurrency taxed under Act 60?</span>
+                            <span data-lang="es">¿Cómo se gravan Bitcoin y las criptomonedas bajo la Ley 60?</span>
+                        </span>
+                        <span class="text-blue-500 group-open:rotate-180 transition-transform text-xl">▼</span>
+                    </summary>
+                    <p class="mt-4 text-sm text-slate-600 leading-relaxed pl-4 border-l-4 border-blue-200">
+                        <span data-lang="en">Act 60 Individual Investors pay 0% tax on capital gains from crypto sold after becoming a PR resident. Crypto acquired before moving is subject to a 5% "toll tax" on appreciation at the time of relocation. Businesses providing crypto-related services (trading, consulting, development) can qualify for the 4% corporate rate under Export Services if serving non-PR clients. Proper tracking and documentation is critical.</span>
+                        <span data-lang="es">Los Inversionistas Individuales de la Ley 60 pagan 0% de impuestos sobre ganancias de capital de cripto vendidas después de convertirse en residentes de PR. Las criptomonedas adquiridas antes de mudarse están sujetas a un "impuesto de peaje" del 5% sobre la apreciación al momento de la reubicación. Las empresas que proporcionan servicios relacionados con cripto (trading, consultoría, desarrollo) pueden calificar para la tasa corporativa del 4% bajo Servicios de Exportación si sirven a clientes fuera de PR. El seguimiento y documentación adecuados son críticos.</span>
+                    </p>
+                </details>
+
+                <!-- Digital Assets Accounting -->
+                <details class="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition group">
+                    <summary class="font-bold flex justify-between items-center text-slate-800 cursor-pointer">
+                        <span>
+                            <span data-lang="en">Do I need special accounting for digital assets and NFTs?</span>
+                            <span data-lang="es">¿Necesito contabilidad especial para activos digitales y NFTs?</span>
+                        </span>
+                        <span class="text-blue-500 group-open:rotate-180 transition-transform text-xl">▼</span>
+                    </summary>
+                    <p class="mt-4 text-sm text-slate-600 leading-relaxed pl-4 border-l-4 border-blue-200">
+                        <span data-lang="en">Yes. Digital assets require specialized tracking for cost basis, transaction history, and tax lot accounting. We use crypto-specific software to track wallet transactions, DeFi positions, staking rewards, and NFT sales. Each transaction must be categorized correctly (capital gain vs. ordinary income) and documented for IRS/Hacienda audits. This is especially important for Act 60 decree holders.</span>
+                        <span data-lang="es">Sí. Los activos digitales requieren seguimiento especializado para la base de costo, historial de transacciones y contabilidad de lotes fiscales. Usamos software específico para cripto para rastrear transacciones de billeteras, posiciones DeFi, recompensas de staking y ventas de NFT. Cada transacción debe categorizarse correctamente (ganancia de capital vs. ingreso ordinario) y documentarse para auditorías del IRS/Hacienda. Esto es especialmente importante para titulares de decretos de la Ley 60.</span>
+                    </p>
+                </details>
+
+                <!-- IVU Exemptions -->
+                <details class="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition group">
+                    <summary class="font-bold flex justify-between items-center text-slate-800 cursor-pointer">
+                        <span>
+                            <span data-lang="en">Do I need to pay IVU (sales tax) on exported services?</span>
+                            <span data-lang="es">¿Necesito pagar IVU (impuesto de ventas) sobre servicios exportados?</span>
+                        </span>
+                        <span class="text-blue-500 group-open:rotate-180 transition-transform text-xl">▼</span>
+                    </summary>
+                    <p class="mt-4 text-sm text-slate-600 leading-relaxed pl-4 border-l-4 border-blue-200">
+                        <span data-lang="en">Services exported outside Puerto Rico are typically 0% IVU rated (exempt), but you must still file monthly SURI returns to maintain compliance and document your export status. You need to maintain records proving services were rendered to non-PR clients. We handle SURI filings and maintain proper documentation to protect your export classification.</span>
+                        <span data-lang="es">Los servicios exportados fuera de Puerto Rico generalmente tienen una tasa de IVU del 0% (exentos), pero aún debe presentar declaraciones SURI mensuales para mantener el cumplimiento y documentar su estado de exportación. Debe mantener registros que demuestren que los servicios se prestaron a clientes fuera de PR. Manejamos las presentaciones de SURI y mantenemos la documentación adecuada para proteger su clasificación de exportación.</span>
+                    </p>
+                </details>
+
+                <!-- Residency Proof -->
+                <details class="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition group">
+                    <summary class="font-bold flex justify-between items-center text-slate-800 cursor-pointer">
+                        <span>
+                            <span data-lang="en">How do I prove Puerto Rico residency for Act 60?</span>
+                            <span data-lang="es">¿Cómo pruebo la residencia de Puerto Rico para la Ley 60?</span>
+                        </span>
+                        <span class="text-blue-500 group-open:rotate-180 transition-transform text-xl">▼</span>
+                    </summary>
+                    <p class="mt-4 text-sm text-slate-600 leading-relaxed pl-4 border-l-4 border-blue-200">
+                        <span data-lang="en">You must meet the IRS's "closer connection" test and spend at least 183 days per year in Puerto Rico. Documentation includes: utility bills, lease/mortgage, driver's license, voter registration, bank accounts, family location, and a detailed calendar. Our forensic residency audits help you build a defensible presence record before any IRS challenge. This is the #1 audit risk for Act 60 holders.</span>
+                        <span data-lang="es">Debe cumplir con la prueba de "conexión más cercana" del IRS y pasar al menos 183 días al año en Puerto Rico. La documentación incluye: facturas de servicios públicos, arrendamiento/hipoteca, licencia de conducir, registro de votantes, cuentas bancarias, ubicación familiar y un calendario detallado. Nuestras auditorías forenses de residencia le ayudan a construir un registro de presencia defendible antes de cualquier desafío del IRS. Este es el riesgo de auditoría #1 para titulares de la Ley 60.</span>
+                    </p>
+                </details>
+
+                <!-- Missing Deadlines -->
+                <details class="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition group">
+                    <summary class="font-bold flex justify-between items-center text-slate-800 cursor-pointer">
+                        <span>
+                            <span data-lang="en">What happens if I miss a compliance deadline?</span>
+                            <span data-lang="es">¿Qué pasa si pierdo una fecha límite de cumplimiento?</span>
+                        </span>
+                        <span class="text-blue-500 group-open:rotate-180 transition-transform text-xl">▼</span>
+                    </summary>
+                    <p class="mt-4 text-sm text-slate-600 leading-relaxed pl-4 border-l-4 border-blue-200">
+                        <span data-lang="en">Missing deadlines can result in: (1) Penalties of 5-25% of taxes owed, (2) Interest charges at 10% annually, (3) Loss of good standing with Hacienda, (4) In severe cases, revocation of your Act 60 decree. The March 15 S-Corp deadline and April 15 individual deadline are non-negotiable. We provide proactive calendar management and deadline tracking to keep you compliant.</span>
+                        <span data-lang="es">Perder fechas límite puede resultar en: (1) Multas del 5-25% de los impuestos adeudados, (2) Cargos por intereses al 10% anual, (3) Pérdida de buen estado con Hacienda, (4) En casos graves, revocación de su decreto de la Ley 60. La fecha límite del 15 de marzo para S-Corp y del 15 de abril para individuos son innegociables. Proporcionamos gestión proactiva de calendarios y seguimiento de fechas límite para mantenerlo en cumplimiento.</span>
+                    </p>
                 </details>
             </div>
         </div>
     </section>
 
+    <!-- Contact Section -->
     <section id="contact" class="py-24 px-6">
-        <div class="max-w-5xl mx-auto flex flex-col md:flex-row bg-white rounded-[3rem] shadow-2xl overflow-hidden border border-slate-100">
-            <div class="md:w-2/5 bg-blue-900 p-12 text-white flex flex-col justify-center">
-                <h2 class="text-4xl font-bold mb-6 italic underline decoration-blue-500 underline-offset-8">Secure Your Strategy.</h2>
-                <p class="opacity-80 mb-10 text-lg leading-relaxed font-light">The IRS and Hacienda are tightening compliance. Get a consultation with Satoshi Ledger LLC today.</p>
-                <div class="flex items-center gap-4 text-blue-400 group">
-                    <i class="fab fa-instagram text-2xl group-hover:scale-110 transition"></i>
-                    <a href="https://instagram.com/SatoshiLedger" target="_blank" class="font-bold tracking-widest uppercase text-sm">@SatoshiLedger</a>
+        <div class="max-w-5xl mx-auto flex flex-col md:flex-row bg-white rounded-[3rem] shadow-2xl overflow-hidden border border-slate-200">
+            <!-- Left Side - CTA -->
+            <div class="md:w-2/5 bg-gradient-to-br from-blue-900 to-blue-800 p-12 text-white flex flex-col justify-center relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-blue-600 rounded-full blur-3xl opacity-20 -mr-32 -mt-32"></div>
+                <div class="relative z-10">
+                    <h2 class="text-4xl font-bold mb-6 italic underline decoration-blue-500 underline-offset-8">
+                        <span data-lang="en">Secure Your Strategy</span>
+                        <span data-lang="es">Asegure Su Estrategia</span>
+                    </h2>
+                    <p class="opacity-90 mb-10 text-lg leading-relaxed font-light">
+                        <span data-lang="en">The IRS and Hacienda are tightening compliance. Get a strategy that protects your decree.</span>
+                        <span data-lang="es">El IRS y Hacienda están aumentando la supervisión. Obtenga una estrategia que proteja su decreto.</span>
+                    </p>
+                    <div class="flex items-center gap-4 text-blue-300 group">
+                        <i class="fab fa-instagram text-3xl group-hover:scale-110 transition"></i>
+                        <div>
+                            <p class="text-xs opacity-70 uppercase tracking-widest">
+                                <span data-lang="en">Follow Us</span>
+                                <span data-lang="es">Síguenos</span>
+                            </p>
+                            <a href="https://instagram.com/SatoshiLedger" target="_blank" class="font-bold text-white text-lg">@SatoshiLedger</a>
+                        </div>
+                    </div>
                 </div>
             </div>
+            
+            <!-- Right Side - Form -->
             <div class="md:w-3/5 p-12">
-                <form action="https://formspree.io/f/YOUR_ID" method="POST" class="space-y-4">
-                    <div class="grid md:grid-cols-2 gap-4">
-                        <input type="text" name="name" class="p-4 border border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-blue-600 transition" placeholder="Full Name" required>
-                        <input type="email" name="email" class="p-4 border border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-blue-600 transition" placeholder="Email Address" required>
+                <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="space-y-5">
+                    <div class="grid md:grid-cols-2 gap-5">
+                        <input 
+                            type="text" 
+                            name="name" 
+                            class="p-4 border-2 border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition" 
+                            data-placeholder-en="Full Name"
+                            data-placeholder-es="Nombre Completo"
+                            placeholder="Full Name" 
+                            required>
+                        <input 
+                            type="email" 
+                            name="email" 
+                            class="p-4 border-2 border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition" 
+                            data-placeholder-en="Email Address"
+                            data-placeholder-es="Correo Electrónico"
+                            placeholder="Email Address" 
+                            required>
                     </div>
-                    <input type="tel" name="phone" class="w-full p-4 border border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-blue-600 transition" placeholder="Phone Number" required>
-                    <select name="interest" class="w-full p-4 border border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-blue-600 appearance-none bg-white">
-                        <option>Act 60 Individual / Export Decree</option>
-                        <option>LLC Incorporation & SURI Setup</option>
-                        <option>Forensic Residency Audit</option>
-                        <option>Bookkeeping & Payroll</option>
+                    <input 
+                        type="tel" 
+                        name="phone" 
+                        class="w-full p-4 border-2 border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition" 
+                        data-placeholder-en="Phone Number"
+                        data-placeholder-es="Número de Teléfono"
+                        placeholder="Phone Number" 
+                        required>
+                    <select 
+                        name="interest" 
+                        id="interest-select"
+                        class="w-full p-4 border-2 border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 appearance-none bg-white cursor-pointer transition">
+                        <option value="" data-lang="en">Select a service...</option>
+                        <option value="" data-lang="es">Seleccione un servicio...</option>
+                        <option value="act60" data-lang="en">Act 60 Individual / Export Decree</option>
+                        <option value="act60" data-lang="es">Decreto Individual / Exportación Ley 60</option>
+                        <option value="llc" data-lang="en">LLC Incorporation & SURI Setup</option>
+                        <option value="llc" data-lang="es">Incorporación LLC y Configuración SURI</option>
+                        <option value="audit" data-lang="en">Forensic Residency Audit</option>
+                        <option value="audit" data-lang="es">Auditoría Forense de Residencia</option>
+                        <option value="bookkeeping" data-lang="en">Bookkeeping & Payroll</option>
+                        <option value="bookkeeping" data-lang="es">Contabilidad y Nómina</option>
+                        <option value="crypto" data-lang="en">Crypto & Digital Assets Accounting</option>
+                        <option value="crypto" data-lang="es">Contabilidad de Cripto y Activos Digitales</option>
                     </select>
-                    <button type="submit" class="w-full bg-blue-600 text-white font-black py-5 rounded-xl hover:bg-blue-700 shadow-xl transition-all active:scale-95">Request My Consultation</button>
-                    <p class="text-[10px] text-center text-slate-400 mt-4 italic uppercase tracking-widest">We will reach out to you within 24 business hours.</p>
+                    <textarea 
+                        name="message" 
+                        rows="3" 
+                        class="w-full p-4 border-2 border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition resize-none"
+                        data-placeholder-en="Tell us about your needs..."
+                        data-placeholder-es="Cuéntenos sobre sus necesidades..."
+                        placeholder="Tell us about your needs..."></textarea>
+                    <button 
+                        type="submit" 
+                        class="w-full bg-blue-600 text-white font-black py-5 rounded-xl hover:bg-blue-700 shadow-xl hover:shadow-2xl transition-all active:scale-98 uppercase tracking-widest text-sm">
+                        <span data-lang="en">Request My Consultation</span>
+                        <span data-lang="es">Solicitar Mi Consulta</span>
+                    </button>
+                    <p class="text-[10px] text-center text-slate-400 mt-4 italic uppercase tracking-widest">
+                        <span data-lang="en">We will reach out to you within 24 business hours</span>
+                        <span data-lang="es">Nos comunicaremos con usted dentro de 24 horas laborables</span>
+                    </p>
                 </form>
             </div>
         </div>
     </section>
 
-    <footer class="py-12 bg-slate-950 text-white text-center text-xs">
-        <p class="opacity-40 tracking-widest uppercase font-bold">Satoshi Ledger LLC | DBA PuertoRicoLLC.com</p>
-        <p class="opacity-20 mt-2">Compliance and accounting services. Not a law firm.</p>
+    <!-- Footer -->
+    <footer class="py-12 bg-slate-950 text-white text-center">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="mb-6">
+                <div class="text-2xl font-black text-white uppercase tracking-tighter mb-2">
+                    Satoshi<span class="text-blue-500 font-light">Ledger</span>
+                </div>
+            </div>
+            <p class="text-xs opacity-30 italic mb-6">
+                <span data-lang="en">Tax compliance and accounting services. Not a law firm.</span>
+                <span data-lang="es">Servicios de contabilidad y cumplimiento fiscal. No es una firma de abogados.</span>
+            </p>
+            <div class="flex justify-center gap-6 mb-6">
+                <a href="https://instagram.com/SatoshiLedger" target="_blank" class="text-slate-400 hover:text-blue-400 transition">
+                    <i class="fab fa-instagram text-2xl"></i>
+                </a>
+            </div>
+            <p class="text-xs opacity-20">© 2025 Satoshi Ledger LLC. All rights reserved.</p>
+        </div>
     </footer>
 
+    <!-- JavaScript -->
+    <script>
+        // Language Toggle Function
+        function setLanguage(lang) {
+            // Show/hide elements based on language
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                if (el.getAttribute('data-lang') === lang) {
+                    el.style.display = el.tagName === 'OPTION' ? 'block' : 'inline-block';
+                } else {
+                    el.style.display = 'none';
+                }
+            });
+            
+            // Update form field placeholders
+            document.querySelectorAll('[data-placeholder-en]').forEach(el => {
+                const placeholder = lang === 'en' ? el.getAttribute('data-placeholder-en') : el.getAttribute('data-placeholder-es');
+                el.placeholder = placeholder;
+            });
+            
+            // Update button states (desktop)
+            document.getElementById('btn-en').classList.toggle('lang-active', lang === 'en');
+            document.getElementById('btn-es').classList.toggle('lang-active', lang === 'es');
+            
+            // Update button states (mobile)
+            document.getElementById('btn-en-mobile').classList.toggle('lang-active', lang === 'en');
+            document.getElementById('btn-es-mobile').classList.toggle('lang-active', lang === 'es');
+            
+            // Save preference
+            localStorage.setItem('preferredLang', lang);
+            
+            // Update HTML lang attribute
+            document.documentElement.lang = lang;
+        }
+        
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            menu.classList.toggle('active');
+            
+            // Toggle icon
+            if (menu.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        }
+        
+        // Initialize language on page load
+        window.addEventListener('load', () => {
+            const savedLang = localStorage.getItem('preferredLang') || 'en';
+            setLanguage(savedLang);
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const menu = document.getElementById('mobile-menu');
+            const nav = document.querySelector('nav');
+            
+            if (menu.classList.contains('active') && !nav.contains(e.target)) {
+                toggleMobileMenu();
+            }
+        });
+    </script>
 </body>
 </html>
