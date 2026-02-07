@@ -660,11 +660,14 @@
             
             <!-- Right Side - Form -->
             <div class="md:w-3/5 p-12">
-                <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="space-y-5">
+                <form id="contact-form" class="space-y-5">
+                    <div id="form-message" class="hidden p-4 rounded-xl text-sm font-semibold text-center"></div>
+                    
                     <div class="grid md:grid-cols-2 gap-5">
                         <input 
                             type="text" 
                             name="name" 
+                            id="name"
                             class="p-4 border-2 border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition" 
                             data-placeholder-en="Full Name"
                             data-placeholder-es="Nombre Completo"
@@ -673,6 +676,7 @@
                         <input 
                             type="email" 
                             name="email" 
+                            id="email"
                             class="p-4 border-2 border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition" 
                             data-placeholder-en="Email Address"
                             data-placeholder-es="Correo Electrónico"
@@ -682,6 +686,7 @@
                     <input 
                         type="tel" 
                         name="phone" 
+                        id="phone"
                         class="w-full p-4 border-2 border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition" 
                         data-placeholder-en="Phone Number"
                         data-placeholder-es="Número de Teléfono"
@@ -690,22 +695,24 @@
                     <select 
                         name="interest" 
                         id="interest-select"
-                        class="w-full p-4 border-2 border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 appearance-none bg-white cursor-pointer transition">
-                        <option value="" data-lang="en">Select a service...</option>
-                        <option value="" data-lang="es">Seleccione un servicio...</option>
-                        <option value="act60" data-lang="en">Act 60 Individual / Export Decree</option>
-                        <option value="act60" data-lang="es">Decreto Individual / Exportación Ley 60</option>
-                        <option value="llc" data-lang="en">LLC Incorporation & SURI Setup</option>
-                        <option value="llc" data-lang="es">Incorporación LLC y Configuración SURI</option>
-                        <option value="audit" data-lang="en">Forensic Residency Audit</option>
-                        <option value="audit" data-lang="es">Auditoría Forense de Residencia</option>
-                        <option value="bookkeeping" data-lang="en">Bookkeeping & Payroll</option>
-                        <option value="bookkeeping" data-lang="es">Contabilidad y Nómina</option>
-                        <option value="crypto" data-lang="en">Crypto & Digital Assets Accounting</option>
-                        <option value="crypto" data-lang="es">Contabilidad de Cripto y Activos Digitales</option>
+                        class="w-full p-4 border-2 border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 appearance-none bg-white cursor-pointer transition"
+                        required>
+                        <option value="" data-lang="en" disabled selected>Select a service...</option>
+                        <option value="" data-lang="es" disabled selected>Seleccione un servicio...</option>
+                        <option value="Act 60 Individual / Export Decree" data-lang="en">Act 60 Individual / Export Decree</option>
+                        <option value="Decreto Individual / Exportación Ley 60" data-lang="es">Decreto Individual / Exportación Ley 60</option>
+                        <option value="LLC Incorporation & SURI Setup" data-lang="en">LLC Incorporation & SURI Setup</option>
+                        <option value="Incorporación LLC y Configuración SURI" data-lang="es">Incorporación LLC y Configuración SURI</option>
+                        <option value="Forensic Residency Audit" data-lang="en">Forensic Residency Audit</option>
+                        <option value="Auditoría Forense de Residencia" data-lang="es">Auditoría Forense de Residencia</option>
+                        <option value="Bookkeeping & Payroll" data-lang="en">Bookkeeping & Payroll</option>
+                        <option value="Contabilidad y Nómina" data-lang="es">Contabilidad y Nómina</option>
+                        <option value="Crypto & Digital Assets Accounting" data-lang="en">Crypto & Digital Assets Accounting</option>
+                        <option value="Contabilidad de Cripto y Activos Digitales" data-lang="es">Contabilidad de Cripto y Activos Digitales</option>
                     </select>
                     <textarea 
                         name="message" 
+                        id="message"
                         rows="3" 
                         class="w-full p-4 border-2 border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition resize-none"
                         data-placeholder-en="Tell us about your needs..."
@@ -713,6 +720,7 @@
                         placeholder="Tell us about your needs..."></textarea>
                     <button 
                         type="submit" 
+                        id="submit-btn"
                         class="w-full bg-blue-600 text-white font-black py-5 rounded-xl hover:bg-blue-700 shadow-xl hover:shadow-2xl transition-all active:scale-98 uppercase tracking-widest text-sm">
                         <span data-lang="en">Request My Consultation</span>
                         <span data-lang="es">Solicitar Mi Consulta</span>
@@ -749,6 +757,10 @@
 
     <!-- JavaScript -->
     <script>
+        // ===== GOOGLE SHEETS CONFIGURATION =====
+        // Google Apps Script Web App URL
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw8bgYa01F1ZNVcQ9K62Vu3sCPas1JWwNMsxoBhNIWRKT_oVnuIFwrnh5QUBQXcxwaG/exec';
+        
         // Language Toggle Function
         function setLanguage(lang) {
             // Show/hide elements based on language
@@ -796,6 +808,79 @@
                 icon.classList.add('fa-bars');
             }
         }
+        
+        // Form Submission Handler
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const currentLang = localStorage.getItem('preferredLang') || 'en';
+            const submitBtn = document.getElementById('submit-btn');
+            const formMessage = document.getElementById('form-message');
+            const form = e.target;
+            
+            // Get form data
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                interest: document.getElementById('interest-select').value,
+                message: document.getElementById('message').value || ''
+            };
+            
+            // Disable submit button
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = currentLang === 'en' ? 
+                '<i class="fas fa-spinner fa-spin mr-2"></i>SENDING...' : 
+                '<i class="fas fa-spinner fa-spin mr-2"></i>ENVIANDO...';
+            
+            // Send to Google Sheets
+            fetch(GOOGLE_SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(() => {
+                // Show success message
+                formMessage.className = 'p-4 rounded-xl text-sm font-semibold text-center bg-green-100 text-green-800 border border-green-200';
+                formMessage.textContent = currentLang === 'en' ? 
+                    '✓ Thank you! We will contact you within 24 hours.' : 
+                    '✓ ¡Gracias! Nos comunicaremos con usted dentro de 24 horas.';
+                formMessage.classList.remove('hidden');
+                
+                // Reset form
+                form.reset();
+                
+                // Re-enable button
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = currentLang === 'en' ? 
+                    'REQUEST MY CONSULTATION' : 
+                    'SOLICITAR MI CONSULTA';
+                
+                // Hide message after 5 seconds
+                setTimeout(() => {
+                    formMessage.classList.add('hidden');
+                }, 5000);
+            })
+            .catch(error => {
+                // Show error message
+                formMessage.className = 'p-4 rounded-xl text-sm font-semibold text-center bg-red-100 text-red-800 border border-red-200';
+                formMessage.textContent = currentLang === 'en' ? 
+                    '✗ Something went wrong. Please email us directly at contact@satoshiledger.com' : 
+                    '✗ Algo salió mal. Por favor envíenos un correo directamente a contact@satoshiledger.com';
+                formMessage.classList.remove('hidden');
+                
+                // Re-enable button
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = currentLang === 'en' ? 
+                    'REQUEST MY CONSULTATION' : 
+                    'SOLICITAR MI CONSULTA';
+                
+                console.error('Error:', error);
+            });
+        });
         
         // Initialize language on page load
         window.addEventListener('load', () => {
