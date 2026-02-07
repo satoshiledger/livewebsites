@@ -366,6 +366,40 @@
                 
                 <!-- Right Side - Comparison Table -->
                 <div class="bg-white/5 backdrop-blur p-8 rounded-3xl border border-white/10 shadow-2xl">
+                    <!-- Warning for negative/low savings -->
+                    <div id="lowSavingsWarning" class="mb-6 p-4 bg-red-900/30 border-2 border-red-500/50 rounded-xl hidden">
+                        <div class="flex gap-3">
+                            <i class="fas fa-exclamation-circle text-red-400 text-xl flex-shrink-0 mt-1"></i>
+                            <div>
+                                <p class="text-sm text-red-100 font-semibold mb-1">
+                                    <span data-lang="en">Not Recommended at This Income Level</span>
+                                    <span data-lang="es">No Recomendado a Este Nivel de Ingresos</span>
+                                </p>
+                                <p class="text-xs text-red-200 leading-relaxed">
+                                    <span data-lang="en">At this income level, administrative costs may outweigh your tax savings. S-Corp election is typically beneficial above $60,000 in net profit.</span>
+                                    <span data-lang="es">A este nivel de ingresos, los costos administrativos pueden superar sus ahorros fiscales. La elección de S-Corp generalmente es beneficiosa por encima de $60,000 en ganancias netas.</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Warning for low profit (under break-even) -->
+                    <div id="lowProfitWarning" class="mb-6 p-4 bg-yellow-900/30 border-2 border-yellow-500/50 rounded-xl hidden">
+                        <div class="flex gap-3">
+                            <i class="fas fa-exclamation-triangle text-yellow-400 text-xl flex-shrink-0 mt-1"></i>
+                            <div>
+                                <p class="text-sm text-yellow-100 font-semibold mb-1">
+                                    <span data-lang="en">Marginal Benefits</span>
+                                    <span data-lang="es">Beneficios Marginales</span>
+                                </p>
+                                <p class="text-xs text-yellow-200 leading-relaxed">
+                                    <span data-lang="en">While there are savings at this level, the added complexity and compliance requirements of an S-Corp may not be worth the modest benefit. Consider waiting until your profit exceeds $75,000.</span>
+                                    <span data-lang="es">Aunque hay ahorros a este nivel, la complejidad adicional y los requisitos de cumplimiento de una S-Corp pueden no valer la pena por el modesto beneficio. Considere esperar hasta que su ganancia supere los $75,000.</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
                     <table class="w-full text-left">
                         <thead>
                             <tr class="border-b border-white/20">
@@ -378,53 +412,88 @@
                             </tr>
                         </thead>
                         <tbody class="text-sm">
-                            <tr class="border-b border-white/5">
-                                <td class="py-4 font-light">
+                            <!-- Net Profit -->
+                            <tr class="border-b border-white/5 bg-slate-800/30">
+                                <td class="py-4 font-semibold">
                                     <span data-lang="en">Net Profit</span>
                                     <span data-lang="es">Ganancia Neta</span>
                                 </td>
-                                <td class="py-4" id="llcProfit">$100,000</td>
-                                <td class="py-4" id="scorpProfit">$100,000</td>
+                                <td class="py-4 font-bold" id="llcProfit">$100,000</td>
+                                <td class="py-4 font-bold" id="scorpProfit">$100,000</td>
                             </tr>
+                            
+                            <!-- How profit is structured -->
                             <tr class="border-b border-white/5">
-                                <td class="py-4 font-light">
-                                    <span data-lang="en">Reasonable Salary</span>
-                                    <span data-lang="es">Salario Razonable</span>
+                                <td class="py-4 font-light pl-4">
+                                    <span data-lang="en">→ W-2 Salary</span>
+                                    <span data-lang="es">→ Salario W-2</span>
                                 </td>
-                                <td class="py-4">$0</td>
+                                <td class="py-4 text-slate-400 text-xs">N/A</td>
                                 <td class="py-4 font-bold" id="scorpSalary">$50,000</td>
                             </tr>
                             <tr class="border-b border-white/5">
-                                <td class="py-4 font-light">
-                                    <span data-lang="en">Distribution</span>
-                                    <span data-lang="es">Distribución</span>
+                                <td class="py-4 font-light pl-4">
+                                    <span data-lang="en">→ Distributions</span>
+                                    <span data-lang="es">→ Distribuciones</span>
                                 </td>
-                                <td class="py-4">$0</td>
+                                <td class="py-4 text-slate-400 text-xs">N/A</td>
                                 <td class="py-4 font-bold" id="scorpDistribution">$50,000</td>
                             </tr>
-                            <tr class="border-b border-white/5">
-                                <td class="py-4 font-light italic">
+                            
+                            <!-- FICA Tax -->
+                            <tr class="border-b border-white/5 bg-red-900/10">
+                                <td class="py-4 font-semibold">
                                     <span data-lang="en">FICA Tax (15.3%)</span>
                                     <span data-lang="es">Impuesto FICA (15.3%)</span>
                                 </td>
                                 <td class="py-4 text-red-400 font-bold" id="llcFica">$15,300</td>
                                 <td class="py-4 text-green-400 font-bold" id="scorpFica">$7,650</td>
                             </tr>
-                            <tr class="border-b border-white/5">
-                                <td class="py-4 font-light italic">
+                            
+                            <!-- PR Income Tax -->
+                            <tr class="border-b border-white/5 bg-blue-900/10">
+                                <td class="py-4 font-semibold">
                                     <span data-lang="en">PR Income Tax</span>
-                                    <span data-lang="es">Impuesto PR</span>
+                                    <span data-lang="es">Impuesto sobre Ingresos PR</span>
                                 </td>
-                                <td class="py-4" id="llcIncome">~$13,500</td>
-                                <td class="py-4" id="scorpIncome">~$4,620</td>
+                                <td class="py-4 font-bold" id="llcIncome">~$13,500</td>
+                                <td class="py-4 font-bold" id="scorpIncome">~$13,500</td>
                             </tr>
-                            <tr class="bg-green-900/20">
-                                <td class="py-4 font-bold text-green-300">
-                                    <span data-lang="en">Annual Savings</span>
-                                    <span data-lang="es">Ahorro Anual</span>
+                            
+                            <!-- Compliance Costs -->
+                            <tr class="border-b border-white/5 bg-orange-900/10">
+                                <td class="py-4 font-semibold">
+                                    <span data-lang="en">Annual Compliance Costs</span>
+                                    <span data-lang="es">Costos de Cumplimiento Anual</span>
                                 </td>
-                                <td class="py-4 text-slate-500">—</td>
-                                <td class="py-4 font-black text-2xl text-green-400" id="totalSavings">$7,650</td>
+                                <td class="py-4 text-slate-400 font-bold">$0</td>
+                                <td class="py-4 text-orange-300 font-bold" id="scorpCompliance">$3,500</td>
+                            </tr>
+                            <tr class="border-b border-white/5">
+                                <td class="py-4 font-light text-xs pl-4 opacity-60" colspan="3">
+                                    <span data-lang="en">Includes: 1120-S prep, monthly payroll, PR Dept. of State fees ($100+)</span>
+                                    <span data-lang="es">Incluye: preparación 1120-S, nómina mensual, tarifas del Depto. de Estado PR ($100+)</span>
+                                </td>
+                            </tr>
+                            
+                            <!-- Total Cost -->
+                            <tr class="border-b-2 border-white/20 bg-slate-800/50">
+                                <td class="py-4 font-bold">
+                                    <span data-lang="en">Total Annual Cost</span>
+                                    <span data-lang="es">Costo Anual Total</span>
+                                </td>
+                                <td class="py-4 font-bold text-lg" id="llcTotal">$28,800</td>
+                                <td class="py-4 font-bold text-lg" id="scorpTotal">$24,650</td>
+                            </tr>
+                            
+                            <!-- Net Savings -->
+                            <tr class="bg-green-900/20">
+                                <td class="py-5 font-black text-base">
+                                    <span data-lang="en">Net Annual Savings</span>
+                                    <span data-lang="es">Ahorro Neto Anual</span>
+                                </td>
+                                <td class="py-5 text-slate-500 font-bold">—</td>
+                                <td class="py-5 font-black text-3xl" id="totalSavings">$4,150</td>
                             </tr>
                         </tbody>
                     </table>
@@ -432,10 +501,10 @@
                     <div class="mt-6 p-4 bg-blue-900/20 border border-blue-500/30 rounded-xl">
                         <p class="text-xs text-blue-200 leading-relaxed">
                             <span data-lang="en">
-                                <strong>Note:</strong> This calculator provides estimates. Actual savings depend on your specific situation, PR tax brackets, deductions, and compliance with IRS reasonable compensation requirements.
+                                <strong>Important:</strong> Both LLC and S-Corp owners pay PR income tax on 100% of profit (distributions are not tax-free). The S-Corp advantage comes from FICA savings on distributions. Compliance costs are estimated and may vary based on your specific needs.
                             </span>
                             <span data-lang="es">
-                                <strong>Nota:</strong> Esta calculadora proporciona estimaciones. Los ahorros reales dependen de su situación específica, las categorías fiscales de PR, deducciones y el cumplimiento con los requisitos de compensación razonable del IRS.
+                                <strong>Importante:</strong> Los propietarios de LLC y S-Corp pagan impuestos sobre ingresos de PR sobre el 100% de la ganancia (las distribuciones no están libres de impuestos). La ventaja de S-Corp proviene de los ahorros de FICA sobre las distribuciones. Los costos de cumplimiento son estimados y pueden variar según sus necesidades específicas.
                             </span>
                         </p>
                     </div>
@@ -1012,27 +1081,63 @@
             calculateTaxes();
         }
         
-        // Tax Calculator Function
+        // Tax Calculator Function - Puerto Rico Specific
         function calculateTaxes() {
             const netProfit = parseNumberInput(document.getElementById('netProfitDisplay').value);
             const salaryPercent = parseFloat(document.getElementById('salaryPercent').value) || 50;
             
-            // Calculate S-Corp values
+            // S-Corp compliance costs breakdown:
+            // - Professional 1120-S tax prep: ~$1,500
+            // - Monthly payroll service (12 months): ~$1,800
+            // - PR Dept of State annual fee: $100+
+            // - Misc filing/admin fees: ~$100
+            const complianceCosts = 3500;
+            
+            // Calculate S-Corp salary and distribution split
             const salary = netProfit * (salaryPercent / 100);
             const distribution = netProfit - salary;
             
-            // Calculate FICA taxes (15.3% on salary only for S-Corp)
+            // ===== FICA TAX CALCULATION =====
+            // LLC: 15.3% Self-Employment tax on 100% of net profit
             const llcFica = netProfit * 0.153;
+            
+            // S-Corp: 15.3% FICA ONLY on W-2 salary portion
+            // Distributions are NOT subject to FICA (this is the main S-Corp advantage)
             const scorpFica = salary * 0.153;
             
-            // Simple PR income tax estimates (simplified brackets)
+            // ===== PUERTO RICO INCOME TAX CALCULATION =====
+            // CRITICAL: Both LLC and S-Corp pay PR income tax on 100% of profit
+            // S-Corp distributions flow through to personal return - they are NOT tax-free
+            // The only difference is FICA treatment, NOT income tax treatment
             const llcIncomeTax = estimatePRTax(netProfit);
-            const scorpIncomeTax = estimatePRTax(salary);
+            const scorpIncomeTax = estimatePRTax(netProfit); // Same as LLC - full profit is taxable
             
-            // Calculate total savings
-            const ficaSavings = llcFica - scorpFica;
-            const incomeTaxSavings = llcIncomeTax - scorpIncomeTax;
-            const totalSavings = ficaSavings + incomeTaxSavings;
+            // ===== TOTAL COSTS =====
+            const llcTotalCost = llcFica + llcIncomeTax;
+            const scorpTotalCost = scorpFica + scorpIncomeTax + complianceCosts;
+            
+            // ===== NET SAVINGS CALCULATION =====
+            // Savings = What you pay as LLC - What you pay as S-Corp
+            const netSavings = llcTotalCost - scorpTotalCost;
+            
+            // ===== SHOW APPROPRIATE WARNINGS =====
+            const lowSavingsWarning = document.getElementById('lowSavingsWarning');
+            const lowProfitWarning = document.getElementById('lowProfitWarning');
+            
+            // Hide both warnings first
+            lowSavingsWarning.classList.add('hidden');
+            lowProfitWarning.classList.add('hidden');
+            
+            // If savings are negative, S-Corp doesn't make sense
+            if (netSavings <= 0) {
+                lowSavingsWarning.classList.remove('hidden');
+            } 
+            // If savings are positive but small (under $2000) and profit under $75k
+            else if (netSavings > 0 && netSavings < 2000 && netProfit < 75000) {
+                lowProfitWarning.classList.remove('hidden');
+            }
+            
+            // ===== UPDATE DISPLAY VALUES =====
             
             // Update percentage display
             document.getElementById('salaryPercentDisplay').textContent = salaryPercent + '%';
@@ -1040,17 +1145,44 @@
             // Update salary dollar amount display
             document.getElementById('salaryDollarAmount').textContent = '$' + salary.toLocaleString('en-US', {maximumFractionDigits: 0});
             
-            // Update all table values
+            // Update profit rows
             document.getElementById('llcProfit').textContent = '$' + netProfit.toLocaleString('en-US', {maximumFractionDigits: 0});
             document.getElementById('scorpProfit').textContent = '$' + netProfit.toLocaleString('en-US', {maximumFractionDigits: 0});
+            
+            // Update S-Corp structure
             document.getElementById('scorpSalary').textContent = '$' + salary.toLocaleString('en-US', {maximumFractionDigits: 0});
             document.getElementById('scorpDistribution').textContent = '$' + distribution.toLocaleString('en-US', {maximumFractionDigits: 0});
+            
+            // Update FICA taxes
             document.getElementById('llcFica').textContent = '$' + llcFica.toLocaleString('en-US', {maximumFractionDigits: 0});
             document.getElementById('scorpFica').textContent = '$' + scorpFica.toLocaleString('en-US', {maximumFractionDigits: 0});
+            
+            // Update PR Income Tax (same for both because distributions flow through)
             document.getElementById('llcIncome').textContent = '~$' + llcIncomeTax.toLocaleString('en-US', {maximumFractionDigits: 0});
             document.getElementById('scorpIncome').textContent = '~$' + scorpIncomeTax.toLocaleString('en-US', {maximumFractionDigits: 0});
-            document.getElementById('totalSavings').textContent = '$' + totalSavings.toLocaleString('en-US', {maximumFractionDigits: 0});
-            document.getElementById('annualSavings').textContent = '$' + totalSavings.toLocaleString('en-US', {maximumFractionDigits: 0});
+            
+            // Update compliance costs
+            document.getElementById('scorpCompliance').textContent = '$' + complianceCosts.toLocaleString('en-US', {maximumFractionDigits: 0});
+            
+            // Update total costs
+            document.getElementById('llcTotal').textContent = '$' + llcTotalCost.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('scorpTotal').textContent = '$' + scorpTotalCost.toLocaleString('en-US', {maximumFractionDigits: 0});
+            
+            // Update net savings with color coding
+            const savingsElement = document.getElementById('totalSavings');
+            savingsElement.textContent = '$' + netSavings.toLocaleString('en-US', {maximumFractionDigits: 0});
+            
+            // Color code based on savings amount
+            if (netSavings > 2000) {
+                savingsElement.className = 'py-5 font-black text-3xl text-green-400';
+            } else if (netSavings > 0) {
+                savingsElement.className = 'py-5 font-black text-3xl text-yellow-400';
+            } else {
+                savingsElement.className = 'py-5 font-black text-3xl text-red-400';
+            }
+            
+            // Update the top summary box
+            document.getElementById('annualSavings').textContent = '$' + netSavings.toLocaleString('en-US', {maximumFractionDigits: 0});
         }
         
         // Simplified PR income tax estimator (2025 brackets - approximate)
