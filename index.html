@@ -3,140 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Puerto Rico LLC | Bookkeeping, Tax Decrees & Incorporation</title>
+    <title>Puerto Rico LLC | Bookkeeping, Act 60 & Compliance</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        .gradient-bg { background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%); }
+        .gradient-bg { background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%); }
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-900 font-sans">
+<body class="bg-slate-50 text-slate-900 font-sans leading-relaxed">
 
-    <nav class="bg-white shadow-md sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-            <div class="text-2xl font-bold text-blue-900">PuertoRico<span class="text-blue-500">LLC</span></div>
-            <div class="hidden md:flex space-x-8 font-medium">
-                <a href="#services" class="hover:text-blue-600">Services</a>
-                <a href="#faq" class="hover:text-blue-600">FAQs</a>
-                <a href="#contact" class="bg-blue-900 text-white px-5 py-2 rounded-lg hover:bg-blue-800 transition">Get Started</a>
+    <nav class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-black text-blue-900 tracking-tight">PuertoRico<span class="text-blue-600">LLC</span></div>
+            <div class="hidden md:flex space-x-8 font-semibold text-sm uppercase tracking-wider">
+                <a href="#services" class="hover:text-blue-600 transition">Services</a>
+                <a href="#faq" class="hover:text-blue-600 transition">2026 FAQs</a>
+                <a href="#contact" class="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 shadow-md transition">Consultation</a>
             </div>
         </div>
     </nav>
 
-    <header class="gradient-bg text-white py-20 px-4">
-        <div class="max-w-5xl mx-auto text-center">
-            <h1 class="text-4xl md:text-6xl font-extrabold mb-6 text-balance">Simplify Your Business in Puerto Rico</h1>
-            <p class="text-xl mb-8 opacity-90">Expert Bookkeeping, Act 60 Tax Decrees, and Corporate Compliance tailored for the Island's unique landscape.</p>
-            <div class="flex justify-center gap-4">
-                <a href="#contact" class="bg-white text-blue-900 font-bold px-8 py-4 rounded-xl shadow-lg hover:bg-gray-100 transition">Start My Filing</a>
-                <a href="#services" class="border-2 border-white px-8 py-4 rounded-xl font-bold hover:bg-white hover:text-blue-900 transition">View Services</a>
+    <header class="gradient-bg text-white py-24 px-6 text-center">
+        <div class="max-w-4xl mx-auto">
+            <span class="bg-blue-500/20 text-blue-300 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-6 inline-block">2026 Compliance Ready</span>
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight">Secure Your Tax Decree. <br/><span class="text-blue-400">Protect Your Wealth.</span></h1>
+            <p class="text-lg md:text-xl mb-10 text-slate-300 max-w-2xl mx-auto font-light">From Act 60 filings to forensic audits, we provide the localized expertise needed to navigate the Puerto Rico Treasury (Hacienda) and IRS requirements.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#contact" class="bg-white text-blue-900 font-bold px-10 py-4 rounded-xl shadow-2xl hover:scale-105 transition">Start Incorporation</a>
+                <a href="#faq" class="border border-white/30 backdrop-blur-sm px-10 py-4 rounded-xl font-bold hover:bg-white/10 transition">View Tax FAQs</a>
             </div>
         </div>
     </header>
 
-    <section id="services" class="py-20 max-w-7xl mx-auto px-4">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl font-bold text-blue-900 mb-4">Our Core Services</h2>
-            <div class="w-20 h-1 bg-blue-500 mx-auto"></div>
+    <section id="services" class="py-24 max-w-7xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
+            <div class="max-w-2xl">
+                <h2 class="text-4xl font-bold text-slate-900 mb-4">Strategic Business Services</h2>
+                <p class="text-slate-600">We don't just file paperwork; we build defensible business structures that stand up to both DDEC and IRS scrutiny.</p>
+            </div>
+            <div class="h-1 w-24 bg-blue-600 hidden md:block"></div>
         </div>
 
         <div class="grid md:grid-cols-3 gap-8">
-            <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition">
-                <i class="fas fa-calculator text-3xl text-blue-600 mb-4"></i>
-                <h3 class="text-xl font-bold mb-2">Bookkeeping</h3>
-                <p class="text-gray-600">Precise monthly tracking, reconciliations, and audit-ready financial statements for PR businesses.</p>
+            <div class="bg-white p-10 rounded-3xl shadow-sm border border-slate-100 hover:shadow-xl transition-all group">
+                <div class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors">
+                    <i class="fas fa-balance-scale text-2xl text-blue-600 group-hover:text-white"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Tax Decree Filings</h3>
+                <p class="text-slate-600 text-sm leading-relaxed">Full assistance for Act 60 (Export Services & Individual Investors) and Young Entrepreneur decrees through the SBP portal.</p>
             </div>
-            <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition">
-                <i class="fas fa-file-signature text-3xl text-blue-600 mb-4"></i>
-                <h3 class="text-xl font-bold mb-2">Incorporation Filings</h3>
-                <p class="text-gray-600">Expedited LLC and Corporate formation via the PR Department of State (SURI & Registro de Comerciantes).</p>
+            <div class="bg-white p-10 rounded-3xl shadow-sm border border-slate-100 hover:shadow-xl transition-all group">
+                <div class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors">
+                    <i class="fas fa-search-dollar text-2xl text-blue-600 group-hover:text-white"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Forensic Audits</h3>
+                <p class="text-slate-600 text-sm leading-relaxed">Internal reviews of residency logs, financial records, and sourcing to ensure 2026 audit-readiness for the IRS.</p>
             </div>
-            <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition">
-                <i class="fas fa-percentage text-3xl text-blue-600 mb-4"></i>
-                <h3 class="text-xl font-bold mb-2">Act 60 Tax Decrees</h3>
-                <p class="text-gray-600">Maximize your savings with Act 60 (Export Services/Individual Investors) and Young Entrepreneur decrees.</p>
-            </div>
-            <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition">
-                <i class="fas fa-magnifying-glass-chart text-3xl text-blue-600 mb-4"></i>
-                <h3 class="text-xl font-bold mb-2">Forensic Audits</h3>
-                <p class="text-gray-600">Deep-dive financial investigations to identify fraud, waste, or accounting discrepancies.</p>
-            </div>
-            <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition">
-                <i class="fas fa-chart-line text-3xl text-blue-600 mb-4"></i>
-                <h3 class="text-xl font-bold mb-2">Budget Analysis</h3>
-                <p class="text-gray-600">Forecasting and margin analysis to help your business scale efficiently on the island.</p>
-            </div>
-            <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition border-blue-100 bg-blue-50">
-                <i class="fas fa-comments text-3xl text-blue-600 mb-4"></i>
-                <h3 class="text-xl font-bold mb-2">Expert Consultation</h3>
-                <p class="text-gray-600">Not sure where to start? We provide 1-on-1 strategic sessions for compliance and tax planning.</p>
+            <div class="bg-white p-10 rounded-3xl shadow-sm border border-slate-100 hover:shadow-xl transition-all group">
+                <div class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors">
+                    <i class="fas fa-calculator text-2xl text-blue-600 group-hover:text-white"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Bookkeeping & Analysis</h3>
+                <p class="text-slate-600 text-sm leading-relaxed">GAAP-compliant bookkeeping and budget analysis tailored for the PR tax environment and municipal patent reporting.</p>
             </div>
         </div>
     </section>
 
-    <section id="faq" class="bg-gray-100 py-20 px-4">
+    <section id="faq" class="bg-slate-100 py-24 px-6">
         <div class="max-w-4xl mx-auto">
-            <h2 class="text-3xl font-bold text-center text-blue-900 mb-12">Common Questions</h2>
+            <h2 class="text-4xl font-extrabold text-center text-slate-900 mb-16">2026 Compliance FAQ Hub</h2>
             
-            <div class="space-y-4">
-                <details class="group bg-white p-6 rounded-xl shadow-sm open:ring-1 open:ring-blue-500 transition">
-                    <summary class="font-bold cursor-pointer list-none flex justify-between items-center">
-                        Who qualifies for the Act 60 Young Entrepreneur incentive?
-                        <span class="text-blue-500 group-open:rotate-180 transition-transform">▼</span>
-                    </summary>
-                    <p class="mt-4 text-gray-600">Individuals between the ages of 16 and 35 who are starting a new business in Puerto Rico can apply for significant tax exemptions on their first $500,000 in gross income for a fixed period.</p>
-                </details>
-
-                <details class="group bg-white p-6 rounded-xl shadow-sm open:ring-1 open:ring-blue-500 transition">
-                    <summary class="font-bold cursor-pointer list-none flex justify-between items-center">
-                        Do I need a local Registered Agent for my PR LLC?
-                        <span class="text-blue-500 group-open:rotate-180 transition-transform">▼</span>
-                    </summary>
-                    <p class="mt-4 text-gray-600">Yes. Puerto Rico law requires every LLC to maintain a Registered Agent with a physical address on the island to receive legal documents and official government notices.</p>
-                </details>
-
-                <details class="group bg-white p-6 rounded-xl shadow-sm open:ring-1 open:ring-blue-500 transition">
-                    <summary class="font-bold cursor-pointer list-none flex justify-between items-center">
-                        What is the main benefit of an Act 60 Export Services decree?
-                        <span class="text-blue-500 group-open:rotate-180 transition-transform">▼</span>
-                    </summary>
-                    <p class="mt-4 text-gray-600">The most well-known benefit is the 4% fixed corporate income tax rate for eligible businesses that export their services from Puerto Rico to clients outside the island.</p>
-                </details>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="py-20 px-4">
-        <div class="max-w-xl mx-auto bg-white p-10 rounded-3xl shadow-2xl border border-gray-100">
-            <h2 class="text-3xl font-bold text-center text-blue-900 mb-4">Request a Consultation</h2>
-            <p class="text-center text-gray-600 mb-8">Ready to move forward? Tell us about your business needs.</p>
-            <form action="#" method="POST" class="space-y-4">
-                <div>
-                    <label class="block text-sm font-semibold mb-2">Full Name</label>
-                    <input type="text" class="w-full p-3 rounded-lg border border-gray-300 focus:outline-blue-500" placeholder="John Doe" required>
+            <div class="space-y-6">
+                <div class="space-y-4">
+                    <h3 class="text-sm font-black text-blue-600 uppercase tracking-widest px-2">Act 60 & Residency</h3>
+                    <details class="group bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                        <summary class="font-bold cursor-pointer flex justify-between items-center text-slate-800">
+                            How do the 2026 changes affect individual resident investors?
+                            <span class="text-blue-500 group-open:rotate-180 transition-transform">▼</span>
+                        </summary>
+                        <div class="mt-4 text-slate-600 text-sm space-y-2">
+                            <p>For new applicants after January 1, 2026, a 4% tax applies to PR-sourced dividends, interest, and capital gains. Existing decree holders are grandfathered into current 0% rates.</p>
+                        </div>
+                    </details>
+                    <details class="group bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                        <summary class="font-bold cursor-pointer flex justify-between items-center text-slate-800">
+                            What is the "Closer Connection" test for 2026?
+                            <span class="text-blue-500 group-open:rotate-180 transition-transform">▼</span>
+                        </summary>
+                        <div class="mt-4 text-slate-600 text-sm">
+                            <p>Beyond spending 183+ days on-island, you must prove your "center of life" is in PR. This includes local banking, voter registration, and shifting primary family/social ties away from the mainland.</p>
+                        </div>
+                    </details>
                 </div>
-                <div>
-                    <label class="block text-sm font-semibold mb-2">Service Needed</label>
-                    <select class="w-full p-3 rounded-lg border border-gray-300 focus:outline-blue-500">
-                        <option>Incorporation Filing</option>
-                        <option>Act 60 Consultation</option>
-                        <option>Bookkeeping</option>
-                        <option>Forensic Audit</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="block text-sm font-semibold mb-2">Email Address</label>
-                    <input type="email" class="w-full p-3 rounded-lg border border-gray-300 focus:outline-blue-500" placeholder="john@example.com" required>
-                </div>
-                <button type="submit" class="w-full gradient-bg text-white font-bold py-4 rounded-lg shadow-lg hover:opacity-90 transition">Send My Request</button>
-            </form>
-        </div>
-    </section>
 
-    <footer class="bg-blue-900 text-white py-10 text-center">
-        <p class="opacity-70">&copy; 2024 Puerto Rico LLC Services. All rights reserved.</p>
-        <p class="text-sm mt-2">Professional services provided in compliance with PR Treasury (Hacienda) regulations.</p>
-    </footer>
+                <div class="space-y-4">
+                    <h3 class="text-sm font-black text-blue-600 uppercase tracking-widest px-2">Young Entrepreneur Incentive</h3>
+                    <details class="group bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                        <summary class="font-bold cursor-pointer flex justify-between items-center text-slate-800">
+                            Who qualifies as a Young Entrepreneur?
+                            <span class="text-blue-500 group-open:rotate-180 transition-transform">▼</span>
+                        </summary>
+                        <div class="mt-4 text-slate-600 text-sm">
+                            <p>Individuals aged 16–35 starting a new business qualify for a 100% tax exemption on the first $500,000 of net income for 3 years, plus property tax waivers.</p>
+                        </div>
+                    </details>
+                </div>
 
-</body>
-</html>
+                <div class="space-y-4">
+                    <h3 class="
