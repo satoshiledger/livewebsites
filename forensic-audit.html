@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forensic & Budget Audit | Satoshi Ledger LLC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .hero-bg { background: linear-gradient(135deg, #020617 0%, #1e3a8a 100%); }
+        [data-lang="es"] { display: none; }
+        .lang-active { font-weight: 800; color: #2563eb; border-bottom: 2px solid #2563eb; }
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="bg-slate-50">
+    <!-- Navigation -->
+    <nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="satoshi-ledger-improved.html" class="text-2xl font-black text-blue-900 uppercase tracking-tighter">
+                Satoshi<span class="text-blue-600 font-light">Ledger</span>
+            </a>
+            <div class="flex items-center gap-6">
+                <div class="flex gap-2 text-xs font-bold uppercase tracking-widest border rounded-full px-3 py-1 bg-slate-50">
+                    <button onclick="setLanguage('en')" id="btn-en" class="lang-active cursor-pointer">EN</button>
+                    <span class="text-slate-300">|</span>
+                    <button onclick="setLanguage('es')" id="btn-es" class="cursor-pointer">ES</button>
+                </div>
+                <a href="satoshi-ledger-improved.html#contact" class="bg-blue-600 text-white px-6 py-2.5 rounded-lg hover:bg-blue-700 transition font-semibold text-sm">
+                    <span data-lang="en">Get Started</span>
+                    <span data-lang="es">Comenzar</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="hero-bg text-white py-20 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="inline-block bg-blue-600 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-6">
+                <span data-lang="en">Starting at $499</span>
+                <span data-lang="es">Desde $499</span>
+            </div>
+            <h1 class="text-5xl md:text-6xl font-extrabold mb-6">
+                <span data-lang="en">Forensic & Budget Audit</span>
+                <span data-lang="es">Auditoría Forense y Presupuestaria</span>
+            </h1>
+            <p class="text-xl text-blue-100 mb-8">
+                <span data-lang="en">3-month transaction audit to build a defensible, data-backed budget for Puerto Rico compliance</span>
+                <span data-lang="es">Auditoría de transacciones de 3 meses para construir un presupuesto defendible respaldado por datos para cumplimiento de Puerto Rico</span>
+            </p>
+        </div>
+    </header>
+
+    <!-- What is Forensic Audit -->
+    <section class="py-20 px-6">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-4xl font-black mb-12">
+                <span data-lang="en">What is a Forensic Audit?</span>
+                <span data-lang="es">¿Qué es una Auditoría Forense?</span>
+            </h2>
+
+            <div class="bg-white p-8 rounded-2xl shadow-lg mb-12">
+                <p class="text-lg text-slate-700 leading-relaxed mb-6">
+                    <span data-lang="en">
+                        A forensic audit is a detailed examination of your business's <strong>actual spending patterns</strong> over a specific period. Unlike traditional budgeting, which relies on estimates and projections, a forensic audit uses <strong>real transaction data</strong> to create a defensible, evidence-based budget for Puerto Rico tax and compliance purposes.
+                    </span>
+                    <span data-lang="es">
+                        Una auditoría forense es un examen detallado de los <strong>patrones de gasto reales</strong> de su negocio durante un período específico. A diferencia de la presupuestación tradicional, que se basa en estimaciones y proyecciones, una auditoría forense utiliza <strong>datos de transacciones reales</strong> para crear un presupuesto defendible basado en evidencia para fines fiscales y de cumplimiento de Puerto Rico.
+                    </span>
+                </p>
+
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-blue-50 p-6 rounded-xl">
+                        <div class="text-4xl font-black text-blue-600 mb-2">3</div>
+                        <p class="font-bold mb-1">
+                            <span data-lang="en">Months</span>
+                            <span data-lang="es">Meses</span>
+                        </p>
+                        <p class="text-sm text-slate-600">
+                            <span data-lang="en">Deep dive into expenses</span>
+                            <span data-lang="es">Análisis profundo de gastos</span>
+                        </p>
+                    </div>
+                    <div class="bg-blue-50 p-6 rounded-xl">
+                        <div class="text-4xl font-black text-blue-600 mb-2">100%</div>
+                        <p class="font-bold mb-1">
+                            <span data-lang="en">Transaction Review</span>
+                            <span data-lang="es">Revisión de Transacciones</span>
+                        </p>
+                        <p class="text-sm text-slate-600">
+                            <span data-lang="en">Every expense categorized</span>
+                            <span data-lang="es">Cada gasto categorizado</span>
+                        </p>
+                    </div>
+                    <div class="bg-blue-50 p-6 rounded-xl">
+                        <div class="text-4xl font-black text-blue-600 mb-2">✓</div>
+                        <p class="font-bold mb-1">
+                            <span data-lang="en">IRS-Ready</span>
+                            <span data-lang="es">Listo para IRS</span>
+                        </p>
+                        <p class="text-sm text-slate-600">
+                            <span data-lang="en">Audit-defensible documentation</span>
+                            <span data-lang="es">Documentación defendible en auditoría</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why You Need This -->
+    <section class="py-20 px-6 bg-slate-100">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-4xl font-black mb-12">
+                <span data-lang="en">Why Puerto Rico Businesses Need This</span>
+                <span data-lang="es">Por Qué los Negocios de Puerto Rico Necesitan Esto</span>
+            </h2>
+
+            <div class="space-y-6">
+                <div class="bg-white p-8 rounded-2xl shadow-lg">
+                    <div class="flex gap-4 items-start">
+                        <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-shield-alt text-red-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-xl mb-2">
+                                <span data-lang="en">Act 60 Compliance</span>
+                                <span data-lang="es">Cumplimiento de Ley 60</span>
+                            </h3>
+                            <p class="text-slate-700">
+                                <span data-lang="en">
+                                    Act 60 decree holders must prove their business operations are <strong>bona fide</strong> and that expenses are reasonable and necessary. A forensic audit provides the documentation to defend your decree in case of IRS or Hacienda scrutiny.
+                                </span>
+                                <span data-lang="es">
+                                    Los titulares de decretos de Ley 60 deben probar que sus operaciones comerciales son <strong>de buena fe</strong> y que los gastos son razonables y necesarios. Una auditoría forense proporciona la documentación para defender su decreto en caso de escrutinio del IRS o Hacienda.
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-lg">
+                    <div class="flex gap-4 items-start">
+                        <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-calculator text-blue-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-xl mb-2">
+                                <span data-lang="en">Accurate Tax Planning</span>
+                                <span data-lang="es">Planificación Fiscal Precisa</span>
+                            </h3>
+                            <p class="text-slate-700">
+                                <span data-lang="en">
+                                    Build a realistic budget based on <strong>actual spending patterns</strong>, not guesses. This helps you set aside the correct amount for taxes, avoid surprises, and plan cash flow accurately.
+                                </span>
+                                <span data-lang="es">
+                                    Construya un presupuesto realista basado en <strong>patrones de gasto reales</strong>, no en suposiciones. Esto le ayuda a reservar la cantidad correcta para impuestos, evitar sorpresas y planificar el flujo de efectivo con precisión.
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-lg">
+                    <div class="flex gap-4 items-start">
+                        <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-search-dollar text-green-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-xl mb-2">
+                                <span data-lang="en">Identify Waste & Savings</span>
+                                <span data-lang="es">Identificar Desperdicios y Ahorros</span>
+                            </h3>
+                            <p class="text-slate-700">
+                                <span data-lang="en">
+                                    Discover recurring expenses that can be eliminated, duplicate subscriptions, forgotten services, and opportunities to reduce costs without impacting operations.
+                                </span>
+                                <span data-lang="es">
+                                    Descubra gastos recurrentes que se pueden eliminar, suscripciones duplicadas, servicios olvidados y oportunidades para reducir costos sin impactar las operaciones.
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-lg">
+                    <div class="flex gap-4 items-start">
+                        <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-gavel text-purple-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-xl mb-2">
+                                <span data-lang="en">Audit Defense</span>
+                                <span data-lang="es">Defensa de Auditoría</span>
+                            </h3>
+                            <p class="text-slate-700">
+                                <span data-lang="en">
+                                    If you're ever audited by IRS or Hacienda, having a forensically documented budget shows you've done your due diligence and maintained proper records. This significantly reduces audit risk and penalties.
+                                </span>
+                                <span data-lang="es">
+                                    Si alguna vez es auditado por el IRS o Hacienda, tener un presupuesto documentado forense muestra que ha hecho su debida diligencia y mantenido registros adecuados. Esto reduce significativamente el riesgo de auditoría y penalidades.
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Do -->
+    <section class="py-20 px-6">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-4xl font-black mb-12">
+                <span data-lang="en">Our 3-Month Forensic Process</span>
+                <span data-lang="es">Nuestro Proceso Forense de 3 Meses</span>
+            </h2>
+
+            <div class="space-y-8">
+                <div class="flex gap-6">
+                    <div class="flex flex-col items-center flex-shrink-0">
+                        <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white font-black text-xl">1</div>
+                        <div class="w-1 h-full bg-blue-200"></div>
+                    </div>
+                    <div class="pb-8 pt-3 bg-white p-6 rounded-xl shadow-md flex-1">
+                        <h3 class="font-bold text-xl mb-2">
+                            <span data-lang="en">Data Collection</span>
+                            <span data-lang="es">Recopilación de Datos</span>
+                        </h3>
+                        <p class="text-slate-700 mb-3">
+                            <span data-lang="en">We gather 3 months of bank statements, credit card statements, and all business transaction records.</span>
+                            <span data-lang="es">Recopilamos 3 meses de estados de cuenta bancarios, estados de cuenta de tarjetas de crédito y todos los registros de transacciones comerciales.</span>
+                        </p>
+                        <ul class="text-sm text-slate-600 space-y-1">
+                            <li data-lang="en">✓ All business bank accounts</li>
+                            <li data-lang="es">✓ Todas las cuentas bancarias comerciales</li>
+                            <li data-lang="en">✓ Business credit cards</li>
+                            <li data-lang="es">✓ Tarjetas de crédito comerciales</li>
+                            <li data-lang="en">✓ Payment processor records (PayPal, Stripe, etc.)</li>
+                            <li data-lang="es">✓ Registros de procesadores de pago (PayPal, Stripe, etc.)</li>
+                            <li data-lang="en">✓ Crypto exchange transactions (if applicable)</li>
+                            <li data-lang="es">✓ Transacciones de intercambio de cripto (si aplica)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="flex gap-6">
+                    <div class="flex flex-col items-center flex-shrink-0">
+                        <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white font-black text-xl">2</div>
+                        <div class="w-1 h-full bg-blue-200"></div>
+                    </div>
+                    <div class="pb-8 pt-3 bg-white p-6 rounded-xl shadow-md flex-1">
+                        <h3 class="font-bold text-xl mb-2">
+                            <span data-lang="en">Transaction Categorization</span>
+                            <span data-lang="es">Categorización de Transacciones</span>
+                        </h3>
+                        <p class="text-slate-700 mb-3">
+                            <span data-lang="en">Every transaction is reviewed and categorized according to IRS and Puerto Rico tax categories.</span>
+                            <span data-lang="es">Cada transacción es revisada y categorizada según las categorías fiscales del IRS y Puerto Rico.</span>
+                        </p>
+                        <ul class="text-sm text-slate-600 space-y-1">
+                            <li data-lang="en">✓ Operating expenses</li>
+                            <li data-lang="es">✓ Gastos operativos</li>
+                            <li data-lang="en">✓ Capital expenditures</li>
+                            <li data-lang="es">✓ Gastos de capital</li>
+                            <li data-lang="en">✓ Personal vs. business expenses</li>
+                            <li data-lang="es">✓ Gastos personales vs. comerciales</li>
+                            <li data-lang="en">✓ Deductible vs. non-deductible</li>
+                            <li data-lang="es">✓ Deducibles vs. no deducibles</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="flex gap-6">
+                    <div class="flex flex-col items-center flex-shrink-0">
+                        <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white font-black text-xl">3</div>
+                        <div class="w-1 h-full bg-blue-200"></div>
+                    </div>
+                    <div class="pb-8 pt-3 bg-white p-6 rounded-xl shadow-md flex-1">
+                        <h3 class="font-bold text-xl mb-2">
+                            <span data-lang="en">Pattern Analysis</span>
+                            <span data-lang="es">Análisis de Patrones</span>
+                        </h3>
+                        <p class="text-slate-700 mb-3">
+                            <span data-lang="en">We identify spending patterns, recurring expenses, seasonal variations, and anomalies.</span>
+                            <span data-lang="es">Identificamos patrones de gasto, gastos recurrentes, variaciones estacionales y anomalías.</span>
+                        </p>
+                        <ul class="text-sm text-slate-600 space-y-1">
+                            <li data-lang="en">✓ Monthly averages by category</li>
+                            <li data-lang="es">✓ Promedios mensuales por categoría</li>
+                            <li data-lang="en">✓ Identify redundant expenses</li>
+                            <li data-lang="es">✓ Identificar gastos redundantes</li>
+                            <li data-lang="en">✓ Flag unusual or questionable items</li>
+                            <li data-lang="es">✓ Marcar elementos inusuales o cuestionables</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="flex gap-6">
+                    <div class="flex flex-col items-center flex-shrink-0">
+                        <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center text-white">
+                            <i class="fas fa-check text-2xl"></i>
+                        </div>
+                    </div>
+                    <div class="pt-3 bg-white p-6 rounded-xl shadow-md flex-1 border-2 border-green-200">
+                        <h3 class="font-bold text-xl mb-2">
+                            <span data-lang="en">Deliverable: Data-Backed Budget</span>
+                            <span data-lang="es">Entregable: Presupuesto Respaldado por Datos</span>
+                        </h3>
+                        <p class="text-slate-700 mb-3">
+                            <span data-lang="en">You receive a comprehensive report with a defensible budget based on actual spending, plus recommendations for optimization.</span>
+                            <span data-lang="es">Recibe un informe completo con un presupuesto defendible basado en gastos reales, más recomendaciones para optimización.</span>
+                        </p>
+                        <ul class="text-sm text-slate-600 space-y-1">
+                            <li data-lang="en">✓ Detailed expense breakdown</li>
+                            <li data-lang="es">✓ Desglose detallado de gastos</li>
+                            <li data-lang="en">✓ Monthly budget projections</li>
+                            <li data-lang="es">✓ Proyecciones presupuestarias mensuales</li>
+                            <li data-lang="en">✓ Tax optimization recommendations</li>
+                            <li data-lang="es">✓ Recomendaciones de optimización fiscal</li>
+                            <li data-lang="en">✓ Compliance documentation package</li>
+                            <li data-lang="es">✓ Paquete de documentación de cumplimiento</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="py-20 px-6 bg-slate-100">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-4xl font-black mb-12 text-center">
+                <span data-lang="en">Investment</span>
+                <span data-lang="es">Inversión</span>
+            </h2>
+
+            <div class="bg-white p-10 rounded-2xl shadow-xl text-center">
+                <div class="mb-6">
+                    <div class="text-5xl font-black text-blue-600 mb-2">$499</div>
+                    <p class="text-slate-600">
+                        <span data-lang="en">3-Month Forensic Audit + Budget Report</span>
+                        <span data-lang="es">Auditoría Forense de 3 Meses + Informe Presupuestario</span>
+                    </p>
+                </div>
+
+                <div class="border-t pt-6 mb-6">
+                    <p class="text-sm text-slate-600 mb-4">
+                        <span data-lang="en">Additional pricing for:</span>
+                        <span data-lang="es">Precios adicionales para:</span>
+                    </p>
+                    <ul class="text-sm text-slate-700 space-y-2">
+                        <li><strong>$799</strong> <span data-lang="en">- 6-month audit</span><span data-lang="es">- Auditoría de 6 meses</span></li>
+                        <li><strong>$1,299</strong> <span data-lang="en">- 12-month audit (full year)</span><span data-lang="es">- Auditoría de 12 meses (año completo)</span></li>
+                        <li><strong>$299</strong> <span data-lang="en">- Crypto/digital assets add-on</span><span data-lang="es">- Complemento de cripto/activos digitales</span></li>
+                    </ul>
+                </div>
+
+                <a href="satoshi-ledger-improved.html#contact" class="inline-block bg-blue-600 text-white px-10 py-4 rounded-xl font-bold text-lg hover:bg-blue-700 transition shadow-lg">
+                    <span data-lang="en">Schedule Audit</span>
+                    <span data-lang="es">Programar Auditoría</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 px-6 bg-gradient-to-r from-blue-900 to-blue-700 text-white text-center">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="text-4xl font-black mb-4">
+                <span data-lang="en">Build a Defensible Budget Today</span>
+                <span data-lang="es">Construya un Presupuesto Defendible Hoy</span>
+            </h2>
+            <p class="text-xl text-blue-100 mb-8">
+                <span data-lang="en">Protect your Act 60 decree and optimize your tax strategy with data-backed documentation</span>
+                <span data-lang="es">Proteja su decreto de Ley 60 y optimice su estrategia fiscal con documentación respaldada por datos</span>
+            </p>
+            <a href="satoshi-ledger-improved.html#contact" class="inline-block bg-white text-blue-900 px-10 py-4 rounded-xl font-bold text-lg hover:bg-slate-100 transition shadow-2xl">
+                <span data-lang="en">Get Started</span>
+                <span data-lang="es">Comenzar</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-slate-950 text-white text-center">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-2xl font-black text-white uppercase tracking-tighter mb-2">
+                Satoshi<span class="text-blue-500 font-light">Ledger</span>
+            </div>
+            <p class="text-xs opacity-30 italic mb-6">
+                <span data-lang="en">Tax compliance and accounting services. Not a law firm.</span>
+                <span data-lang="es">Servicios de contabilidad y cumplimiento fiscal. No es una firma de abogados.</span>
+            </p>
+            <p class="text-xs opacity-20">© 2025 Satoshi Ledger LLC</p>
+        </div>
+    </footer>
+
+    <script>
+        function setLanguage(lang) {
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                el.style.display = (el.getAttribute('data-lang') === lang) ? 'inline-block' : 'none';
+            });
+            document.getElementById('btn-en').classList.toggle('lang-active', lang === 'en');
+            document.getElementById('btn-es').classList.toggle('lang-active', lang === 'es');
+            localStorage.setItem('preferredLang', lang);
+        }
+        window.addEventListener('load', () => setLanguage(localStorage.getItem('preferredLang') || 'en'));
+    </script>
+</body>
+</html>

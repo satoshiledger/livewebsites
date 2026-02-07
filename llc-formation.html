@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLC Formation | Satoshi Ledger LLC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .hero-bg { background: linear-gradient(135deg, #020617 0%, #1e3a8a 100%); }
+        [data-lang="es"] { display: none; }
+        .lang-active { font-weight: 800; color: #2563eb; border-bottom: 2px solid #2563eb; }
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="bg-slate-50">
+    <!-- Navigation -->
+    <nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="satoshi-ledger-improved.html" class="text-2xl font-black text-blue-900 uppercase tracking-tighter">
+                Satoshi<span class="text-blue-600 font-light">Ledger</span>
+            </a>
+            <div class="flex items-center gap-6">
+                <div class="flex gap-2 text-xs font-bold uppercase tracking-widest border rounded-full px-3 py-1 bg-slate-50">
+                    <button onclick="setLanguage('en')" id="btn-en" class="lang-active cursor-pointer">EN</button>
+                    <span class="text-slate-300">|</span>
+                    <button onclick="setLanguage('es')" id="btn-es" class="cursor-pointer">ES</button>
+                </div>
+                <a href="satoshi-ledger-improved.html#contact" class="bg-blue-600 text-white px-6 py-2.5 rounded-lg hover:bg-blue-700 transition font-semibold text-sm">
+                    <span data-lang="en">Get Started</span>
+                    <span data-lang="es">Comenzar</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="hero-bg text-white py-20 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="inline-block bg-blue-600 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-6">
+                <span data-lang="en">$250 Professional Fee</span>
+                <span data-lang="es">$250 Tarifa Profesional</span>
+            </div>
+            <h1 class="text-5xl md:text-6xl font-extrabold mb-6">
+                <span data-lang="en">Puerto Rico LLC Formation</span>
+                <span data-lang="es">Formación de LLC en Puerto Rico</span>
+            </h1>
+            <p class="text-xl text-blue-100 mb-8">
+                <span data-lang="en">Complete LLC setup in just 2-3 days with SURI registration and EIN procurement</span>
+                <span data-lang="es">Configuración completa de LLC en solo 2-3 días con registro SURI y obtención de EIN</span>
+            </p>
+        </div>
+    </header>
+
+    <!-- What's Included -->
+    <section class="py-20 px-6">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-4xl font-black mb-12 text-center">
+                <span data-lang="en">What's Included</span>
+                <span data-lang="es">Qué Está Incluido</span>
+            </h2>
+
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <div class="flex gap-4 p-6 bg-white rounded-2xl shadow-lg">
+                    <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-file-alt text-green-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg mb-2">
+                            <span data-lang="en">Articles of Organization</span>
+                            <span data-lang="es">Artículos de Organización</span>
+                        </h3>
+                        <p class="text-slate-600 text-sm">
+                            <span data-lang="en">Professional prep & filing with PR Dept of State</span>
+                            <span data-lang="es">Preparación profesional y presentación ante Depto. de Estado PR</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex gap-4 p-6 bg-white rounded-2xl shadow-lg">
+                    <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-handshake text-green-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg mb-2">
+                            <span data-lang="en">Operating Agreement</span>
+                            <span data-lang="es">Acuerdo Operativo</span>
+                        </h3>
+                        <p class="text-slate-600 text-sm">
+                            <span data-lang="en">Customized for your business structure</span>
+                            <span data-lang="es">Personalizado para su estructura empresarial</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex gap-4 p-6 bg-white rounded-2xl shadow-lg">
+                    <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-id-card text-blue-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg mb-2">
+                            <span data-lang="en">Federal EIN (FREE)</span>
+                            <span data-lang="es">EIN Federal (GRATIS)</span>
+                        </h3>
+                        <p class="text-slate-600 text-sm">
+                            <span data-lang="en">IRS Employer ID Number - included at no cost</span>
+                            <span data-lang="es">Número de Identificación de Empleador del IRS - sin costo</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex gap-4 p-6 bg-white rounded-2xl shadow-lg">
+                    <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-store text-blue-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg mb-2">
+                            <span data-lang="en">SURI Registration</span>
+                            <span data-lang="es">Registro SURI</span>
+                        </h3>
+                        <p class="text-slate-600 text-sm">
+                            <span data-lang="en">Puerto Rico merchant registration (Hacienda)</span>
+                            <span data-lang="es">Registro de comerciante de Puerto Rico (Hacienda)</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex gap-4 p-6 bg-white rounded-2xl shadow-lg">
+                    <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-user-tie text-blue-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg mb-2">
+                            <span data-lang="en">Registered Agent Service</span>
+                            <span data-lang="es">Servicio de Agente Registrado</span>
+                        </h3>
+                        <p class="text-slate-600 text-sm">
+                            <span data-lang="en">$125/year - Required for all PR LLCs</span>
+                            <span data-lang="es">$125/año - Requerido para todas las LLCs de PR</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex gap-4 p-6 bg-white rounded-2xl shadow-lg">
+                    <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-calendar-check text-green-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg mb-2">
+                            <span data-lang="en">Compliance Roadmap</span>
+                            <span data-lang="es">Hoja de Ruta de Cumplimiento</span>
+                        </h3>
+                        <p class="text-slate-600 text-sm">
+                            <span data-lang="en">All filing deadlines & requirements</span>
+                            <span data-lang="es">Todas las fechas límite y requisitos</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cost Breakdown -->
+    <section class="py-20 px-6 bg-slate-100">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-4xl font-black mb-12">
+                <span data-lang="en">Complete Cost Breakdown</span>
+                <span data-lang="es">Desglose Completo de Costos</span>
+            </h2>
+
+            <div class="space-y-4 mb-8">
+                <div class="flex justify-between items-center p-6 bg-white rounded-2xl shadow-md">
+                    <div>
+                        <h3 class="font-bold text-lg">
+                            <span data-lang="en">Our Professional Fee</span>
+                            <span data-lang="es">Nuestra Tarifa Profesional</span>
+                        </h3>
+                        <p class="text-sm text-slate-600">
+                            <span data-lang="en">Complete formation service & consulting</span>
+                            <span data-lang="es">Servicio completo de formación y consultoría</span>
+                        </p>
+                    </div>
+                    <p class="text-3xl font-black text-blue-600">$250</p>
+                </div>
+
+                <div class="flex justify-between items-center p-6 bg-white rounded-2xl shadow-md">
+                    <div>
+                        <h3 class="font-bold text-lg">
+                            <span data-lang="en">State Filing Fee</span>
+                            <span data-lang="es">Tarifa de Presentación Estatal</span>
+                        </h3>
+                        <p class="text-sm text-slate-600">
+                            <span data-lang="en">PR Dept of State - government fee</span>
+                            <span data-lang="es">Depto. de Estado PR - tarifa gubernamental</span>
+                        </p>
+                    </div>
+                    <p class="text-2xl font-black text-slate-700">$250</p>
+                </div>
+
+                <div class="flex justify-between items-center p-6 bg-white rounded-2xl shadow-md">
+                    <div>
+                        <h3 class="font-bold text-lg">
+                            <span data-lang="en">Registered Agent (Year 1)</span>
+                            <span data-lang="es">Agente Registrado (Año 1)</span>
+                        </h3>
+                        <p class="text-sm text-slate-600">
+                            <span data-lang="en">Required service for all LLCs</span>
+                            <span data-lang="es">Servicio requerido para todas las LLCs</span>
+                        </p>
+                    </div>
+                    <p class="text-2xl font-black text-slate-700">$125</p>
+                </div>
+
+                <div class="flex justify-between items-center p-6 bg-white rounded-2xl shadow-md">
+                    <div>
+                        <h3 class="font-bold text-lg">
+                            <span data-lang="en">Federal EIN + SURI</span>
+                            <span data-lang="es">EIN Federal + SURI</span>
+                        </h3>
+                        <p class="text-sm text-slate-600">
+                            <span data-lang="en">No government fees</span>
+                            <span data-lang="es">Sin tarifas gubernamentales</span>
+                        </p>
+                    </div>
+                    <p class="text-2xl font-black text-green-600">
+                        <span data-lang="en">FREE</span>
+                        <span data-lang="es">GRATIS</span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="border-t-4 border-blue-600 pt-6 bg-white p-8 rounded-2xl shadow-lg">
+                <div class="flex justify-between items-center">
+                    <h3 class="text-2xl font-black">
+                        <span data-lang="en">Total One-Time Setup</span>
+                        <span data-lang="es">Configuración Total Única</span>
+                    </h3>
+                    <p class="text-5xl font-black text-blue-600">$625</p>
+                </div>
+                <p class="text-sm text-slate-600 mt-4">
+                    <span data-lang="en">$250 professional + $250 state + $125 agent = $625 total</span>
+                    <span data-lang="es">$250 profesional + $250 estado + $125 agente = $625 total</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Annual Maintenance -->
+    <section class="py-20 px-6">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-4xl font-black mb-12">
+                <span data-lang="en">Annual Maintenance Costs</span>
+                <span data-lang="es">Costos Anuales de Mantenimiento</span>
+            </h2>
+
+            <div class="space-y-4">
+                <div class="flex justify-between items-center p-6 bg-orange-50 rounded-2xl border-2 border-orange-200">
+                    <div>
+                        <h3 class="font-bold text-lg">
+                            <span data-lang="en">PR Annual LLC Fee</span>
+                            <span data-lang="es">Tarifa Anual de LLC de PR</span>
+                        </h3>
+                        <p class="text-sm text-slate-600">
+                            <span data-lang="en">Due April 15 each year</span>
+                            <span data-lang="es">Vence el 15 de abril cada año</span>
+                        </p>
+                    </div>
+                    <p class="text-2xl font-black text-orange-600">$150</p>
+                </div>
+
+                <div class="flex justify-between items-center p-6 bg-orange-50 rounded-2xl border-2 border-orange-200">
+                    <div>
+                        <h3 class="font-bold text-lg">
+                            <span data-lang="en">Registered Agent</span>
+                            <span data-lang="es">Agente Registrado</span>
+                        </h3>
+                        <p class="text-sm text-slate-600">
+                            <span data-lang="en">Required every year</span>
+                            <span data-lang="es">Requerido cada año</span>
+                        </p>
+                    </div>
+                    <p class="text-2xl font-black text-orange-600">$125</p>
+                </div>
+            </div>
+
+            <div class="mt-8 p-6 bg-blue-50 border-l-4 border-blue-600 rounded-r-xl">
+                <p class="text-sm text-slate-700">
+                    <span data-lang="en">
+                        <strong>Note:</strong> These are minimum costs to maintain good standing. Tax prep, bookkeeping, and payroll services are additional.
+                    </span>
+                    <span data-lang="es">
+                        <strong>Nota:</strong> Estos son costos mínimos para mantener buen estado. Preparación de impuestos, contabilidad y servicios de nómina son adicionales.
+                    </span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline -->
+    <section class="py-20 px-6 bg-slate-100">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-4xl font-black mb-12 text-center">
+                <span data-lang="en">Fast-Track Formation Timeline</span>
+                <span data-lang="es">Cronología de Formación Rápida</span>
+            </h2>
+
+            <div class="bg-green-50 border-2 border-green-500 rounded-2xl p-8 mb-12 text-center">
+                <div class="text-6xl font-black text-green-600 mb-2">2-3 Days</div>
+                <p class="text-xl font-bold text-green-900">
+                    <span data-lang="en">Complete LLC Formation</span>
+                    <span data-lang="es">Formación Completa de LLC</span>
+                </p>
+                <p class="text-slate-600 mt-2">
+                    <span data-lang="en">From consultation to fully operational business</span>
+                    <span data-lang="es">Desde consulta hasta negocio completamente operativo</span>
+                </p>
+            </div>
+
+            <div class="space-y-8">
+                <div class="flex gap-6">
+                    <div class="flex flex-col items-center flex-shrink-0">
+                        <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white font-black text-xl">1</div>
+                        <div class="w-1 h-full bg-blue-200"></div>
+                    </div>
+                    <div class="pb-8 pt-3">
+                        <h3 class="font-bold text-xl mb-2">
+                            <span data-lang="en">Day 1: Consultation & Setup</span>
+                            <span data-lang="es">Día 1: Consulta y Configuración</span>
+                        </h3>
+                        <p class="text-slate-600">
+                            <span data-lang="en">Discuss structure, prepare documents, gather information. We can usually complete this in a few hours.</span>
+                            <span data-lang="es">Discutir estructura, preparar documentos, recopilar información. Generalmente podemos completar esto en unas pocas horas.</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex gap-6">
+                    <div class="flex flex-col items-center flex-shrink-0">
+                        <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white font-black text-xl">2</div>
+                        <div class="w-1 h-full bg-blue-200"></div>
+                    </div>
+                    <div class="pb-8 pt-3">
+                        <h3 class="font-bold text-xl mb-2">
+                            <span data-lang="en">Day 1-2: State Filing & Approval</span>
+                            <span data-lang="es">Día 1-2: Presentación y Aprobación Estatal</span>
+                        </h3>
+                        <p class="text-slate-600">
+                            <span data-lang="en">File with PR Department of State. We have expedited processing relationships for quick turnaround.</span>
+                            <span data-lang="es">Presentar ante el Departamento de Estado de PR. Tenemos relaciones de procesamiento expedito para un retorno rápido.</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex gap-6">
+                    <div class="flex flex-col items-center flex-shrink-0">
+                        <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white font-black text-xl">3</div>
+                        <div class="w-1 h-full bg-blue-200"></div>
+                    </div>
+                    <div class="pb-8 pt-3">
+                        <h3 class="font-bold text-xl mb-2">
+                            <span data-lang="en">Day 2-3: EIN & SURI</span>
+                            <span data-lang="es">Día 2-3: EIN y SURI</span>
+                        </h3>
+                        <p class="text-slate-600">
+                            <span data-lang="en">Obtain Federal EIN (immediate) and complete SURI merchant registration with Hacienda (same day).</span>
+                            <span data-lang="es">Obtener EIN Federal (inmediato) y completar registro de comerciante SURI con Hacienda (mismo día).</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex gap-6">
+                    <div class="flex flex-col items-center flex-shrink-0">
+                        <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center text-white">
+                            <i class="fas fa-check text-2xl"></i>
+                        </div>
+                    </div>
+                    <div class="pt-3">
+                        <h3 class="font-bold text-xl mb-2">
+                            <span data-lang="en">Day 3: Ready to Operate!</span>
+                            <span data-lang="es">Día 3: ¡Listo para Operar!</span>
+                        </h3>
+                        <p class="text-slate-600">
+                            <span data-lang="en">Your LLC is fully formed, registered, and ready to do business. All documents, EIN, and SURI delivered to you.</span>
+                            <span data-lang="es">Su LLC está completamente formada, registrada y lista para hacer negocios. Todos los documentos, EIN y SURI entregados a usted.</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 p-6 bg-blue-50 border-l-4 border-blue-600 rounded-r-xl">
+                <p class="text-sm text-slate-700">
+                    <span data-lang="en">
+                        <strong>Fast-Track Guarantee:</strong> Most clients are up and running within 2-3 business days. In rare cases where state processing is delayed, we'll keep you updated every step of the way.
+                    </span>
+                    <span data-lang="es">
+                        <strong>Garantía de Vía Rápida:</strong> La mayoría de los clientes están operando dentro de 2-3 días hábiles. En casos raros donde el procesamiento estatal se retrase, lo mantendremos informado en cada paso.
+                    </span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 px-6 bg-gradient-to-r from-blue-900 to-blue-700 text-white text-center">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="text-4xl font-black mb-4">
+                <span data-lang="en">Ready to Form Your LLC?</span>
+                <span data-lang="es">¿Listo para Formar su LLC?</span>
+            </h2>
+            <p class="text-xl text-blue-100 mb-8">
+                <span data-lang="en">Launch your business in just 2-3 days with professional guidance</span>
+                <span data-lang="es">Lance su negocio en solo 2-3 días con orientación profesional</span>
+            </p>
+            <a href="satoshi-ledger-improved.html#contact" class="inline-block bg-white text-blue-900 px-10 py-4 rounded-xl font-bold text-lg hover:bg-slate-100 transition shadow-2xl">
+                <span data-lang="en">Get Started</span>
+                <span data-lang="es">Comenzar</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-slate-950 text-white text-center">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-2xl font-black text-white uppercase tracking-tighter mb-2">
+                Satoshi<span class="text-blue-500 font-light">Ledger</span>
+            </div>
+            <p class="text-xs opacity-30 italic mb-6">
+                <span data-lang="en">Tax compliance and accounting services. Not a law firm.</span>
+                <span data-lang="es">Servicios de contabilidad y cumplimiento fiscal. No es una firma de abogados.</span>
+            </p>
+            <p class="text-xs opacity-20">© 2025 Satoshi Ledger LLC</p>
+        </div>
+    </footer>
+
+    <script>
+        function setLanguage(lang) {
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                el.style.display = (el.getAttribute('data-lang') === lang) ? 'inline-block' : 'none';
+            });
+            document.getElementById('btn-en').classList.toggle('lang-active', lang === 'en');
+            document.getElementById('btn-es').classList.toggle('lang-active', lang === 'es');
+            localStorage.setItem('preferredLang', lang);
+        }
+        window.addEventListener('load', () => setLanguage(localStorage.getItem('preferredLang') || 'en'));
+    </script>
+</body>
+</html>
