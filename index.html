@@ -757,9 +757,8 @@
 
     <!-- JavaScript -->
     <script>
-        // ===== GOOGLE SHEETS CONFIGURATION =====
-        // Google Apps Script Web App URL
-        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw8bgYa01F1ZNVcQ9K62Vu3sCPas1JWwNMsxoBhNIWRKT_oVnuIFwrnh5QUBQXcxwaG/exec';
+        // ===== FORMSPREE CONFIGURATION =====
+        const FORMSPREE_URL = 'https://formspree.io/f/xdaloezj';
         
         // Language Toggle Function
         function setLanguage(lang) {
@@ -818,8 +817,8 @@
             const formMessage = document.getElementById('form-message');
             const form = e.target;
             
-            // Collect form data as URL-encoded string
-            const formData = new URLSearchParams();
+            // Collect form data
+            const formData = new FormData();
             formData.append('name', document.getElementById('name').value);
             formData.append('email', document.getElementById('email').value);
             formData.append('phone', document.getElementById('phone').value);
@@ -832,17 +831,16 @@
                 '<i class="fas fa-spinner fa-spin mr-2"></i>SENDING...' : 
                 '<i class="fas fa-spinner fa-spin mr-2"></i>ENVIANDO...';
             
-            // Send to Google Sheets with URL-encoded data
-            fetch(GOOGLE_SCRIPT_URL, {
+            // Send to Formspree
+            fetch(FORMSPREE_URL, {
                 method: 'POST',
+                body: formData,
                 headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                },
-                body: formData.toString()
+                    'Accept': 'application/json'
+                }
             })
-            .then(response => response.json())
-            .then(data => {
-                if (data.result === 'success') {
+            .then(response => {
+                if (response.ok) {
                     // Show success message
                     formMessage.className = 'p-4 rounded-xl text-sm font-semibold text-center bg-green-100 text-green-800 border border-green-200';
                     formMessage.textContent = currentLang === 'en' ? 
@@ -858,7 +856,9 @@
                         formMessage.classList.add('hidden');
                     }, 5000);
                 } else {
-                    throw new Error(data.error || 'Submission failed');
+                    return response.json().then(data => {
+                        throw new Error(data.error || 'Submission failed');
+                    });
                 }
             })
             .catch(error => {
