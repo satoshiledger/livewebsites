@@ -304,7 +304,8 @@
                                 id="netProfitDisplay" 
                                 value="100,000"
                                 class="w-full p-4 pl-10 rounded-xl text-slate-900 font-bold text-2xl border-2 border-blue-400 focus:border-blue-300 outline-none"
-                                oninput="updateProfitFromInput(this.value)">
+                                oninput="formatAndUpdateProfit(this)"
+                                onblur="formatAndUpdateProfit(this)">
                         </div>
                         <input 
                             type="range" 
@@ -971,10 +972,36 @@
             return parseFloat(str.replace(/,/g, '')) || 0;
         }
         
-        // Update profit from text input
-        function updateProfitFromInput(value) {
-            const numValue = parseNumberInput(value);
-            document.getElementById('profitSlider').value = numValue;
+        // Format input field as user types
+        function formatAndUpdateProfit(input) {
+            // Get cursor position
+            let cursorPosition = input.selectionStart;
+            let oldValue = input.value;
+            let oldLength = oldValue.length;
+            
+            // Remove all non-digits
+            let numValue = oldValue.replace(/[^\d]/g, '');
+            
+            // Parse as number
+            let parsedNum = parseInt(numValue) || 0;
+            
+            // Format with commas
+            let formattedValue = formatWithCommas(parsedNum);
+            
+            // Update input value
+            input.value = formattedValue;
+            
+            // Adjust cursor position based on added/removed commas
+            let newLength = formattedValue.length;
+            let diff = newLength - oldLength;
+            cursorPosition = Math.max(cursorPosition + diff, 0);
+            cursorPosition = Math.min(cursorPosition, newLength);
+            
+            // Restore cursor position
+            input.setSelectionRange(cursorPosition, cursorPosition);
+            
+            // Update slider and calculate
+            document.getElementById('profitSlider').value = parsedNum;
             calculateTaxes();
         }
         
