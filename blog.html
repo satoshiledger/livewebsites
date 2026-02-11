@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog & Insights | Satoshi Ledger LLC - Puerto Rico Tax & Compliance</title>
+    <meta name="description" content="Expert insights on Puerto Rico Act 60 compliance, tax strategy, and financial management for decree holders and entrepreneurs.">
+    <meta name="keywords" content="Puerto Rico tax blog, Act 60 insights, tax compliance tips, Puerto Rico business, decree holder resources">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .hero-bg { background: linear-gradient(135deg, #020617 0%, #1e3a8a 100%); }
+        [data-lang="es"] { display: none; }
+        .lang-active { font-weight: 800; color: #2563eb; border-bottom: 2px solid #2563eb; }
+        html { scroll-behavior: smooth; }
+        .blog-card { transition: all 0.3s ease; }
+        .blog-card:hover { transform: translateY(-4px); }
+    </style>
+</head>
+<body class="bg-slate-50">
+    <!-- Navigation -->
+    <nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="text-2xl font-black text-blue-900 uppercase tracking-tighter">
+                    Satoshi<span class="text-blue-600 font-light">Ledger</span>
+                </a>
+                <div class="hidden md:flex items-center gap-6">
+                    <div class="flex gap-2 text-xs font-bold uppercase tracking-widest border rounded-full px-3 py-1 bg-slate-50">
+                        <button onclick="setLanguage('en')" id="btn-en" class="lang-active cursor-pointer">EN</button>
+                        <span class="text-slate-300">|</span>
+                        <button onclick="setLanguage('es')" id="btn-es" class="cursor-pointer">ES</button>
+                    </div>
+                    <div class="flex space-x-4 text-sm font-semibold uppercase">
+                        <a href="index.html" class="hover:text-blue-600 transition"><span data-lang="en">Home</span><span data-lang="es">Inicio</span></a>
+                        <a href="act60-mastery.html" class="hover:text-blue-600 transition"><span data-lang="en">Act 60</span><span data-lang="es">Ley 60</span></a>
+                        <a href="llc-formation.html" class="hover:text-blue-600 transition"><span data-lang="en">LLC Setup</span><span data-lang="es">LLC</span></a>
+                        <a href="forensic-audit.html" class="hover:text-blue-600 transition"><span data-lang="en">Audits</span><span data-lang="es">Auditorías</span></a>
+                        <a href="bookkeeping-payroll.html" class="hover:text-blue-600 transition"><span data-lang="en">Accounting</span><span data-lang="es">Contabilidad</span></a>
+                        <a href="blog.html" class="text-blue-600 font-bold transition"><span data-lang="en">Blog</span><span data-lang="es">Blog</span></a>
+                        <a href="index.html#contact" class="bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition shadow-sm"><span data-lang="en">Consultation</span><span data-lang="es">Consulta</span></a>
+                    </div>
+                </div>
+                <button onclick="toggleMobileMenu()" class="md:hidden text-2xl text-slate-700"><i class="fas fa-bars" id="menu-icon"></i></button>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-3 pb-4">
+                <a href="index.html" class="block py-2 hover:text-blue-600 transition text-center font-semibold"><span data-lang="en">Home</span><span data-lang="es">Inicio</span></a>
+                <a href="act60-mastery.html" class="block py-2 hover:text-blue-600 transition text-center font-semibold"><span data-lang="en">Act 60</span><span data-lang="es">Ley 60</span></a>
+                <a href="llc-formation.html" class="block py-2 hover:text-blue-600 transition text-center font-semibold"><span data-lang="en">LLC Setup</span><span data-lang="es">LLC</span></a>
+                <a href="forensic-audit.html" class="block py-2 hover:text-blue-600 transition text-center font-semibold"><span data-lang="en">Audits</span><span data-lang="es">Auditorías</span></a>
+                <a href="bookkeeping-payroll.html" class="block py-2 hover:text-blue-600 transition text-center font-semibold"><span data-lang="en">Accounting</span><span data-lang="es">Contabilidad</span></a>
+                <a href="blog.html" class="block py-2 text-blue-600 transition text-center font-bold"><span data-lang="en">Blog</span><span data-lang="es">Blog</span></a>
+                <a href="index.html#contact" class="block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition text-center font-bold"><span data-lang="en">Consultation</span><span data-lang="es">Consulta</span></a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="hero-bg text-white py-20 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="inline-block bg-blue-600 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-6">
+                <span data-lang="en">Insights & Resources</span>
+                <span data-lang="es">Ideas y Recursos</span>
+            </div>
+            <h1 class="text-5xl md:text-6xl font-extrabold mb-6">
+                <span data-lang="en">Tax Strategy & Compliance Insights</span>
+                <span data-lang="es">Estrategia Fiscal e Ideas de Cumplimiento</span>
+            </h1>
+            <p class="text-xl text-blue-100 mb-8">
+                <span data-lang="en">Expert analysis on Puerto Rico tax incentives, compliance updates, and financial management for Act 60 decree holders</span>
+                <span data-lang="es">Análisis experto sobre incentivos fiscales de Puerto Rico, actualizaciones de cumplimiento y gestión financiera para titulares de decretos de Ley 60</span>
+            </p>
+        </div>
+    </header>
+
+    <!-- Newsletter Signup -->
+    <section class="py-12 px-6 bg-blue-50 border-b-4 border-blue-600">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="flex items-center justify-center gap-3 mb-4">
+                <i class="fas fa-envelope text-blue-600 text-3xl"></i>
+                <h2 class="text-3xl font-black">
+                    <span data-lang="en">Stay Compliant. Stay Informed.</span>
+                    <span data-lang="es">Manténgase Conforme. Manténgase Informado.</span>
+                </h2>
+            </div>
+            <p class="text-slate-700 mb-6 max-w-2xl mx-auto">
+                <span data-lang="en">Get monthly insights on Puerto Rico tax deadlines, Act 60 updates, and strategic financial management tips delivered directly to your inbox.</span>
+                <span data-lang="es">Reciba ideas mensuales sobre fechas límite de impuestos de Puerto Rico, actualizaciones de Ley 60 y consejos de gestión financiera estratégica directamente en su bandeja de entrada.</span>
+            </p>
+            <div class="flex flex-col md:flex-row gap-4 max-w-xl mx-auto">
+                <input type="email" placeholder="Enter your email" class="flex-1 px-6 py-4 rounded-xl border-2 border-slate-200 focus:border-blue-600 focus:outline-none">
+                <button class="bg-blue-600 text-white px-8 py-4 rounded-xl font-bold hover:bg-blue-700 transition shadow-lg">
+                    <span data-lang="en">Subscribe</span>
+                    <span data-lang="es">Suscribirse</span>
+                </button>
+            </div>
+            <p class="text-xs text-slate-500 mt-3">
+                <span data-lang="en">No spam. Unsubscribe anytime. One email per month.</span>
+                <span data-lang="es">Sin spam. Cancelar en cualquier momento. Un correo al mes.</span>
+            </p>
+        </div>
+    </section>
+
+    <!-- Featured Article -->
+    <section class="py-20 px-6">
+        <div class="max-w-6xl mx-auto">
+            <span class="text-blue-600 font-bold uppercase text-sm tracking-widest">
+                <span data-lang="en">Featured Article</span>
+                <span data-lang="es">Artículo Destacado</span>
+            </span>
+            
+            <div class="mt-6 bg-white rounded-3xl shadow-2xl overflow-hidden border-2 border-blue-100">
+                <div class="md:flex">
+                    <div class="md:w-1/2 bg-gradient-to-br from-green-600 to-green-500 p-12 text-white flex flex-col justify-center">
+                        <span class="text-green-200 text-sm font-semibold uppercase tracking-wide mb-3">
+                            <span data-lang="en">February 2026 • 10 min read</span>
+                            <span data-lang="es">Febrero 2026 • 10 min lectura</span>
+                        </span>
+                        <h2 class="text-4xl font-black mb-4">
+                            <span data-lang="en">The 0% Tax Launchpad: Mastering the Puerto Rico Young Entrepreneur Decree in 2026</span>
+                            <span data-lang="es">La Plataforma de Lanzamiento 0% Impuestos: Dominando el Decreto de Joven Empresario de Puerto Rico en 2026</span>
+                        </h2>
+                        <p class="text-green-100 mb-6 leading-relaxed">
+                            <span data-lang="en">For most startups, the first three years are a battle for survival against overhead and taxes. But for young visionaries in Puerto Rico, the barrier to building a scalable business just disappeared.</span>
+                            <span data-lang="es">Para la mayoría de las startups, los primeros tres años son una batalla de supervivencia contra gastos generales e impuestos. Pero para los jóvenes visionarios en Puerto Rico, la barrera para construir un negocio escalable acaba de desaparecer.</span>
+                        </p>
+                        <a href="#full-article" class="inline-flex items-center gap-2 text-white font-bold hover:text-green-200 transition">
+                            <span data-lang="en">Read Full Article</span>
+                            <span data-lang="es">Leer Artículo Completo</span>
+                            <i class="fas fa-arrow-down"></i>
+                        </a>
+                    </div>
+                    <div class="md:w-1/2 p-12 bg-slate-50">
+                        <h3 class="font-black text-xl mb-4 text-slate-800">
+                            <span data-lang="en">Key Takeaways:</span>
+                            <span data-lang="es">Conclusiones Clave:</span>
+                        </h3>
+                        <ul class="space-y-3 text-slate-700">
+                            <li class="flex items-start gap-3">
+                                <i class="fas fa-check-circle text-green-600 mt-1"></i>
+                                <span data-lang="en"><strong>0% net income tax</strong> on first $500K for 3 years</span>
+                                <span data-lang="es"><strong>0% impuesto sobre ingresos netos</strong> en primeros $500K por 3 años</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fas fa-check-circle text-green-600 mt-1"></i>
+                                <span data-lang="en"><strong>100% property & municipal tax exemption</strong> during exemption period</span>
+                                <span data-lang="es"><strong>100% exención de impuestos de propiedad y municipales</strong> durante período de exención</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fas fa-check-circle text-green-600 mt-1"></i>
+                                <span data-lang="en"><strong>Up to $15,000 in cash grants</strong> for equipment & infrastructure</span>
+                                <span data-lang="es"><strong>Hasta $15,000 en subvenciones</strong> para equipo e infraestructura</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fas fa-check-circle text-green-600 mt-1"></i>
+                                <span data-lang="en"><strong>Ages 16-35, PR residents only</strong> - Must file BEFORE operations</span>
+                                <span data-lang="es"><strong>Edades 16-35, solo residentes PR</strong> - Debe presentar ANTES de operaciones</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Full Article Content -->
+    <section id="full-article" class="py-20 px-6 bg-gradient-to-b from-white to-slate-50">
+        <div class="max-w-5xl mx-auto">
+            <!-- Article Header with Hero Image -->
+            <div class="mb-12">
+                <div class="rounded-3xl overflow-hidden shadow-2xl mb-8">
+                    <img src="https://images.unsplash.com/photo-1519817914152-22d216bb9170?w=1200&h=600&fit=crop" 
+                         alt="San Juan Puerto Rico skyline" 
+                         class="w-full h-96 object-cover">
+                </div>
+                
+                <div class="flex items-center gap-4 text-sm text-slate-600 mb-4">
+                    <span class="bg-green-100 text-green-800 px-4 py-1 rounded-full font-bold">
+                        <span data-lang="en">Act 60 Updates</span>
+                        <span data-lang="es">Actualizaciones Ley 60</span>
+                    </span>
+                    <span data-lang="en">Published February 10, 2026</span>
+                    <span data-lang="es">Publicado 10 Febrero 2026</span>
+                    <span>•</span>
+                    <span data-lang="en">10 min read</span>
+                    <span data-lang="es">10 min lectura</span>
+                </div>
+            </div>
+
+            <article class="prose prose-lg max-w-none">
+                <!-- Introduction -->
+                <div class="bg-white p-8 md:p-12 rounded-2xl shadow-lg mb-12 border-l-4 border-green-600">
+                    <p class="text-xl md:text-2xl text-slate-800 leading-relaxed font-medium mb-6" data-lang="en">
+                        For most startups, the first three years are a battle for survival against overhead and taxes. But for young visionaries in Puerto Rico, the barrier to building a scalable business just disappeared.
+                    </p>
+                    <p class="text-xl md:text-2xl text-slate-800 leading-relaxed font-medium mb-6" data-lang="es">
+                        Para la mayoría de las startups, los primeros tres años son una batalla de supervivencia contra gastos generales e impuestos. Pero para los jóvenes visionarios en Puerto Rico, la barrera para construir un negocio escalable acaba de desaparecer.
+                    </p>
+                    
+                    <p class="text-lg text-slate-700 leading-relaxed" data-lang="en">
+                        Under Section 2100.01 of Act 60 (the Puerto Rico Incentives Code), the government is handing you a three-year "tax holiday" to scale your business with zero friction. If you are a resident between 16 and 35 years old and ready to found a brand-new company, here is how you can leverage these benefits for your ultimate economic head start.
+                    </p>
+                    <p class="text-lg text-slate-700 leading-relaxed" data-lang="es">
+                        Bajo la Sección 2100.01 de la Ley 60 (Código de Incentivos de Puerto Rico), el gobierno le está otorgando unas "vacaciones fiscales" de tres años para escalar su negocio sin fricciones. Si es un residente entre 16 y 35 años y está listo para fundar una empresa completamente nueva, aquí está cómo puede aprovechar estos beneficios para su ventaja económica definitiva.
+                    </p>
+                </div>
+
+                <!-- Section 1: Triple Threat Benefits -->
+                <div class="bg-white p-8 md:p-12 rounded-2xl shadow-lg mb-12">
+                    <h2 class="text-3xl md:text-4xl font-black text-slate-900 mb-6 flex items-center gap-4" data-lang="en">
+                        <span class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-trophy text-green-600 text-xl"></i>
+                        </span>
+                        The "Triple-Threat" Benefits: 0% Tax for 3 Years
+                    </h2>
+                    <h2 class="text-3xl md:text-4xl font-black text-slate-900 mb-6 flex items-center gap-4" data-lang="es">
+                        <span class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-trophy text-green-600 text-xl"></i>
+                        </span>
+                        Los Beneficios de "Triple Amenaza": 0% Impuestos por 3 Años
+                    </h2>
+
+                    <p class="text-lg text-slate-700 leading-relaxed mb-8" data-lang="en">
+                        The Young Entrepreneur decree is one of the most aggressive incentives in the Act 60 portfolio. While many export services pay a 4% corporate rate, qualifying young entrepreneurs enjoy these full exemptions for their first 36 months of operations:
+                    </p>
+                    <p class="text-lg text-slate-700 leading-relaxed mb-8" data-lang="es">
+                        El decreto de Joven Empresario es uno de los incentivos más agresivos en la cartera de Ley 60. Mientras muchos servicios de exportación pagan una tasa corporativa del 4%, los jóvenes empresarios calificados disfrutan de estas exenciones completas durante sus primeros 36 meses de operaciones:
+                    </p>
+
+                    <div class="grid md:grid-cols-3 gap-6 mb-8">
+                        <div class="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-xl border-2 border-green-200">
+                            <div class="w-14 h-14 bg-green-600 rounded-xl flex items-center justify-center mb-4">
+                                <i class="fas fa-percent text-white text-2xl"></i>
+                            </div>
+                            <h3 class="font-black text-lg mb-2 text-green-900" data-lang="en">0% Net Income Tax</h3>
+                            <h3 class="font-black text-lg mb-2 text-green-900" data-lang="es">0% Impuesto sobre Ingresos</h3>
+                            <p class="text-sm text-green-800" data-lang="en">First $500,000 in net income entirely exempt</p>
+                            <p class="text-sm text-green-800" data-lang="es">Primeros $500,000 en ingresos netos completamente exentos</p>
+                        </div>
+
+                        <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-xl border-2 border-blue-200">
+                            <div class="w-14 h-14 bg-blue-600 rounded-xl flex items-center justify-center mb-4">
+                                <i class="fas fa-home text-white text-2xl"></i>
+                            </div>
+                            <h3 class="font-black text-lg mb-2 text-blue-900" data-lang="en">100% Property Tax Exemption</h3>
+                            <h3 class="font-black text-lg mb-2 text-blue-900" data-lang="es">100% Exención Impuesto Propiedad</h3>
+                            <p class="text-sm text-blue-800" data-lang="en">Full relief on business assets</p>
+                            <p class="text-sm text-blue-800" data-lang="es">Alivio completo en activos comerciales</p>
+                        </div>
+
+                        <div class="bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-xl border-2 border-purple-200">
+                            <div class="w-14 h-14 bg-purple-600 rounded-xl flex items-center justify-center mb-4">
+                                <i class="fas fa-building text-white text-2xl"></i>
+                            </div>
+                            <h3 class="font-black text-lg mb-2 text-purple-900" data-lang="en">100% Municipal License Tax</h3>
+                            <h3 class="font-black text-lg mb-2 text-purple-900" data-lang="es">100% Licencia Municipal</h3>
+                            <p class="text-sm text-purple-800" data-lang="en">Zero patente on gross volume</p>
+                            <p class="text-sm text-purple-800" data-lang="es">Cero patente sobre volumen bruto</p>
+                        </div>
+                    </div>
+
+                    <!-- Image Insert -->
+                    <div class="rounded-2xl overflow-hidden shadow-lg my-8">
+                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1000&h=400&fit=crop" 
+                             alt="Young entrepreneur working on startup" 
+                             class="w-full h-64 object-cover">
+                    </div>
+                </div>
+
+                <!-- Section 2: Cash Grants -->
+                <div class="bg-gradient-to-br from-orange-50 to-yellow-50 p-8 md:p-12 rounded-2xl shadow-lg mb-12 border-2 border-orange-200">
+                    <h2 class="text-3xl md:text-4xl font-black text-slate-900 mb-6 flex items-center gap-4">
+                        <span class="text-4xl">⚡</span>
+                        <span data-lang="en">Bonus: Access Up to $15,000 in Cash Grants</span>
+                        <span data-lang="es">Bono: Acceso a Hasta $15,000 en Subvenciones</span>
+                    </h2>
+
+                    <p class="text-lg text-slate-800 leading-relaxed mb-6" data-lang="en">
+                        Starting a business requires capital. Beyond the tax holiday, the Department of Economic Development and Commerce (DDEC) manages discretionary programs designed to provide direct capital to new businesses.
+                    </p>
+                    <p class="text-lg text-slate-800 leading-relaxed mb-6" data-lang="es">
+                        Iniciar un negocio requiere capital. Más allá de las vacaciones fiscales, el Departamento de Desarrollo Económico y Comercio (DDEC) administra programas discrecionales diseñados para proporcionar capital directo a nuevos negocios.
+                    </p>
+
+                    <p class="text-lg text-slate-800 leading-relaxed mb-8" data-lang="en">
+                        Through various initiatives like <strong>Seed Capital</strong> and <strong>Acquisition of Machinery and Equipment</strong>, qualifying entrepreneurs can access up to $15,000 (or more depending on program availability) in potential reimbursements:
+                    </p>
+                    <p class="text-lg text-slate-800 leading-relaxed mb-8" data-lang="es">
+                        A través de varias iniciativas como <strong>Capital Semilla</strong> y <strong>Adquisición de Maquinaria y Equipo</strong>, los empresarios calificados pueden acceder hasta $15,000 (o más dependiendo de la disponibilidad del programa) en reembolsos potenciales:
+                    </p>
+
+                    <div class="space-y-4">
+                        <div class="bg-white p-5 rounded-xl shadow-md border-l-4 border-orange-500">
+                            <h4 class="font-bold text-slate-900 mb-2" data-lang="en"><i class="fas fa-tools text-orange-600 mr-2"></i>Machinery and Equipment</h4>
+                            <h4 class="font-bold text-slate-900 mb-2" data-lang="es"><i class="fas fa-tools text-orange-600 mr-2"></i>Maquinaria y Equipo</h4>
+                            <p class="text-slate-700 text-sm" data-lang="en">Funds to help you cover the purchase of high-cost specialized assets needed for your facility.</p>
+                            <p class="text-slate-700 text-sm" data-lang="es">Fondos para ayudarlo a cubrir la compra de activos especializados de alto costo necesarios para su instalación.</p>
+                        </div>
+
+                        <div class="bg-white p-5 rounded-xl shadow-md border-l-4 border-orange-500">
+                            <h4 class="font-bold text-slate-900 mb-2" data-lang="en"><i class="fas fa-lightbulb text-orange-600 mr-2"></i>Infrastructure & Innovation</h4>
+                            <h4 class="font-bold text-slate-900 mb-2" data-lang="es"><i class="fas fa-lightbulb text-orange-600 mr-2"></i>Infraestructura e Innovación</h4>
+                            <p class="text-slate-700 text-sm" data-lang="en">Grants designed to support the build-out of a physical space or the development of new technological processes.</p>
+                            <p class="text-slate-700 text-sm" data-lang="es">Subvenciones diseñadas para apoyar la construcción de un espacio físico o el desarrollo de nuevos procesos tecnológicos.</p>
+                        </div>
+
+                        <div class="bg-white p-5 rounded-xl shadow-md border-l-4 border-orange-500">
+                            <h4 class="font-bold text-slate-900 mb-2" data-lang="en"><i class="fas fa-chart-line text-orange-600 mr-2"></i>Return on Investment (ROI)</h4>
+                            <h4 class="font-bold text-slate-900 mb-2" data-lang="es"><i class="fas fa-chart-line text-orange-600 mr-2"></i>Retorno de Inversión (ROI)</h4>
+                            <p class="text-slate-700 text-sm" data-lang="en">These grants are discretionary and typically subject to an evaluation of how your business will contribute to the island's economic development through job creation or capital investment.</p>
+                            <p class="text-slate-700 text-sm" data-lang="es">Estas subvenciones son discrecionales y típicamente sujetas a una evaluación de cómo su negocio contribuirá al desarrollo económico de la isla a través de la creación de empleo o inversión de capital.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 3: Eligibility Checklist -->
+                <div class="bg-white p-8 md:p-12 rounded-2xl shadow-lg mb-12">
+                    <h2 class="text-3xl md:text-4xl font-black text-slate-900 mb-6 flex items-center gap-4" data-lang="en">
+                        <span class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-clipboard-check text-blue-600 text-xl"></i>
+                        </span>
+                        Are You Eligible? The 2026 Checklist
+                    </h2>
+                    <h2 class="text-3xl md:text-4xl font-black text-slate-900 mb-6 flex items-center gap-4" data-lang="es">
+                        <span class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-clipboard-check text-blue-600 text-xl"></i>
+                        </span>
+                        ¿Es Elegible? La Lista de Verificación 2026
+                    </h2>
+
+                    <p class="text-lg text-slate-700 leading-relaxed mb-8" data-lang="en">
+                        To lock in these benefits, you must meet four core pillars of Act 60 requirements:
+                    </p>
+                    <p class="text-lg text-slate-700 leading-relaxed mb-8" data-lang="es">
+                        Para asegurar estos beneficios, debe cumplir cuatro pilares centrales de los requisitos de Ley 60:
+                    </p>
+
+                    <div class="grid md:grid-cols-2 gap-6 mb-8">
+                        <div class="flex items-start gap-4 p-5 bg-blue-50 rounded-xl border border-blue-200">
+                            <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-calendar text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-blue-900 mb-1" data-lang="en">Age</h4>
+                                <h4 class="font-bold text-blue-900 mb-1" data-lang="es">Edad</h4>
+                                <p class="text-sm text-slate-700" data-lang="en">Between 16 and 35 years old</p>
+                                <p class="text-sm text-slate-700" data-lang="es">Entre 16 y 35 años</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 p-5 bg-blue-50 rounded-xl border border-blue-200">
+                            <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-graduation-cap text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-blue-900 mb-1" data-lang="en">Education</h4>
+                                <h4 class="font-bold text-blue-900 mb-1" data-lang="es">Educación</h4>
+                                <p class="text-sm text-slate-700" data-lang="en">High school diploma or university degree</p>
+                                <p class="text-sm text-slate-700" data-lang="es">Diploma de escuela secundaria o título universitario</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 p-5 bg-blue-50 rounded-xl border border-blue-200">
+                            <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-map-marker-alt text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-blue-900 mb-1" data-lang="en">Residency</h4>
+                                <h4 class="font-bold text-blue-900 mb-1" data-lang="es">Residencia</h4>
+                                <p class="text-sm text-slate-700" data-lang="en">Bona fide resident of Puerto Rico</p>
+                                <p class="text-sm text-slate-700" data-lang="es">Residente de buena fe de Puerto Rico</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 p-5 bg-blue-50 rounded-xl border border-blue-200">
+                            <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-sparkles text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-blue-900 mb-1" data-lang="en">Novelty</h4>
+                                <h4 class="font-bold text-blue-900 mb-1" data-lang="es">Novedad</h4>
+                                <p class="text-sm text-slate-700" data-lang="en">Brand-new venture (not reorganization)</p>
+                                <p class="text-sm text-slate-700" data-lang="es">Empresa completamente nueva (no reorganización)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Critical Timing Warning -->
+                    <div class="bg-gradient-to-r from-red-600 to-red-500 p-6 rounded-2xl text-white shadow-xl">
+                        <div class="flex items-start gap-4">
+                            <div class="w-14 h-14 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-exclamation-triangle text-3xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-black text-xl mb-2" data-lang="en">⚠️ Strategist's Tip: Timing is Everything</h4>
+                                <h4 class="font-black text-xl mb-2" data-lang="es">⚠️ Consejo del Estratega: El Tiempo lo es Todo</h4>
+                                <p class="text-red-100 leading-relaxed" data-lang="en">
+                                    You must sign a Youth Business Creation Agreement with the DDEC <strong>before you officially commence operations</strong> to qualify. Starting operations before filing means <strong>permanent disqualification</strong>.
+                                </p>
+                                <p class="text-red-100 leading-relaxed" data-lang="es">
+                                    Debe firmar un Acuerdo de Creación de Negocio Juvenil con el DDEC <strong>antes de comenzar oficialmente las operaciones</strong> para calificar. Comenzar operaciones antes de presentar significa <strong>descalificación permanente</strong>.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 4: Why You Need a Strategist -->
+                <div class="bg-white p-8 md:p-12 rounded-2xl shadow-lg mb-12">
+                    <h2 class="text-3xl md:text-4xl font-black text-slate-900 mb-6" data-lang="en">
+                        Why You Need a Strategist, Not Just a CPA
+                    </h2>
+                    <h2 class="text-3xl md:text-4xl font-black text-slate-900 mb-6" data-lang="es">
+                        Por Qué Necesita un Estratega, No Solo un CPA
+                    </h2>
+
+                    <div class="rounded-2xl overflow-hidden shadow-lg mb-8">
+                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1000&h=400&fit=crop" 
+                             alt="Business strategy consultation" 
+                             class="w-full h-64 object-cover">
+                    </div>
+
+                    <p class="text-lg text-slate-700 leading-relaxed mb-8" data-lang="en">
+                        Many search for a "CPA in Puerto Rico" to handle their move, but the application phase is a <strong>strategic administrative hurdle</strong>, not just an accounting task. While a CPA focuses on tax filings once the decree is active, an Act 60 consultant handles the foundational heavy lifting:
+                    </p>
+                    <p class="text-lg text-slate-700 leading-relaxed mb-8" data-lang="es">
+                        Muchos buscan un "CPA en Puerto Rico" para manejar su mudanza, pero la fase de solicitud es un <strong>obstáculo administrativo estratégico</strong>, no solo una tarea contable. Mientras que un CPA se enfoca en presentaciones de impuestos una vez que el decreto está activo, un consultor de Ley 60 maneja el trabajo pesado fundamental:
+                    </p>
+
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="p-6 bg-slate-50 rounded-xl border-2 border-slate-200 hover:border-blue-500 transition">
+                            <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+                                <i class="fas fa-building text-blue-600 text-xl"></i>
+                            </div>
+                            <h4 class="font-bold mb-2" data-lang="en">LLC Formation</h4>
+                            <h4 class="font-bold mb-2" data-lang="es">Formación de LLC</h4>
+                            <p class="text-sm text-slate-600" data-lang="en">Structuring your entity and articles correctly</p>
+                            <p class="text-sm text-slate-600" data-lang="es">Estructurar su entidad correctamente</p>
+                        </div>
+
+                        <div class="p-6 bg-slate-50 rounded-xl border-2 border-slate-200 hover:border-blue-500 transition">
+                            <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mb-4">
+                                <i class="fas fa-rocket text-green-600 text-xl"></i>
+                            </div>
+                            <h4 class="font-bold mb-2" data-lang="en">DDEC Portal Mastery</h4>
+                            <h4 class="font-bold mb-2" data-lang="es">Dominio del Portal DDEC</h4>
+                            <p class="text-sm text-slate-600" data-lang="en">89 days average vs 300-day old wait</p>
+                            <p class="text-sm text-slate-600" data-lang="es">89 días promedio vs 300 días de espera antigua</p>
+                        </div>
+
+                        <div class="p-6 bg-slate-50 rounded-xl border-2 border-slate-200 hover:border-blue-500 transition">
+                            <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4">
+                                <i class="fas fa-shield-alt text-purple-600 text-xl"></i>
+                            </div>
+                            <h4 class="font-bold mb-2" data-lang="en">Compliance Setup</h4>
+                            <h4 class="font-bold mb-2" data-lang="es">Configuración de Cumplimiento</h4>
+                            <p class="text-sm text-slate-600" data-lang="en">SURI, POA, and grant applications</p>
+                            <p class="text-sm text-slate-600" data-lang="es">SURI, POA y solicitudes de subvención</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Final CTA -->
+                <div class="bg-gradient-to-r from-green-600 to-green-500 text-white p-10 md:p-16 rounded-3xl text-center shadow-2xl">
+                    <h2 class="text-3xl md:text-5xl font-black mb-6" data-lang="en">
+                        Ready to Build Your Legacy?
+                    </h2>
+                    <h2 class="text-3xl md:text-5xl font-black mb-6" data-lang="es">
+                        ¿Listo para Construir Su Legado?
+                    </h2>
+                    
+                    <p class="text-xl text-green-100 mb-8 max-w-2xl mx-auto leading-relaxed" data-lang="en">
+                        The 0% net income exemption and cash grant opportunities are finite windows to build your capital. Whether you are launching a digital platform or a physical facility, this is your most valuable asset.
+                    </p>
+                    <p class="text-xl text-green-100 mb-8 max-w-2xl mx-auto leading-relaxed" data-lang="es">
+                        La exención del 0% sobre ingresos netos y las oportunidades de subvenciones en efectivo son ventanas finitas para construir su capital. Ya sea que esté lanzando una plataforma digital o una instalación física, este es su activo más valioso.
+                    </p>
+
+                    <a href="../index.html#contact" class="inline-block bg-white text-green-600 px-10 py-5 rounded-2xl font-black text-xl hover:bg-green-50 transition shadow-2xl transform hover:scale-105">
+                        <span data-lang="en">Schedule Your Strategic Consultation</span>
+                        <span data-lang="es">Programe Su Consulta Estratégica</span>
+                        <i class="fas fa-arrow-right ml-3"></i>
+                    </a>
+                    
+                    <p class="text-sm text-green-200 mt-6" data-lang="en">
+                        Average decree processing time: 89 days • $105 DDEC filing fee
+                    </p>
+                    <p class="text-sm text-green-200 mt-6" data-lang="es">
+                        Tiempo promedio de procesamiento de decreto: 89 días • Tarifa de presentación DDEC de $105
+                    </p>
+                </div>
+
+                <!-- Social Share -->
+                <div class="mt-12 pt-8 border-t border-slate-200 text-center">
+                    <p class="text-slate-600 mb-4 font-semibold" data-lang="en">Share this article:</p>
+                    <p class="text-slate-600 mb-4 font-semibold" data-lang="es">Compartir este artículo:</p>
+                    <div class="flex justify-center gap-4">
+                        <a href="#" class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center hover:bg-blue-700 transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-sky-500 text-white rounded-full flex items-center justify-center hover:bg-sky-600 transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-blue-700 text-white rounded-full flex items-center justify-center hover:bg-blue-800 transition">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center hover:bg-green-700 transition">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Blog Categories -->
+    <section class="py-12 px-6 bg-slate-100">
+        <div class="max-w-6xl mx-auto">
+            <h3 class="text-2xl font-black mb-6 text-center">
+                <span data-lang="en">Browse by Category</span>
+                <span data-lang="es">Explorar por Categoría</span>
+            </h3>
+            <div class="flex flex-wrap justify-center gap-4">
+                <button class="px-6 py-3 bg-blue-600 text-white rounded-xl font-bold hover:bg-blue-700 transition">
+                    <span data-lang="en">All Posts</span>
+                    <span data-lang="es">Todos</span>
+                </button>
+                <button class="px-6 py-3 bg-white text-slate-700 rounded-xl font-semibold hover:bg-blue-50 transition border-2 border-slate-200">
+                    <span data-lang="en">Act 60 Updates</span>
+                    <span data-lang="es">Actualizaciones Ley 60</span>
+                </button>
+                <button class="px-6 py-3 bg-white text-slate-700 rounded-xl font-semibold hover:bg-blue-50 transition border-2 border-slate-200">
+                    <span data-lang="en">Tax Strategy</span>
+                    <span data-lang="es">Estrategia Fiscal</span>
+                </button>
+                <button class="px-6 py-3 bg-white text-slate-700 rounded-xl font-semibold hover:bg-blue-50 transition border-2 border-slate-200">
+                    <span data-lang="en">Compliance Tips</span>
+                    <span data-lang="es">Consejos de Cumplimiento</span>
+                </button>
+                <button class="px-6 py-3 bg-white text-slate-700 rounded-xl font-semibold hover:bg-blue-50 transition border-2 border-slate-200">
+                    <span data-lang="en">Digital Assets</span>
+                    <span data-lang="es">Activos Digitales</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Articles Grid -->
+    <section class="py-20 px-6">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-black mb-12">
+                <span data-lang="en">Recent Articles</span>
+                <span data-lang="es">Artículos Recientes</span>
+            </h2>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Article 1 -->
+                <article class="blog-card bg-white rounded-2xl shadow-lg overflow-hidden border border-slate-100">
+                    <div class="bg-gradient-to-br from-green-600 to-green-500 p-6 text-white">
+                        <span class="text-xs font-bold uppercase tracking-wide opacity-80">
+                            <span data-lang="en">Act 60 Updates</span>
+                            <span data-lang="es">Actualizaciones Ley 60</span>
+                        </span>
+                        <h3 class="text-xl font-black mt-2 mb-2">
+                            <span data-lang="en">Young Entrepreneur Decree: Complete Filing Checklist</span>
+                            <span data-lang="es">Decreto de Joven Empresario: Lista de Verificación Completa</span>
+                        </h3>
+                        <p class="text-sm text-green-100">
+                            <span data-lang="en">February 5, 2026 • 6 min read</span>
+                            <span data-lang="es">5 Febrero 2026 • 6 min lectura</span>
+                        </p>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-slate-600 text-sm mb-4 leading-relaxed">
+                            <span data-lang="en">Step-by-step guide to the $105 DDEC filing process, including the critical timing requirements for the 100% tax exemption.</span>
+                            <span data-lang="es">Guía paso a paso del proceso de presentación de DDEC de $105, incluidos los requisitos de tiempo críticos para la exención del 100%.</span>
+                        </p>
+                        <a href="#" class="inline-flex items-center gap-2 text-blue-600 font-bold text-sm hover:text-blue-700 transition">
+                            <span data-lang="en">Read More</span>
+                            <span data-lang="es">Leer Más</span>
+                            <i class="fas fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Article 2 -->
+                <article class="blog-card bg-white rounded-2xl shadow-lg overflow-hidden border border-slate-100">
+                    <div class="bg-gradient-to-br from-blue-600 to-blue-500 p-6 text-white">
+                        <span class="text-xs font-bold uppercase tracking-wide opacity-80">
+                            <span data-lang="en">Tax Strategy</span>
+                            <span data-lang="es">Estrategia Fiscal</span>
+                        </span>
+                        <h3 class="text-xl font-black mt-2 mb-2">
+                            <span data-lang="en">Reasonable Salary Guidelines for Export Services</span>
+                            <span data-lang="es">Pautas de Salario Razonable para Servicios de Exportación</span>
+                        </h3>
+                        <p class="text-sm text-blue-100">
+                            <span data-lang="en">January 28, 2026 • 10 min read</span>
+                            <span data-lang="es">28 Enero 2026 • 10 min lectura</span>
+                        </p>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-slate-600 text-sm mb-4 leading-relaxed">
+                            <span data-lang="en">How Hacienda determines "reasonable salary" for Act 60 Chapter 3 holders and strategies to optimize your distributions.</span>
+                            <span data-lang="es">Cómo Hacienda determina el "salario razonable" para titulares de Ley 60 Capítulo 3 y estrategias para optimizar sus distribuciones.</span>
+                        </p>
+                        <a href="#" class="inline-flex items-center gap-2 text-blue-600 font-bold text-sm hover:text-blue-700 transition">
+                            <span data-lang="en">Read More</span>
+                            <span data-lang="es">Leer Más</span>
+                            <i class="fas fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Article 3 -->
+                <article class="blog-card bg-white rounded-2xl shadow-lg overflow-hidden border border-slate-100">
+                    <div class="bg-gradient-to-br from-purple-600 to-purple-500 p-6 text-white">
+                        <span class="text-xs font-bold uppercase tracking-wide opacity-80">
+                            <span data-lang="en">Compliance Tips</span>
+                            <span data-lang="es">Consejos de Cumplimiento</span>
+                        </span>
+                        <h3 class="text-xl font-black mt-2 mb-2">
+                            <span data-lang="en">The Residency Blackout Period: A Permanent Disqualifier</span>
+                            <span data-lang="es">El Período de Bloqueo de Residencia: Un Descalificador Permanente</span>
+                        </h3>
+                        <p class="text-sm text-purple-100">
+                            <span data-lang="en">January 22, 2026 • 5 min read</span>
+                            <span data-lang="es">22 Enero 2026 • 5 min lectura</span>
+                        </p>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-slate-600 text-sm mb-4 leading-relaxed">
+                            <span data-lang="en">Why PR residency between Jan 2006-Jan 2012 permanently bars you from Chapter 2 benefits, and what to do if you're affected.</span>
+                            <span data-lang="es">Por qué la residencia de PR entre ene 2006-ene 2012 lo excluye permanentemente de los beneficios del Capítulo 2, y qué hacer si está afectado.</span>
+                        </p>
+                        <a href="#" class="inline-flex items-center gap-2 text-blue-600 font-bold text-sm hover:text-blue-700 transition">
+                            <span data-lang="en">Read More</span>
+                            <span data-lang="es">Leer Más</span>
+                            <i class="fas fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Article 4 -->
+                <article class="blog-card bg-white rounded-2xl shadow-lg overflow-hidden border border-slate-100">
+                    <div class="bg-gradient-to-br from-orange-600 to-orange-500 p-6 text-white">
+                        <span class="text-xs font-bold uppercase tracking-wide opacity-80">
+                            <span data-lang="en">Digital Assets</span>
+                            <span data-lang="es">Activos Digitales</span>
+                        </span>
+                        <h3 class="text-xl font-black mt-2 mb-2">
+                            <span data-lang="en">Cryptocurrency & Act 60: Cost Basis Tracking Requirements</span>
+                            <span data-lang="es">Criptomonedas y Ley 60: Requisitos de Seguimiento de Base de Costos</span>
+                        </h3>
+                        <p class="text-sm text-orange-100">
+                            <span data-lang="en">January 15, 2026 • 12 min read</span>
+                            <span data-lang="es">15 Enero 2026 • 12 min lectura</span>
+                        </p>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-slate-600 text-sm mb-4 leading-relaxed">
+                            <span data-lang="en">How to properly document pre-residency vs post-residency crypto gains to maximize your Act 60 tax benefits.</span>
+                            <span data-lang="es">Cómo documentar adecuadamente las ganancias cripto pre-residencia vs post-residencia para maximizar sus beneficios fiscales de Ley 60.</span>
+                        </p>
+                        <a href="#" class="inline-flex items-center gap-2 text-blue-600 font-bold text-sm hover:text-blue-700 transition">
+                            <span data-lang="en">Read More</span>
+                            <span data-lang="es">Leer Más</span>
+                            <i class="fas fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Article 5 -->
+                <article class="blog-card bg-white rounded-2xl shadow-lg overflow-hidden border border-slate-100">
+                    <div class="bg-gradient-to-br from-red-600 to-red-500 p-6 text-white">
+                        <span class="text-xs font-bold uppercase tracking-wide opacity-80">
+                            <span data-lang="en">Compliance Tips</span>
+                            <span data-lang="es">Consejos de Cumplimiento</span>
+                        </span>
+                        <h3 class="text-xl font-black mt-2 mb-2">
+                            <span data-lang="en">April 15 Deadline: The Triple Threat</span>
+                            <span data-lang="es">Fecha Límite del 15 de Abril: La Triple Amenaza</span>
+                        </h3>
+                        <p class="text-sm text-red-100">
+                            <span data-lang="en">January 10, 2026 • 7 min read</span>
+                            <span data-lang="es">10 Enero 2026 • 7 min lectura</span>
+                        </p>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-slate-600 text-sm mb-4 leading-relaxed">
+                            <span data-lang="en">LLC Annual Report, Patente Municipal, and individual tax returns all converge on April 15. Here's your survival checklist.</span>
+                            <span data-lang="es">Informe Anual LLC, Patente Municipal y declaraciones de impuestos individuales convergen el 15 de abril. Aquí está su lista de verificación de supervivencia.</span>
+                        </p>
+                        <a href="#" class="inline-flex items-center gap-2 text-blue-600 font-bold text-sm hover:text-blue-700 transition">
+                            <span data-lang="en">Read More</span>
+                            <span data-lang="es">Leer Más</span>
+                            <i class="fas fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Article 6 -->
+                <article class="blog-card bg-white rounded-2xl shadow-lg overflow-hidden border border-slate-100">
+                    <div class="bg-gradient-to-br from-slate-700 to-slate-600 p-6 text-white">
+                        <span class="text-xs font-bold uppercase tracking-wide opacity-80">
+                            <span data-lang="en">Tax Strategy</span>
+                            <span data-lang="es">Estrategia Fiscal</span>
+                        </span>
+                        <h3 class="text-xl font-black mt-2 mb-2">
+                            <span data-lang="en">IVU Monthly Filings: Automating Your Process</span>
+                            <span data-lang="es">Presentaciones Mensuales de IVU: Automatizando Su Proceso</span>
+                        </h3>
+                        <p class="text-sm text-slate-300">
+                            <span data-lang="en">January 8, 2026 • 8 min read</span>
+                            <span data-lang="es">8 Enero 2026 • 8 min lectura</span>
+                        </p>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-slate-600 text-sm mb-4 leading-relaxed">
+                            <span data-lang="en">Best practices for Puerto Rico's Sales & Use Tax reporting, including SURI portal navigation and common pitfalls to avoid.</span>
+                            <span data-lang="es">Mejores prácticas para informes de Impuesto sobre Ventas y Uso de Puerto Rico, incluida la navegación del portal SURI y errores comunes a evitar.</span>
+                        </p>
+                        <a href="#" class="inline-flex items-center gap-2 text-blue-600 font-bold text-sm hover:text-blue-700 transition">
+                            <span data-lang="en">Read More</span>
+                            <span data-lang="es">Leer Más</span>
+                            <i class="fas fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Load More -->
+            <div class="text-center mt-12">
+                <button class="px-8 py-4 bg-blue-600 text-white rounded-xl font-bold hover:bg-blue-700 transition shadow-lg">
+                    <span data-lang="en">Load More Articles</span>
+                    <span data-lang="es">Cargar Más Artículos</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section class="py-20 px-6 bg-slate-100">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-black mb-12 text-center">
+                <span data-lang="en">Free Resources</span>
+                <span data-lang="es">Recursos Gratuitos</span>
+            </h2>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Resource 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg border-2 border-blue-100">
+                    <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mb-4">
+                        <i class="fas fa-calendar-alt text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">
+                        <span data-lang="en">2026 Compliance Calendar</span>
+                        <span data-lang="es">Calendario de Cumplimiento 2026</span>
+                    </h3>
+                    <p class="text-slate-600 text-sm mb-4">
+                        <span data-lang="en">Download our complete month-by-month deadline tracker for all Puerto Rico tax obligations.</span>
+                        <span data-lang="es">Descargue nuestro rastreador completo de fechas límite mes a mes para todas las obligaciones fiscales de Puerto Rico.</span>
+                    </p>
+                    <a href="#" class="inline-flex items-center gap-2 text-blue-600 font-bold text-sm hover:text-blue-700 transition">
+                        <span data-lang="en">Download PDF</span>
+                        <span data-lang="es">Descargar PDF</span>
+                        <i class="fas fa-download text-xs"></i>
+                    </a>
+                </div>
+
+                <!-- Resource 2 -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg border-2 border-green-100">
+                    <div class="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mb-4">
+                        <i class="fas fa-file-invoice-dollar text-green-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">
+                        <span data-lang="en">Act 60 Fee Calculator</span>
+                        <span data-lang="es">Calculadora de Tarifas Ley 60</span>
+                    </h3>
+                    <p class="text-slate-600 text-sm mb-4">
+                        <span data-lang="en">Calculate your total annual compliance costs based on your specific decree type and business structure.</span>
+                        <span data-lang="es">Calcule sus costos totales anuales de cumplimiento según su tipo de decreto específico y estructura empresarial.</span>
+                    </p>
+                    <a href="#" class="inline-flex items-center gap-2 text-green-600 font-bold text-sm hover:text-green-700 transition">
+                        <span data-lang="en">Use Calculator</span>
+                        <span data-lang="es">Usar Calculadora</span>
+                        <i class="fas fa-calculator text-xs"></i>
+                    </a>
+                </div>
+
+                <!-- Resource 3 -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg border-2 border-purple-100">
+                    <div class="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mb-4">
+                        <i class="fas fa-book text-purple-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">
+                        <span data-lang="en">Act 60 Eligibility Quiz</span>
+                        <span data-lang="es">Cuestionario de Elegibilidad Ley 60</span>
+                    </h3>
+                    <p class="text-slate-600 text-sm mb-4">
+                        <span data-lang="en">Take our 5-minute quiz to discover which Act 60 chapter is right for your situation.</span>
+                        <span data-lang="es">Realice nuestro cuestionario de 5 minutos para descubrir qué capítulo de Ley 60 es adecuado para su situación.</span>
+                    </p>
+                    <a href="#" class="inline-flex items-center gap-2 text-purple-600 font-bold text-sm hover:text-purple-700 transition">
+                        <span data-lang="en">Start Quiz</span>
+                        <span data-lang="es">Comenzar Cuestionario</span>
+                        <i class="fas fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 px-6 bg-gradient-to-r from-blue-900 to-blue-700 text-white text-center">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="text-4xl font-black mb-4">
+                <span data-lang="en">Need Expert Guidance?</span>
+                <span data-lang="es">¿Necesita Orientación Experta?</span>
+            </h2>
+            <p class="text-xl text-blue-100 mb-8">
+                <span data-lang="en">Let us handle your Act 60 compliance while you focus on building your business</span>
+                <span data-lang="es">Permítanos manejar su cumplimiento de Ley 60 mientras usted se enfoca en construir su negocio</span>
+            </p>
+            <a href="index.html#contact" class="inline-block bg-white text-blue-900 px-10 py-4 rounded-xl font-bold text-lg hover:bg-slate-100 transition shadow-2xl">
+                <span data-lang="en">Schedule Consultation</span>
+                <span data-lang="es">Programar Consulta</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-slate-950 text-white text-center">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="mb-6">
+                <a href="index.html" class="text-2xl font-black text-white uppercase tracking-tighter mb-2 inline-block">
+                    Satoshi<span class="text-blue-500 font-light">Ledger</span>
+                </a>
+            </div>
+            <p class="text-xs opacity-30 italic mb-6">
+                <span data-lang="en">Tax compliance and accounting services. Not a law firm.</span>
+                <span data-lang="es">Servicios de contabilidad y cumplimiento fiscal. No es una firma de abogados.</span>
+            </p>
+            <div class="flex justify-center gap-6 mb-6">
+                <a href="https://instagram.com/SatoshiLedger" target="_blank" class="text-slate-400 hover:text-blue-400 transition">
+                    <i class="fab fa-instagram text-2xl"></i>
+                </a>
+            </div>
+            <p class="text-xs opacity-20">© 2025 Satoshi Ledger LLC. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            menu.classList.toggle('hidden');
+            if (!menu.classList.contains('hidden')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        }
+        
+        function setLanguage(lang) {
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                el.style.display = el.getAttribute('data-lang') === lang ? 'inline' : 'none';
+            });
+            document.getElementById('btn-en').classList.toggle('lang-active', lang === 'en');
+            document.getElementById('btn-es').classList.toggle('lang-active', lang === 'es');
+            localStorage.setItem('preferredLang', lang);
+        }
+        window.addEventListener('load', () => {
+            const savedLang = localStorage.getItem('preferredLang') || 'en';
+            setLanguage(savedLang);
+        });
+    </script>
+</body>
+</html>
