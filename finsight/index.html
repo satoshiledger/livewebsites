@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FinSight Pro — Professional Financial Analysis</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'DM Sans', system-ui, sans-serif; background: #0a0e1a; color: #e2e8f0; min-height: 100vh; }
+header { padding: 20px 32px; border-bottom: 1px solid #1e293b; background: rgba(10,14,26,0.95); backdrop-filter: blur(12px); position: sticky; top: 0; z-index: 10; display: flex; align-items: center; gap: 12px; }
+.logo { width: 36px; height: 36px; border-radius: 10px; background: linear-gradient(135deg, #3b82f6, #8b5cf6); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 18px; color: #fff; }
+.brand h1 { font-size: 18px; letter-spacing: -0.5px; }
+.brand p { font-size: 11px; color: #64748b; text-transform: uppercase; letter-spacing: 1px; }
+main { max-width: 800px; margin: 0 auto; padding: 40px 24px; }
+.card { background: rgba(30,41,59,0.4); border: 1px solid #1e293b; border-radius: 16px; padding: 32px; margin-bottom: 24px; }
+h2 { font-size: 20px; margin-bottom: 8px; }
+.subtitle { color: #64748b; font-size: 14px; margin-bottom: 24px; }
+.dropzone { border: 2px dashed #334155; border-radius: 12px; padding: 48px 24px; text-align: center; cursor: pointer; transition: all 0.3s; }
+.dropzone:hover, .dropzone.dragover { border-color: #3b82f6; background: rgba(59,130,246,0.05); }
+.dropzone svg { color: #64748b; margin-bottom: 12px; }
+.dropzone p { color: #94a3b8; font-size: 14px; }
+.dropzone .main-text { color: #e2e8f0; font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+.file-list { margin-top: 16px; }
+.file-item { display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(15,23,42,0.5); border-radius: 8px; margin-bottom: 6px; font-size: 13px; color: #94a3b8; }
+.file-item .name { flex: 1; }
+.file-item .check { color: #10b981; }
+.processing-section { margin-top: 20px; padding: 16px; background: rgba(15,23,42,0.5); border-radius: 8px; }
+.processing-section label { font-size: 13px; color: #64748b; display: block; margin-bottom: 8px; font-weight: 600; }
+.radio-group { display: flex; gap: 20px; }
+.radio-group label { display: flex; align-items: center; gap: 8px; color: #94a3b8; font-weight: 400; cursor: pointer; }
+.radio-group input[type="radio"] { cursor: pointer; }
+.btn { padding: 12px 28px; border: none; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: all 0.2s; }
+.btn-primary { background: linear-gradient(135deg, #3b82f6, #2563eb); color: #fff; box-shadow: 0 4px 14px rgba(59,130,246,0.3); }
+.btn-primary:hover { box-shadow: 0 6px 20px rgba(59,130,246,0.4); transform: translateY(-1px); }
+.btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+.btn-outline { background: transparent; border: 1px solid #334155; color: #94a3b8; }
+.actions { display: flex; gap: 12px; margin-top: 24px; flex-wrap: wrap; }
+.progress { margin-top: 24px; display: none; }
+.progress.active { display: block; }
+.progress-bar { height: 4px; background: #1e293b; border-radius: 2px; overflow: hidden; margin-bottom: 8px; }
+.progress-fill { height: 100%; background: linear-gradient(90deg, #3b82f6, #8b5cf6); border-radius: 2px; transition: width 0.5s; }
+.progress-text { font-size: 13px; color: #64748b; }
+.step-item { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid #1e293b; }
+.step-num { width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; flex-shrink: 0; }
+.step-pending { background: #1e293b; color: #64748b; }
+.step-active { background: #3b82f6; color: #fff; }
+.step-done { background: #10b981; color: #fff; }
+.step-text { font-size: 14px; }
+.step-text.active { color: #e2e8f0; font-weight: 600; }
+.step-text.pending { color: #475569; }
+.step-text.done { color: #10b981; }
+.results { display: none; }
+.results.active { display: block; }
+.metric-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
+.metric { background: rgba(15,23,42,0.5); border-radius: 12px; padding: 20px; text-align: center; border: 1px solid #1e293b; }
+.metric .value { font-size: 24px; font-weight: 700; margin-bottom: 4px; }
+.metric .label { font-size: 12px; color: #64748b; }
+.download-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.download-card { display: flex; align-items: center; gap: 12px; padding: 16px; background: rgba(15,23,42,0.5); border: 1px solid #1e293b; border-radius: 12px; cursor: pointer; transition: all 0.2s; text-decoration: none; color: inherit; }
+.download-card:hover { border-color: #3b82f6; background: rgba(59,130,246,0.05); }
+.download-card .icon { font-size: 28px; }
+.download-card .info h4 { font-size: 14px; font-weight: 600; }
+.download-card .info p { font-size: 12px; color: #64748b; }
+.alert { padding: 12px 16px; border-radius: 8px; font-size: 13px; margin-bottom: 16px; display: none; }
+.alert.success { display: flex; background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.2); color: #10b981; align-items: center; gap: 8px; }
+.alert.error { display: flex; background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.2); color: #ef4444; align-items: center; gap: 8px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">F</div>
+  <div class="brand">
+    <h1>FinSight Pro</h1>
+    <p>Professional Financial Analysis</p>
+  </div>
+</header>
+
+<main>
+  <div id="alertBox" class="alert"></div>
+
+  <!-- Upload Section -->
+  <div class="card" id="uploadCard">
+    <h2>Upload Bank Statements</h2>
+    <p class="subtitle">Drop PDF statements or click to browse</p>
+
+    <div class="dropzone" id="dropzone">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+      <p class="main-text">Drop PDF files here or click to browse</p>
+      <p>Supports all major bank statement formats</p>
+    </div>
+    <input type="file" id="fileInput" multiple accept=".pdf" style="display:none">
+
+    <div class="file-list" id="fileList"></div>
+
+    <div class="processing-section">
+      <label>Processing Method</label>
+      <div class="radio-group">
+        <label>
+          <input type="radio" name="processing" value="ai" checked>
+          AI Classification (Recommended)
+        </label>
+        <label>
+          <input type="radio" name="processing" value="rules">
+          Rule-Based (Faster)
+        </label>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button class="btn btn-primary" id="processBtn" disabled onclick="runAnalysis()">
+        <span>▶</span> Start Processing
+      </button>
+    </div>
+  </div>
+
+  <!-- Progress Section -->
+  <div class="card progress" id="progressCard">
+    <h2>Processing...</h2>
+    <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+    <p class="progress-text" id="progressText">Starting...</p>
+    <div id="stepList" style="margin-top:24px"></div>
+  </div>
+
+  <!-- Results Section -->
+  <div class="card results" id="resultsCard">
+    <h2>✅ Analysis Complete</h2>
+    <p class="subtitle" id="resultsSummary"></p>
+
+    <div class="metric-grid" id="metricsGrid"></div>
+
+    <h3 style="margin-bottom:12px;font-size:14px;color:#64748b;text-transform:uppercase;letter-spacing:1px;">📎 Client Deliverables</h3>
+    <div class="download-grid">
+      <a href="https://finsight-backend-production-45bf.up.railway.app/api/download/excel" class="download-card">
+        <div class="icon">📗</div>
+        <div class="info">
+          <h4>Excel Workbook</h4>
+          <p>Complete transaction data</p>
+        </div>
+      </a>
+      <a href="https://finsight-backend-production-45bf.up.railway.app/api/download/report" class="download-card">
+        <div class="icon">📄</div>
+        <div class="info">
+          <h4>Professional Report</h4>
+          <p>Word document for client</p>
+        </div>
+      </a>
+    </div>
+
+    <div class="actions" style="margin-top:24px">
+      <button class="btn btn-outline" onclick="location.reload()">Process Another Client</button>
+    </div>
+  </div>
+</main>
+
+<script>
+// ✅ CONFIGURATION
+const API_URL = 'https://finsight-backend-production-45bf.up.railway.app';
+const ANTHROPIC_API_KEY = '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';
+
+const dropzone = document.getElementById('dropzone');
+const fileInput = document.getElementById('fileInput');
+const fileList = document.getElementById('fileList');
+const processBtn = document.getElementById('processBtn');
+let selectedFiles = [];
+
+// Click handler
+dropzone.addEventListener('click', (e) => {
+  e.preventDefault();
+  e.stopPropagation();
+  fileInput.click();
+});
+
+// Drag and drop
+dropzone.addEventListener('dragover', (e) => { 
+  e.preventDefault(); 
+  e.stopPropagation();
+  dropzone.classList.add('dragover'); 
+});
+
+dropzone.addEventListener('dragleave', (e) => {
+  e.preventDefault();
+  e.stopPropagation();
+  dropzone.classList.remove('dragover');
+});
+
+dropzone.addEventListener('drop', (e) => {
+  e.preventDefault();
+  e.stopPropagation();
+  dropzone.classList.remove('dragover');
+  handleFiles(e.dataTransfer.files);
+});
+
+// File input change
+fileInput.addEventListener('change', (e) => {
+  handleFiles(e.target.files);
+  e.target.value = '';
+});
+
+function handleFiles(files) {
+  selectedFiles = Array.from(files).filter(f => f.name.toLowerCase().endsWith('.pdf'));
+  renderFileList();
+  processBtn.disabled = selectedFiles.length === 0;
+}
+
+function renderFileList() {
+  if (selectedFiles.length === 0) {
+    fileList.innerHTML = '';
+    return;
+  }
+  fileList.innerHTML = selectedFiles.map(f =>
+    `<div class="file-item"><span class="check">✓</span><span class="name">${f.name}</span><span>${(f.size/1024).toFixed(0)} KB</span></div>`
+  ).join('');
+}
+
+async function runAnalysis() {
+  const progressCard = document.getElementById('progressCard');
+  const progressFill = document.getElementById('progressFill');
+  const progressText = document.getElementById('progressText');
+  const stepList = document.getElementById('stepList');
+
+  // Get processing method
+  const processingMethod = document.querySelector('input[name="processing"]:checked').value;
+  const useAI = processingMethod === 'ai';
+
+  const steps = [
+    'Uploading PDF files...',
+    'Identifying bank statements...',
+    'Extracting transactions...',
+    useAI ? 'AI classification...' : 'Rule-based classification...',
+    'Budget analysis...',
+    'Generating Excel...',
+    'Generating report...',
+    'Finalizing...',
+  ];
+
+  document.getElementById('uploadCard').style.display = 'none';
+  progressCard.classList.add('active');
+
+  stepList.innerHTML = steps.map((s, i) =>
+    `<div class="step-item" id="step${i}"><div class="step-num step-pending">${i+1}</div><span class="step-text pending">${s}</span></div>`
+  ).join('');
+
+  function updateStep(idx, status) {
+    const el = document.getElementById(`step${idx}`);
+    if (!el) return;
+    const num = el.querySelector('.step-num');
+    const text = el.querySelector('.step-text');
+    num.className = `step-num step-${status}`;
+    text.className = `step-text ${status}`;
+    if (status === 'done') num.textContent = '✓';
+    if (status === 'active') progressFill.style.width = `${((idx+1)/steps.length)*100}%`;
+    progressText.textContent = steps[idx];
+  }
+
+  try {
+    // Upload
+    updateStep(0, 'active');
+    const formData = new FormData();
+    selectedFiles.forEach(f => formData.append('files', f));
+    
+    const uploadRes = await fetch(`${API_URL}/api/upload`, { 
+      method: 'POST', 
+      body: formData 
+    });
+    
+    if (!uploadRes.ok) {
+      const errText = await uploadRes.text();
+      throw new Error(`Upload failed: ${uploadRes.status} - ${errText}`);
+    }
+    updateStep(0, 'done');
+
+    // Process
+    for (let i = 1; i <= 6; i++) {
+      updateStep(i, 'active');
+      await new Promise(r => setTimeout(r, 400));
+      if (i > 1) updateStep(i-1, 'done');
+    }
+
+    // Use API key only if AI mode selected
+    const apiKey = useAI ? ANTHROPIC_API_KEY : null;
+    
+    const processRes = await fetch(`${API_URL}/api/process`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ api_key: apiKey }),
+    });
+
+    for (let i = 1; i <= 6; i++) updateStep(i, 'done');
+    updateStep(7, 'active');
+    await new Promise(r => setTimeout(r, 300));
+    updateStep(7, 'done');
+    progressFill.style.width = '100%';
+
+    if (!processRes.ok) {
+      const err = await processRes.json();
+      throw new Error(err.error || 'Processing failed');
+    }
+
+    const result = await processRes.json();
+    showResults(result);
+
+  } catch (err) {
+    console.error('Error:', err);
+    const alertBox = document.getElementById('alertBox');
+    alertBox.className = 'alert error';
+    alertBox.innerHTML = `<strong>⚠️ Error:</strong> ${err.message}`;
+    progressCard.classList.remove('active');
+    document.getElementById('uploadCard').style.display = 'block';
+  }
+}
+
+function showResults(result) {
+  document.getElementById('progressCard').classList.remove('active');
+  const resultsCard = document.getElementById('resultsCard');
+  resultsCard.classList.add('active');
+
+  const a = result.analysis;
+  document.getElementById('resultsSummary').textContent =
+    `Analysis complete! Processed ${result.processed_files} statements with ${result.total_transactions} transactions.`;
+
+  const fmt = (n) => {
+    const abs = Math.abs(n);
+    const s = abs.toLocaleString('en-US', {minimumFractionDigits:2, maximumFractionDigits:2});
+    return n < 0 ? `-$${s}` : `$${s}`;
+  };
+
+  document.getElementById('metricsGrid').innerHTML = [
+    { value: fmt(a.avg_monthly_income), label: 'Monthly Income', color: '#10b981' },
+    { value: fmt(a.avg_monthly_expenses), label: 'Monthly Expenses', color: '#ef4444' },
+    { value: `${(a.savings_rate * 100).toFixed(1)}%`, label: 'Savings Rate', color: '#3b82f6' },
+  ].map(m => `<div class="metric"><div class="value" style="color:${m.color}">${m.value}</div><div class="label">${m.label}</div></div>`).join('');
+
+  const successAlert = document.getElementById('alertBox');
+  successAlert.className = 'alert success';
+  successAlert.innerHTML = `<strong>✓</strong> Analysis complete! Download your files below.`;
+}
+</script>
+</body>
+</html>

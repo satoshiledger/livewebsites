@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Act 60 Eligibility Quiz | PuertoRicoLLC.com</title>
+    <meta name="description" content="Take our comprehensive 13-question quiz to discover which Act 60 chapter is right for your situation - Young Entrepreneur, Export Services, Individual Investor, or Healthcare.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { font-family: 'DM Sans', sans-serif; }
+        h1, h2, h3 { font-family: 'DM Serif Display', serif; }
+        [data-lang="es"] { display: none; }
+        .lang-active { font-weight: 800; color: #3A99D8 !important; border-bottom: 2px solid #3A99D8; }
+        html { scroll-behavior: smooth; }
+        
+        .question-card, .result-card { display: none; }
+        .question-card.active, .result-card.active { display: block; }
+        
+        .conditional-section { display: none; }
+        .conditional-section.show { display: block; }
+        
+        @keyframes cardIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes resultIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        
+        .question-card.active { animation: cardIn 0.4s ease-out; }
+        .result-card.active { animation: resultIn 0.5s ease-out; }
+        
+        .multi-select-btn.selected {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: white;
+            border-color: #f59e0b;
+        }
+    </style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L7DET25V5W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-L7DET25V5W');
+</script>
+</head>
+<body class="bg-slate-950 text-white">
+
+    <!-- Navigation -->
+    <nav class="bg-slate-900 border-b border-slate-800 sticky top-0 z-50 shadow-lg">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="text-2xl font-black uppercase tracking-tighter">
+                    <span style="color:#CC0000">PuertoRico</span><span style="color:#3A99D8">LLC</span><span style="color:#3A99D8;font-weight:500">.com</span>
+                </a>
+                <div class="hidden md:flex items-center gap-6">
+                    <div class="flex items-center gap-1 text-base font-black uppercase tracking-tighter">
+                        <button onclick="setLanguage('en')" id="btn-en" class="lang-active cursor-pointer text-white hover:text-gray-300">EN</button>
+                        <span class="text-slate-500 text-xs">|</span>
+                        <button onclick="setLanguage('es')" id="btn-es" class="cursor-pointer text-white hover:text-gray-300">ES</button>
+                    </div>
+                    <div class="flex space-x-4 text-sm font-semibold uppercase">
+                        <a href="index.html" class="text-white hover:text-gray-300 transition"><span data-lang="en">Home</span><span data-lang="es">Inicio</span></a>
+                        <a href="act60-mastery.html" class="text-white hover:text-gray-300 transition"><span data-lang="en">Act 60</span><span data-lang="es">Ley 60</span></a>
+                        <a href="blog.html" class="text-white hover:text-gray-300 transition"><span data-lang="en">Blog</span><span data-lang="es">Blog</span></a>
+                        <a href="index.html#contact" class="bg-red-600 text-white px-5 py-2 rounded-lg hover:bg-red-700 transition shadow-sm"><span data-lang="en">Consultation</span><span data-lang="es">Consulta</span></a>
+                    </div>
+                </div>
+                <button onclick="toggleMobileMenu()" class="md:hidden text-2xl text-white"><i class="fas fa-bars" id="menu-icon"></i></button>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-3 pb-4">
+                <a href="index.html" class="block py-2 text-white hover:text-gray-300 transition text-center font-semibold"><span data-lang="en">Home</span><span data-lang="es">Inicio</span></a>
+                <a href="act60-mastery.html" class="block py-2 text-white hover:text-gray-300 transition text-center font-semibold"><span data-lang="en">Act 60</span><span data-lang="es">Ley 60</span></a>
+                <a href="blog.html" class="block py-2 text-white hover:text-gray-300 transition text-center font-semibold"><span data-lang="en">Blog</span><span data-lang="es">Blog</span></a>
+                <a href="index.html#contact" class="block bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition text-center font-bold"><span data-lang="en">Consultation</span><span data-lang="es">Consulta</span></a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white py-20 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="inline-block bg-gradient-to-r from-amber-500 to-amber-600 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-6">
+                <span data-lang="en">Comprehensive Assessment</span>
+                <span data-lang="es">Evaluación Integral</span>
+            </div>
+            <h1 class="text-5xl md:text-6xl font-extrabold mb-6">
+                <span data-lang="en">Act 60 Eligibility Quiz</span>
+                <span data-lang="es">Cuestionario de Elegibilidad Ley 60</span>
+            </h1>
+            <p class="text-xl text-blue-100 mb-8">
+                <span data-lang="en">Discover your perfect Act 60 path with our smart, personalized quiz</span>
+                <span data-lang="es">Descubra su camino perfecto de Ley 60 con nuestro cuestionario inteligente y personalizado</span>
+            </p>
+        </div>
+    </header>
+
+    <!-- Quiz Container -->
+    <section class="py-20 px-6">
+        <div class="max-w-3xl mx-auto">
+            
+            <!-- Start Screen -->
+            <div id="start-screen" class="bg-slate-900 p-12 rounded-3xl shadow-2xl text-center border border-slate-800">
+                <div class="w-24 h-24 bg-gradient-to-br from-amber-500 to-amber-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <i class="fas fa-compass text-white text-4xl"></i>
+                </div>
+                <h2 class="text-3xl font-black mb-4">
+                    <span data-lang="en">Find Your Optimal Act 60 Chapter</span>
+                    <span data-lang="es">Encuentre Su Capítulo Óptimo de Ley 60</span>
+                </h2>
+                <p class="text-slate-300 mb-8 leading-relaxed text-lg">
+                    <span data-lang="en">Our intelligent quiz adapts to your situation, asking only the questions relevant to you. Discover if you qualify for Chapter 2 (Individual Investor), Chapter 3 (Export Services), Young Entrepreneur, or Qualified Healthcare decrees.</span>
+                    <span data-lang="es">Nuestro cuestionario inteligente se adapta a su situación, haciendo solo las preguntas relevantes para usted. Descubra si califica para el Capítulo 2 (Inversionista Individual), Capítulo 3 (Servicios de Exportación), Joven Empresario o decretos de Salud Calificada.</span>
+                </p>
+                <button onclick="startQuiz()" class="bg-gradient-to-r from-amber-500 to-amber-600 text-white px-10 py-4 rounded-xl font-bold text-lg hover:from-amber-600 hover:to-amber-700 transition shadow-lg">
+                    <span data-lang="en">Start Quiz</span>
+                    <span data-lang="es">Comenzar Cuestionario</span>
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </button>
+            </div>
+
+            <!-- Progress Bar -->
+            <div id="progress-container" class="hidden mb-8">
+                <div class="flex justify-between text-sm text-slate-400 mb-2">
+                    <span id="progress-text-en" data-lang="en">Question <span id="current-question">1</span> of <span id="total-questions">13</span></span>
+                    <span id="progress-text-es" data-lang="es">Pregunta <span id="current-question-es">1</span> de <span id="total-questions-es">13</span></span>
+                    <button onclick="goBack()" id="back-btn" class="text-amber-400 hover:text-amber-300 transition hidden">
+                        <i class="fas fa-arrow-left mr-1"></i>
+                        <span data-lang="en">Back</span>
+                        <span data-lang="es">Atrás</span>
+                    </button>
+                </div>
+                <div class="w-full bg-slate-800 rounded-full h-3">
+                    <div id="progress-bar" class="bg-gradient-to-r from-amber-500 to-amber-600 h-3 rounded-full transition-all duration-300" style="width: 0%"></div>
+                </div>
+            </div>
+
+            <!-- Question 1: Primary Goal -->
+            <div class="question-card bg-slate-900 p-12 rounded-3xl shadow-2xl border border-slate-800" data-question="1">
+                <h3 class="text-2xl font-black mb-6">
+                    <span data-lang="en">What is your primary goal in Puerto Rico?</span>
+                    <span data-lang="es">¿Cuál es su objetivo principal en Puerto Rico?</span>
+                </h3>
+                <div class="space-y-4">
+                    <button onclick="answer('q1', 'investor')" class="w-full p-6 bg-slate-800 rounded-xl text-left hover:bg-gradient-to-r hover:from-purple-900 hover:to-purple-800 border-2 border-slate-700 hover:border-purple-500 transition">
+                        <div class="font-bold text-lg mb-1">
+                            <span data-lang="en">💰 Investor - Protect my investment portfolio</span>
+                            <span data-lang="es">💰 Inversionista - Proteger mi cartera de inversiones</span>
+                        </div>
+                        <div class="text-sm text-slate-400">
+                            <span data-lang="en">Capital gains, dividends, interest income</span>
+                            <span data-lang="es">Ganancias de capital, dividendos, ingresos por intereses</span>
+                        </div>
+                    </button>
+                    <button onclick="answer('q1', 'biz-existing')" class="w-full p-6 bg-slate-800 rounded-xl text-left hover:bg-gradient-to-r hover:from-blue-900 hover:to-blue-800 border-2 border-slate-700 hover:border-blue-500 transition">
+                        <div class="font-bold text-lg mb-1">
+                            <span data-lang="en">🏢 Business Owner - I have an existing business</span>
+                            <span data-lang="es">🏢 Dueño de Negocio - Tengo un negocio existente</span>
+                        </div>
+                        <div class="text-sm text-slate-400">
+                            <span data-lang="en">Relocate my consulting, tech, or service company</span>
+                            <span data-lang="es">Reubicar mi empresa de consultoría, tecnología o servicios</span>
+                        </div>
+                    </button>
+                    <button onclick="answer('q1', 'biz-starting')" class="w-full p-6 bg-slate-800 rounded-xl text-left hover:bg-gradient-to-r hover:from-green-900 hover:to-green-800 border-2 border-slate-700 hover:border-green-500 transition">
+                        <div class="font-bold text-lg mb-1">
+                            <span data-lang="en">🚀 Starting a Business - Launch my first company</span>
+                            <span data-lang="es">🚀 Iniciando un Negocio - Lanzar mi primera empresa</span>
+                        </div>
+                        <div class="text-sm text-slate-400">
+                            <span data-lang="en">New startup or entrepreneurial venture</span>
+                            <span data-lang="es">Nueva startup o empresa emprendedora</span>
+                        </div>
+                    </button>
+                    <button onclick="answer('q1', 'healthcare')" class="w-full p-6 bg-slate-800 rounded-xl text-left hover:bg-gradient-to-r hover:from-red-900 hover:to-red-800 border-2 border-slate-700 hover:border-red-500 transition">
+                        <div class="font-bold text-lg mb-1">
+                            <span data-lang="en">🏥 Healthcare Professional - Medical practice</span>
+                            <span data-lang="es">🏥 Profesional de Salud - Práctica médica</span>
+                        </div>
+                        <div class="text-sm text-slate-400">
+                            <span data-lang="en">Physician, dentist, or allied health professional</span>
+                            <span data-lang="es">Médico, dentista o profesional de salud aliado</span>
+                        </div>
+                    </button>
+                    <button onclick="answer('q1', 'both')" class="w-full p-6 bg-slate-800 rounded-xl text-left hover:bg-gradient-to-r hover:from-amber-900 hover:to-amber-800 border-2 border-slate-700 hover:border-amber-500 transition">
+                        <div class="font-bold text-lg mb-1">
+                            <span data-lang="en">🎯 Both - Business + Investments</span>
+                            <span data-lang="es">🎯 Ambos - Negocio + Inversiones</span>
+                        </div>
+                        <div class="text-sm text-slate-400">
+                            <span data-lang="en">I run a business AND have investment income</span>
+                            <span data-lang="es">Tengo un negocio Y tengo ingresos de inversiones</span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Question 2: Age Range -->
+            <div class="question-card bg-slate-900 p-12 rounded-3xl shadow-2xl border border-slate-800" data-question="2">
+                <h3 class="text-2xl font-black mb-6">
+                    <span data-lang="en">What is your age range?</span>
+                    <span data-lang="es">¿Cuál es su rango de edad?</span>
+                </h3>
+                <div class="space-y-4">
+                    <button onclick="answer('q2', 'under-16')" class="w-full p-6 bg-slate-800 rounded-xl text-left hover:bg-slate-700 border-2 border-slate-700 hover:border-amber-500 transition">
+                        <span class="font-bold" data-lang="en">Under 16 years old</span>
+                        <span class="font-bold" data-lang="es">Menor de 16 años</span>
+                    </button>
+                    <button onclick="answer('q2', '16-26')" class="w-full p-6 bg-slate-800 rounded-xl text-left hover:bg-slate-700 border-2 border-slate-700 hover:border-amber-500 transition">
+                        <span class="font-bold" data-lang="en">16-26 years old</span>
+                        <span class="font-bold" data-lang="es">16-26 años</span>
+                    </button>
+                    <button onclick="answer('q2', '27-35')" class="w-full p-6 bg-slate-800 rounded-xl text-left hover:bg-slate-700 border-2 border-slate-700 hover:border-amber-500 transition">
+                        <span class="font-bold" data-lang="en">27-35 years old</span>
+                        <span class="font-bold" data-lang="es">27-35 años</span>
+                    </button>
+                    <button onclick="answer('q2', 'over-35')" class="w-full p-6 bg-slate-800 rounded-xl text-left hover:bg-slate-700 border-2 border-slate-700 hover:border-amber-500 transition">
+                        <span class="font-bold" data-lang="en">Over 35 years old</span>
+                        <span class="font-bold" data-lang="es">Mayor de 35 años</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Question 3: Current Residency -->
+            <div class="question-card bg-slate-900 p-12 rounded-3xl shadow-2xl border border-slate-800" data-question="3">
+                <h3 class="text-2xl font-black mb-6">
+                    <span data-lang="en">What is your current residency status?</span>
+                    <span data-lang="es">¿Cuál es su estado de residencia actual?</span>
+                </h3>
+                <div class="space-y-4">
+                    <button onclick="answer('q3', 'current-resident')" class="w-full p-6 bg-slate-800 rounded-xl text-left hover:bg-slate-700 border-2 border-slate-700 hover:border-amber-500 transition">
+                        <div class="font-bold mb-1" data-lang="en">Current bona fide PR resident</div>
+                        <div class="font-bold mb-1" data-lang="es">Residente de buena fe actual de PR</div>
+                        <div class="text-sm text-slate-400" data-lang="en">I already live in Puerto Rico full-time</div>
+                        <div class="text-sm text-slate-400" data-lang="es">Ya vivo en Puerto Rico a tiempo completo</div>
+                    </button>
+                    <button onclick="answer('q3', 'planning')" class="w-full p-6 bg-slate-800 rounded-xl text-left hover:bg-slate-700 border-2 border-slate-700 hover:border-amber-500 transition">
+                        <div class="font-bold mb-1" data-lang="en">Planning to move to PR</div>
+                        <div class="font-bold mb-1" data-lang="es">Planeando mudarse a PR</div>
+                        <div class="text-sm text-slate-400" data-lang="en">Currently live outside PR, ready to relocate</div>
+                        <div class="text-sm text-slate-400" data-lang="es">Actualmente vivo fuera de PR, listo para reubicarme</div>
+                    </button>
+                    <button onclick="answer('q3', 'us-abroad')" class="w-full p-6 bg-slate-800 rounded-xl text-left hover:bg-slate-700 border-2 border-slate-700 hover:border-amber-500 transition">
+                        <div class="font-bold mb-1" data-lang="en">Living abroad or US mainland</div>
+                        <div class="font-bold mb-1" data-lang="es">Viviendo en el extranjero o en los Estados Unidos continentales</div>
+                        <div class="text-sm text-slate-400" data-lang="en">Exploring options, not ready to commit yet</div>
+                        <div class="text-sm text-slate-400" data-lang="es">Explorando opciones, aún no listo para comprometerse</div>
+                    </button>
+                </div>
+            </div>
+
+
+            <!-- Question 4: Blackout Period (INVESTOR PATH ONLY) -->
+            <div class="question-card bg-slate-900 p-12 rounded-3xl shadow-2xl border border-slate-800" data-question="4">
+                <div class="bg-red-900/30 border-2 border-red-500 rounded-xl p-4 mb-6">
+                    <div class="flex items-start gap-3">
+                        <i class="fas fa-exclamation-triangle text-red-400 text-xl mt-1"></i>
+                        <div>
+                            <div class="font-bold text-red-300 mb-1" data-lang="en">CRITICAL: Chapter 2 Blackout Period</div>
+                            <div class="font-bold text-red-300 mb-1" data-lang="es">CRÍTICO: Período de Bloqueo del Capítulo 2</div>
+                            <div class="text-sm text-red-200" data-lang="en">Permanent disqualification if you answer YES</div>
+                            <div class="text-sm text-red-200" data-lang="es">Descalificación permanente si responde SÍ</div>
+                        </div>
+                    </div>
+                </div>
+                <h3 class="text-2xl font-black mb-6">
+                    <span data-lang="en">Were you a Puerto Rico resident between January 17, 2006 and January 17, 2012?</span>
+                    <span data-lang="es">¿Fue residente de Puerto Rico entre el 17 de enero de 2006 y el 17 de enero de 2012?</span>
+                </h3>
+                <div class="space-y-4">
+                    <button onclick="answer('q4', 'yes')" class="w-full p-6 bg-red-900/20 rounded-xl text-left hover:bg-red-900/40 border-2 border-red-700 hover:border-red-500 transition">
+                        <div class="font-bold text-red-300" data-lang="en">Yes - I was a PR resident during this period</div>
+                        <div class="font-bold text-red-300" data-lang="es">Sí - Fui residente de PR durante este período</div>
+                    </button>
+                    <button onclick="answer('q4', 'no')" class="w-full p-6 bg-slate-800 rounded-xl text-left hover:bg-slate-700 border-2 border-slate-700 hover:border-green-500 transition">
+                        <div class="font-bold text-green-300" data-lang="en">No - I was NOT a PR resident during this period</div>
+                        <div class="font-bold text-green-300" data-lang="es">No - NO fui residente de PR durante este período</div>
+                    </button>
+                    <button onclick="answer('q4', 'unsure')" class="w-full p-6 bg-slate-800 rounded-xl text-left hover:bg-slate-700 border-2 border-slate-700 hover:border-amber-500 transition">
+                        <div class="font-bold" data-lang="en">Unsure / Need to verify</div>
+                        <div class="font-bold" data-lang="es">No estoy seguro / Necesito verificar</div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Question 5: Investment Types (INVESTOR PATH ONLY - Multi-select) -->
+            <div class="question-card bg-slate-900 p-12 rounded-3xl shadow-2xl border border-slate-800" data-question="5">
+                <h3 class="text-2xl font-black mb-4">
+                    <span data-lang="en">What types of investment income do you have?</span>
+                    <span data-lang="es">¿Qué tipos de ingresos de inversión tiene?</span>
+                </h3>
+                <p class="text-slate-400 mb-6 text-sm">
+                    <span data-lang="en">Select all that apply</span>
+                    <span data-lang="es">Seleccione todos los que correspondan</span>
+                </p>
+                <div class="space-y-3" id="q5-options">
+                    <button onclick="toggleMulti('q5', 'stocks', this)" class="multi-select-btn w-full p-4 bg-slate-800 rounded-xl text-left border-2 border-slate-700 transition">
+                        <span data-lang="en">📈 Stocks & Equities</span>
+                        <span data-lang="es">📈 Acciones y Valores</span>
+                    </button>
+                    <button onclick="toggleMulti('q5', 'crypto', this)" class="multi-select-btn w-full p-4 bg-slate-800 rounded-xl text-left border-2 border-slate-700 transition">
+                        <span data-lang="en">₿ Cryptocurrency & Digital Assets</span>
+                        <span data-lang="es">₿ Criptomonedas y Activos Digitales</span>
+                    </button>
+                    <button onclick="toggleMulti('q5', 'real-estate', this)" class="multi-select-btn w-full p-4 bg-slate-800 rounded-xl text-left border-2 border-slate-700 transition">
+                        <span data-lang="en">🏘️ Real Estate Appreciation</span>
+                        <span data-lang="es">🏘️ Apreciación de Bienes Raíces</span>
+                    </button>
+                    <button onclick="toggleMulti('q5', 'dividends', this)" class="multi-select-btn w-full p-4 bg-slate-800 rounded-xl text-left border-2 border-slate-700 transition">
+                        <span data-lang="en">💵 Dividends & Interest</span>
+                        <span data-lang="es">💵 Dividendos e Intereses</span>
+                    </button>
+                    <button onclick="toggleMulti('q5', 'other', this)" class="multi-select-btn w-full p-4 bg-slate-800 rounded-xl text-left border-2 border-slate-700 transition">
+                        <span data-lang="en">💼 Other Investment Income</span>
+                        <span data-lang="es">💼 Otros Ingresos de Inversión</span>
+                    </button>
+                </div>
+                <button onclick="submitMulti('q5')" id="q5-continue" class="mt-6 w-full bg-gradient-to-r from-amber-500 to-amber-600 text-white px-6 py-3 rounded-xl font-bold opacity-50 cursor-not-allowed" disabled>
+                    <span data-lang="en">Continue</span>
+                    <span data-lang="es">Continuar</span>
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </button>
+            </div>
+
+            <!-- Question 6: Annual Income -->
+            <div class="question-card bg-slate-900 p-12 rounded-3xl shadow-2xl border border-slate-800" data-question="6">
+                <h3 class="text-2xl font-black mb-6">
+                    <span data-lang="en">What is your annual income range?</span>
+                    <span data-lang="es">¿Cuál es su rango de ingresos anuales?</span>
+                </h3>
+                <p class="text-slate-400 mb-6 text-sm">
+                    <span data-lang="en">This helps us estimate your potential tax savings</span>
+                    <span data-lang="es">Esto nos ayuda a estimar sus posibles ahorros fiscales</span>
+                </p>
+                <div class="space-y-4">
+                    <button onclick="answer('q6', 'under-100k')" class="w-full p-6 bg-slate-800 rounded-xl text-left hover:bg-slate-700 border-2 border-slate-700 hover:border-amber-500 transition">
+                        <span class="font-bold" data-lang="en">Under $100,000</span>
+                        <span class="font-bold" data-lang="es">Menos de $100,000</span>
+                    </button>
+                    <button onclick="answer('q6', '100k-250k')" class="w-full p-6 bg-slate-800 rounded-xl text-left hover:bg-slate-700 border-2 border-slate-700 hover:border-amber-500 transition">
+                        <span class="font-bold" data-lang="en">$100,000 - $250,000</span>
+                        <span class="font-bold" data-lang="es">$100,000 - $250,000</span>
+                    </button>
+                    <button onclick="answer('q6', '250k-500k')" class="w-full p-6 bg-slate-800 rounded-xl text-left hover:bg-slate-700 border-2 border-slate-700 hover:border-amber-500 transition">
+                        <span class="font-bold" data-lang="en">$250,000 - $500,000</span>
+                        <span class="font-bold" data-lang="es">$250,000 - $500,000</span>
+                    </button>
+                    <button onclick="answer('q6', '500k-1m')" class="w-full p-6 bg-slate-800 rounded-xl text-left hover:bg-slate-700 border-2 border-slate-700 hover:border-amber-500 transition">
+                        <span class="font-bold" data-lang="en">$500,000 - $1,000,000</span>
+                        <span class="font-bold" data-lang="es">$500,000 - $1,000,000</span>
+                    </button>
+                    <button onclick="answer('q6', 'over-1m')" class="w-full p-6 bg-slate-800 rounded-xl text-left hover:bg-slate-700 border-2 border-slate-700 hover:border-amber-500 transition">
+                        <span class="font-bold" data-lang="en">Over $1,000,000</span>
+                        <span class="font-bold" data-lang="es">Más de $1,000,000</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Question 7: Client Location (BUSINESS PATH ONLY) -->
+            <div class="question-card bg-slate-900 p-12 rounded-3xl shadow-2xl border border-slate-800" data-question="7">
+                <h3 class="text-2xl font-black mb-6">
+                    <span data-lang="en">Where are your clients/customers located?</span>
+                    <span data-lang="es">¿Dónde se encuentran sus clientes?</span>
+                </h3>
+                <div class="space-y-4">
+                    <button onclick="answer('q7', 'outside-pr')" class="w-full p-6 bg-slate-800 rounded-xl text-left hover:bg-slate-700 border-2 border-slate-700 hover:border-green-500 transition">
+                        <div class="font-bold mb-1 text-green-300" data-lang="en">🌎 Primarily Outside Puerto Rico</div>
+                        <div class="font-bold mb-1 text-green-300" data-lang="es">🌎 Principalmente Fuera de Puerto Rico</div>
+                        <div class="text-sm text-slate-400" data-lang="en">US mainland, international, or remote clients</div>
+                        <div class="text-sm text-slate-400" data-lang="es">Estados Unidos continental, internacional o clientes remotos</div>
+                    </button>
+                    <button onclick="answer('q7', 'pr-only')" class="w-full p-6 bg-slate-800 rounded-xl text-left hover:bg-slate-700 border-2 border-slate-700 hover:border-amber-500 transition">
+                        <div class="font-bold mb-1" data-lang="en">🏝️ Primarily in Puerto Rico</div>
+                        <div class="font-bold mb-1" data-lang="es">🏝️ Principalmente en Puerto Rico</div>
+                        <div class="text-sm text-slate-400" data-lang="en">Local PR market only</div>
+                        <div class="text-sm text-slate-400" data-lang="es">Solo mercado local de PR</div>
+                    </button>
+                    <button onclick="answer('q7', 'mixed')" class="w-full p-6 bg-slate-800 rounded-xl text-left hover:bg-slate-700 border-2 border-slate-700 hover:border-amber-500 transition">
+                        <div class="font-bold mb-1" data-lang="en">🔄 Mixed - Both PR and Outside</div>
+                        <div class="font-bold mb-1" data-lang="es">🔄 Mixto - Tanto PR como Fuera</div>
+                        <div class="text-sm text-slate-400" data-lang="en">Some clients in PR, some outside</div>
+                        <div class="text-sm text-slate-400" data-lang="es">Algunos clientes en PR, algunos fuera</div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Question 8: Business Type (BUSINESS PATH ONLY) -->
+            <div class="question-card bg-slate-900 p-12 rounded-3xl shadow-2xl border border-slate-800" data-question="8">
+                <h3 class="text-2xl font-black mb-6">
+                    <span data-lang="en">What type of business do you operate?</span>
+                    <span data-lang="es">¿Qué tipo de negocio opera?</span>
+                </h3>
+                <div class="space-y-4">
+                    <button onclick="answer('q8', 'consulting')" class="w-full p-6 bg-slate-800 rounded-xl text-left hover:bg-slate-700 border-2 border-slate-700 hover:border-amber-500 transition">
+                        <span data-lang="en">💼 Consulting / Advisory Services</span>
+                        <span data-lang="es">💼 Servicios de Consultoría / Asesoría</span>
+                    </button>
+                    <button onclick="answer('q8', 'tech')" class="w-full p-6 bg-slate-800 rounded-xl text-left hover:bg-slate-700 border-2 border-slate-700 hover:border-amber-500 transition">
+                        <span data-lang="en">💻 Tech / Software / SaaS</span>
+                        <span data-lang="es">💻 Tecnología / Software / SaaS</span>
+                    </button>
+                    <button onclick="answer('q8', 'creative')" class="w-full p-6 bg-slate-800 rounded-xl text-left hover:bg-slate-700 border-2 border-slate-700 hover:border-amber-500 transition">
+                        <span data-lang="en">🎨 Creative / Marketing / Design</span>
+                        <span data-lang="es">🎨 Creativo / Marketing / Diseño</span>
+                    </button>
+                    <button onclick="answer('q8', 'financial')" class="w-full p-6 bg-slate-800 rounded-xl text-left hover:bg-slate-700 border-2 border-slate-700 hover:border-amber-500 transition">
+                        <span data-lang="en">📊 Financial / Investment Services</span>
+                        <span data-lang="es">📊 Servicios Financieros / de Inversión</span>
+                    </button>
+                    <button onclick="answer('q8', 'other-service')" class="w-full p-6 bg-slate-800 rounded-xl text-left hover:bg-slate-700 border-2 border-slate-700 hover:border-amber-500 transition">
+                        <span data-lang="en">🔧 Other Professional Services</span>
+                        <span data-lang="es">🔧 Otros Servicios Profesionales</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Question 9: Employment Plans (BUSINESS PATH ONLY) -->
+            <div class="question-card bg-slate-900 p-12 rounded-3xl shadow-2xl border border-slate-800" data-question="9">
+                <h3 class="text-2xl font-black mb-6">
+                    <span data-lang="en">Do you plan to hire employees in Puerto Rico?</span>
+                    <span data-lang="es">¿Planea contratar empleados en Puerto Rico?</span>
+                </h3>
+                <p class="text-slate-400 mb-6 text-sm">
+                    <span data-lang="en">Required if revenue exceeds $3M annually</span>
+                    <span data-lang="es">Requerido si los ingresos superan $3M anuales</span>
+                </p>
+                <div class="space-y-4">
+                    <button onclick="answer('q9', 'yes')" class="w-full p-6 bg-slate-800 rounded-xl text-left hover:bg-slate-700 border-2 border-slate-700 hover:border-amber-500 transition">
+                        <span class="font-bold" data-lang="en">Yes - Will hire PR employees</span>
+                        <span class="font-bold" data-lang="es">Sí - Contrataré empleados de PR</span>
+                    </button>
+                    <button onclick="answer('q9', 'no')" class="w-full p-6 bg-slate-800 rounded-xl text-left hover:bg-slate-700 border-2 border-slate-700 hover:border-amber-500 transition">
+                        <span class="font-bold" data-lang="en">No - Solo operation or remote team</span>
+                        <span class="font-bold" data-lang="es">No - Operación en solitario o equipo remoto</span>
+                    </button>
+                    <button onclick="answer('q9', 'maybe')" class="w-full p-6 bg-slate-800 rounded-xl text-left hover:bg-slate-700 border-2 border-slate-700 hover:border-amber-500 transition">
+                        <span class="font-bold" data-lang="en">Maybe - Depends on growth</span>
+                        <span class="font-bold" data-lang="es">Quizás - Depende del crecimiento</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Question 10: Healthcare Specialty (HEALTHCARE PATH ONLY) -->
+            <div class="question-card bg-slate-900 p-12 rounded-3xl shadow-2xl border border-slate-800" data-question="10">
+                <div class="bg-amber-900/30 border-2 border-amber-500 rounded-xl p-4 mb-6">
+                    <div class="flex items-start gap-3">
+                        <i class="fas fa-info-circle text-amber-400 text-xl mt-1"></i>
+                        <div>
+                            <div class="font-bold text-amber-300 mb-1" data-lang="en">Important: New Healthcare Applications Halted</div>
+                            <div class="font-bold text-amber-300 mb-1" data-lang="es">Importante: Nuevas Solicitudes de Salud Detenidas</div>
+                            <div class="text-sm text-amber-200" data-lang="en">FOMB halted new healthcare decree applications in 2021. Existing decree holders (~6,000) retain benefits.</div>
+                            <div class="text-sm text-amber-200" data-lang="es">FOMB detuvo nuevas solicitudes de decretos de salud en 2021. Los titulares de decretos existentes (~6,000) conservan los beneficios.</div>
+                        </div>
+                    </div>
+                </div>
+                <h3 class="text-2xl font-black mb-6">
+                    <span data-lang="en">What is your healthcare specialty?</span>
+                    <span data-lang="es">¿Cuál es su especialidad de atención médica?</span>
+                </h3>
+                <div class="space-y-4">
+                    <button onclick="answer('q10', 'physician')" class="w-full p-6 bg-slate-800 rounded-xl text-left hover:bg-slate-700 border-2 border-slate-700 hover:border-amber-500 transition">
+                        <span data-lang="en">👨‍⚕️ Physician (MD/DO)</span>
+                        <span data-lang="es">👨‍⚕️ Médico (MD/DO)</span>
+                    </button>
+                    <button onclick="answer('q10', 'dentist')" class="w-full p-6 bg-slate-800 rounded-xl text-left hover:bg-slate-700 border-2 border-slate-700 hover:border-amber-500 transition">
+                        <span data-lang="en">🦷 Dentist / Odontologist</span>
+                        <span data-lang="es">🦷 Dentista / Odontólogo</span>
+                    </button>
+                    <button onclick="answer('q10', 'allied')" class="w-full p-6 bg-slate-800 rounded-xl text-left hover:bg-slate-700 border-2 border-slate-700 hover:border-amber-500 transition">
+                        <div class="font-bold mb-1" data-lang="en">Allied Health Professional</div>
+                        <div class="font-bold mb-1" data-lang="es">Profesional de Salud Aliado</div>
+                        <div class="text-sm text-slate-400" data-lang="en">Podiatrist, Audiologist, Chiropractor, Optometrist</div>
+                        <div class="text-sm text-slate-400" data-lang="es">Podólogo, Audiólogo, Quiropráctico, Optometrista</div>
+                    </button>
+                    <button onclick="answer('q10', 'other-health')" class="w-full p-6 bg-slate-800 rounded-xl text-left hover:bg-slate-700 border-2 border-slate-700 hover:border-amber-500 transition">
+                        <span data-lang="en">🏥 Other Healthcare Professional</span>
+                        <span data-lang="es">🏥 Otro Profesional de Atención Médica</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Question 11: Property Plans (INVESTOR PATH ONLY) -->
+            <div class="question-card bg-slate-900 p-12 rounded-3xl shadow-2xl border border-slate-800" data-question="11">
+                <h3 class="text-2xl font-black mb-6">
+                    <span data-lang="en">What are your Puerto Rico property plans?</span>
+                    <span data-lang="es">¿Cuáles son sus planes de propiedad en Puerto Rico?</span>
+                </h3>
+                <p class="text-slate-400 mb-6 text-sm">
+                    <span data-lang="en">Chapter 2 requires purchasing property within 2 years for use as principal residence</span>
+                    <span data-lang="es">El Capítulo 2 requiere comprar propiedad dentro de 2 años para usar como residencia principal</span>
+                </p>
+                <div class="space-y-4">
+                    <button onclick="answer('q11', 'buying')" class="w-full p-6 bg-slate-800 rounded-xl text-left hover:bg-slate-700 border-2 border-slate-700 hover:border-green-500 transition">
+                        <div class="font-bold mb-1 text-green-300" data-lang="en">🏡 Planning to Buy - For primary residence</div>
+                        <div class="font-bold mb-1 text-green-300" data-lang="es">🏡 Planeando Comprar - Para residencia principal</div>
+                    </button>
+                    <button onclick="answer('q11', 'own')" class="w-full p-6 bg-slate-800 rounded-xl text-left hover:bg-slate-700 border-2 border-slate-700 hover:border-green-500 transition">
+                        <div class="font-bold mb-1 text-green-300" data-lang="en">✅ Already Own - Primary residence</div>
+                        <div class="font-bold mb-1 text-green-300" data-lang="es">✅ Ya Poseo - Residencia principal</div>
+                    </button>
+                    <button onclick="answer('q11', 'renting')" class="w-full p-6 bg-slate-800 rounded-xl text-left hover:bg-slate-700 border-2 border-slate-700 hover:border-amber-500 transition">
+                        <div class="font-bold mb-1" data-lang="en">🏢 Renting / Not buying yet</div>
+                        <div class="font-bold mb-1" data-lang="es">🏢 Alquilando / No comprando todavía</div>
+                        <div class="text-sm text-slate-400" data-lang="en">You'll need to purchase within 2 years</div>
+                        <div class="text-sm text-slate-400" data-lang="es">Deberá comprar dentro de 2 años</div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Question 12: Commitment Level -->
+            <div class="question-card bg-slate-900 p-12 rounded-3xl shadow-2xl border border-slate-800" data-question="12">
+                <h3 class="text-2xl font-black mb-6">
+                    <span data-lang="en">How committed are you to the Puerto Rico move?</span>
+                    <span data-lang="es">¿Qué tan comprometido está con la mudanza a Puerto Rico?</span>
+                </h3>
+                <div class="space-y-4">
+                    <button onclick="answer('q12', 'very-committed')" class="w-full p-6 bg-slate-800 rounded-xl text-left hover:bg-slate-700 border-2 border-slate-700 hover:border-green-500 transition">
+                        <div class="font-bold mb-1" data-lang="en">🎯 Very Committed - Ready to move ASAP</div>
+                        <div class="font-bold mb-1" data-lang="es">🎯 Muy Comprometido - Listo para mudarme lo antes posible</div>
+                    </button>
+                    <button onclick="answer('q12', 'planning')" class="w-full p-6 bg-slate-800 rounded-xl text-left hover:bg-slate-700 border-2 border-slate-700 hover:border-amber-500 transition">
+                        <div class="font-bold mb-1" data-lang="en">📅 Planning - Within next 6-12 months</div>
+                        <div class="font-bold mb-1" data-lang="es">📅 Planeando - Dentro de los próximos 6-12 meses</div>
+                    </button>
+                    <button onclick="answer('q12', 'exploring')" class="w-full p-6 bg-slate-800 rounded-xl text-left hover:bg-slate-700 border-2 border-slate-700 hover:border-amber-500 transition">
+                        <div class="font-bold mb-1" data-lang="en">🔍 Exploring - Gathering information</div>
+                        <div class="font-bold mb-1" data-lang="es">🔍 Explorando - Recopilando información</div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Question 13: Main Concern -->
+            <div class="question-card bg-slate-900 p-12 rounded-3xl shadow-2xl border border-slate-800" data-question="13">
+                <h3 class="text-2xl font-black mb-6">
+                    <span data-lang="en">What is your main concern about Act 60?</span>
+                    <span data-lang="es">¿Cuál es su principal preocupación sobre la Ley 60?</span>
+                </h3>
+                <div class="space-y-4">
+                    <button onclick="answer('q13', 'compliance')" class="w-full p-6 bg-slate-800 rounded-xl text-left hover:bg-slate-700 border-2 border-slate-700 hover:border-amber-500 transition">
+                        <span data-lang="en">📋 Compliance & Requirements</span>
+                        <span data-lang="es">📋 Cumplimiento y Requisitos</span>
+                    </button>
+                    <button onclick="answer('q13', 'residency')" class="w-full p-6 bg-slate-800 rounded-xl text-left hover:bg-slate-700 border-2 border-slate-700 hover:border-amber-500 transition">
+                        <span data-lang="en">🏝️ Establishing Bona Fide Residency</span>
+                        <span data-lang="es">🏝️ Establecer Residencia de Buena Fe</span>
+                    </button>
+                    <button onclick="answer('q13', 'savings')" class="w-full p-6 bg-slate-800 rounded-xl text-left hover:bg-slate-700 border-2 border-slate-700 hover:border-amber-500 transition">
+                        <span data-lang="en">💰 Maximizing Tax Savings</span>
+                        <span data-lang="es">💰 Maximizar Ahorros Fiscales</span>
+                    </button>
+                    <button onclick="answer('q13', 'setup')" class="w-full p-6 bg-slate-800 rounded-xl text-left hover:bg-slate-700 border-2 border-slate-700 hover:border-amber-500 transition">
+                        <span data-lang="en">🔧 Decree Application & Setup</span>
+                        <span data-lang="es">🔧 Solicitud de Decreto y Configuración</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- RESULT CARDS - Summary versions -->
+            <!-- Full detailed cards will be added in production build -->
+            
+            <!-- Result: Young Entrepreneur -->
+            <div class="result-card bg-gradient-to-br from-green-950 to-slate-900 p-12 rounded-3xl border-2 border-green-500" data-result="young-entrepreneur" style="display:none">
+                <div class="text-center mb-8">
+                    <div class="w-24 h-24 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-rocket text-white text-4xl"></i>
+                    </div>
+                    <h2 class="text-4xl font-black mb-3">
+                        <span data-lang="en">Young Entrepreneur Decree</span>
+                        <span data-lang="es">Decreto de Joven Empresario</span>
+                    </h2>
+                    <p class="text-green-200 text-lg">
+                        <span data-lang="en">0% tax for 3 years on first $500K</span>
+                        <span data-lang="es">0% impuesto por 3 años sobre primeros $500K</span>
+                    </p>
+                </div>
+                <div class="bg-white/10 p-6 rounded-xl mb-6">
+                    <h3 class="font-bold text-xl mb-4" data-lang="en">Perfect for ages 16-35 starting a NEW business in PR</h3>
+                    <h3 class="font-bold text-xl mb-4" data-lang="es">Perfecto para edades 16-35 iniciando un NUEVO negocio en PR</h3>
+                    <p class="text-green-100" data-lang="en">Tax Savings: <span id="ye-savings" class="text-yellow-400 font-black text-2xl">$80K-$240K</span> over 3 years</p>
+                    <p class="text-green-100" data-lang="es">Ahorros Fiscales: <span class="text-yellow-400 font-black text-2xl">$80K-$240K</span> durante 3 años</p>
+                </div>
+                <!-- Download Guide CTA -->
+                <div class="bg-blue-900/30 border-2 border-blue-500 rounded-xl p-6 mb-6">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-file-pdf text-white text-xl"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="font-bold text-lg mb-2">
+                                <span data-lang="en">📥 Download Your Comprehensive Guide</span>
+                                <span data-lang="es">📥 Descargue Su Guía Completa</span>
+                            </h4>
+                            <p class="text-blue-100 text-sm mb-3">
+                                <span data-lang="en">Get our 14-page Act 60 guide covering all chapters, Young Entrepreneur details, compliance requirements, and 2026 updates.</span>
+                                <span data-lang="es">Obtenga nuestra guía de 14 páginas sobre Ley 60 cubriendo todos los capítulos, detalles de Joven Empresario, requisitos de cumplimiento y actualizaciones 2026.</span>
+                            </p>
+                            <a href="Act60_Comprehensive_Guide_2026.pdf" download class="inline-flex items-center gap-2 bg-blue-500 text-white px-5 py-2.5 rounded-lg font-bold hover:bg-blue-600 transition">
+                                <i class="fas fa-download"></i>
+                                <span data-lang="en">Download Free PDF</span>
+                                <span data-lang="es">Descargar PDF Gratis</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <button onclick="resetQuiz()" class="flex-1 bg-slate-800 text-white px-6 py-3 rounded-xl font-bold hover:bg-slate-700 transition">
+                        <i class="fas fa-redo mr-2"></i>
+                        <span data-lang="en">Retake Quiz</span>
+                        <span data-lang="es">Repetir Quiz</span>
+                    </button>
+                    <a href="index.html#contact" class="flex-1 bg-gradient-to-r from-amber-500 to-amber-600 text-white px-6 py-3 rounded-xl font-bold hover:from-amber-600 hover:to-amber-700 transition text-center">
+                        <span data-lang="en">Schedule Consultation</span>
+                        <span data-lang="es">Programar Consulta</span>
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Result: Chapter 2 -->
+            <div class="result-card bg-gradient-to-br from-purple-950 to-slate-900 p-12 rounded-3xl border-2 border-purple-500" data-result="chapter2" style="display:none">
+                <div class="text-center mb-8">
+                    <div class="w-24 h-24 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-gem text-white text-4xl"></i>
+                    </div>
+                    <h2 class="text-4xl font-black mb-3">
+                        <span data-lang="en">Chapter 2: Individual Investor</span>
+                        <span data-lang="es">Capítulo 2: Inversionista Individual</span>
+                    </h2>
+                    <p class="text-purple-200 text-lg">
+                        <span data-lang="en">0%* capital gains + 0% dividends</span>
+                        <span data-lang="es">0%* ganancias de capital + 0% dividendos</span>
+                    </p>
+                </div>
+                
+                <!-- Conditional: Crypto -->
+                <div class="conditional-section bg-blue-900/30 border-2 border-blue-500 rounded-xl p-4 mb-4" id="ch2-crypto" style="display:none">
+                    <h4 class="font-bold mb-2" data-lang="en">✓ Perfect for Crypto Investors</h4>
+                    <h4 class="font-bold mb-2" data-lang="es">✓ Perfecto para Inversores de Criptomonedas</h4>
+                    <p class="text-sm" data-lang="en">Your crypto gains after PR residency are 0% tax</p>
+                </div>
+                
+                <!-- Conditional: Blackout Warning -->
+                <div class="conditional-section bg-red-900/30 border-2 border-red-500 rounded-xl p-4 mb-4" id="ch2-blackout" style="display:none">
+                    <h4 class="font-bold mb-2 text-red-300" data-lang="en">⚠️ Verify Blackout Period</h4>
+                    <p class="text-sm text-red-200" data-lang="en">Please verify you were NOT a PR resident Jan 2006-2012</p>
+                </div>
+                
+                <!-- Conditional: Combo -->
+                <div class="conditional-section bg-green-900/30 border-2 border-green-500 rounded-xl p-4 mb-4" id="ch2-combo" style="display:none">
+                    <h4 class="font-bold mb-2" data-lang="en">🎯 Combo: Ch.2 + Ch.3</h4>
+                    <p class="text-sm" data-lang="en">Apply for both decrees: investments (0%) + business (4%)</p>
+                </div>
+                
+                <!-- Conditional: Property -->
+                <div class="conditional-section bg-amber-900/30 border-2 border-amber-500 rounded-xl p-4 mb-4" id="ch2-property" style="display:none">
+                    <h4 class="font-bold mb-2" data-lang="en">🏡 Property Requirement</h4>
+                    <p class="text-sm" data-lang="en">Must purchase PR property within 2 years for principal residence</p>
+                </div>
+                
+                <div class="bg-white/10 p-6 rounded-xl mb-6">
+                    <p class="text-purple-100" data-lang="en">Tax Savings: <span id="ch2-savings" class="text-yellow-400 font-black text-2xl">$50K-$100K</span> annually</p>
+                    <p class="text-purple-100" data-lang="es">Ahorros: <span class="text-yellow-400 font-black text-2xl">$50K-$100K</span> anuales</p>
+                </div>
+                
+                <!-- Download Guide CTA -->
+                <div class="bg-blue-900/30 border-2 border-blue-500 rounded-xl p-6 mb-6">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-file-pdf text-white text-xl"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="font-bold text-lg mb-2">
+                                <span data-lang="en">📥 Download Your Comprehensive Guide</span>
+                                <span data-lang="es">📥 Descargue Su Guía Completa</span>
+                            </h4>
+                            <p class="text-blue-100 text-sm mb-3">
+                                <span data-lang="en">Get our 14-page Act 60 guide with detailed Chapter 2 coverage, crypto tax treatment, blackout period details, and compliance requirements.</span>
+                                <span data-lang="es">Obtenga nuestra guía de 14 páginas sobre Ley 60 con cobertura detallada del Capítulo 2, tratamiento fiscal de cripto, detalles del período de bloqueo y requisitos de cumplimiento.</span>
+                            </p>
+                            <a href="Act60_Comprehensive_Guide_2026.pdf" download class="inline-flex items-center gap-2 bg-blue-500 text-white px-5 py-2.5 rounded-lg font-bold hover:bg-blue-600 transition">
+                                <i class="fas fa-download"></i>
+                                <span data-lang="en">Download Free PDF</span>
+                                <span data-lang="es">Descargar PDF Gratis</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <button onclick="resetQuiz()" class="flex-1 bg-slate-800 text-white px-6 py-3 rounded-xl font-bold hover:bg-slate-700 transition">
+                        <i class="fas fa-redo mr-2"></i>
+                        <span data-lang="en">Retake Quiz</span>
+                        <span data-lang="es">Repetir Quiz</span>
+                    </button>
+                    <a href="index.html#contact" class="flex-1 bg-gradient-to-r from-amber-500 to-amber-600 text-white px-6 py-3 rounded-xl font-bold hover:from-amber-600 hover:to-amber-700 transition text-center">
+                        <span data-lang="en">Schedule Consultation</span>
+                        <span data-lang="es">Programar Consulta</span>
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Result: Chapter 3 -->
+            <div class="result-card bg-gradient-to-br from-blue-950 to-slate-900 p-12 rounded-3xl border-2 border-blue-500" data-result="chapter3" style="display:none">
+                <div class="text-center mb-8">
+                    <div class="w-24 h-24 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-globe text-white text-4xl"></i>
+                    </div>
+                    <h2 class="text-4xl font-black mb-3">
+                        <span data-lang="en">Chapter 3: Export Services</span>
+                        <span data-lang="es">Capítulo 3: Servicios de Exportación</span>
+                    </h2>
+                    <p class="text-blue-200 text-lg">
+                        <span data-lang="en">4% corporate + 0% dividends</span>
+                        <span data-lang="es">4% corporativo + 0% dividendos</span>
+                    </p>
+                </div>
+                
+                <!-- Conditional: Combo -->
+                <div class="conditional-section bg-purple-900/30 border-2 border-purple-500 rounded-xl p-4 mb-4" id="ch3-combo" style="display:none">
+                    <h4 class="font-bold mb-2" data-lang="en">🎯 Combo: Ch.3 + Ch.2</h4>
+                    <p class="text-sm" data-lang="en">Business at 4% + Investments at 0% = Total optimization</p>
+                </div>
+                
+                <!-- Conditional: Mixed -->
+                <div class="conditional-section bg-amber-900/30 border-2 border-amber-500 rounded-xl p-4 mb-4" id="ch3-mixed" style="display:none">
+                    <h4 class="font-bold mb-2" data-lang="en">📊 Mixed Client Strategy</h4>
+                    <p class="text-sm" data-lang="en">Export income (non-PR clients): 4% | Local income: standard rates</p>
+                </div>
+                
+                <div class="bg-white/10 p-6 rounded-xl mb-6">
+                    <p class="text-blue-100" data-lang="en">Tax Savings: <span id="ch3-savings" class="text-yellow-400 font-black text-2xl">$30K-$60K</span> annually</p>
+                    <p class="text-blue-100" data-lang="es">Ahorros: <span class="text-yellow-400 font-black text-2xl">$30K-$60K</span> anuales</p>
+                </div>
+                
+                <!-- Download Guide CTA -->
+                <div class="bg-purple-900/30 border-2 border-purple-500 rounded-xl p-6 mb-6">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-purple-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-file-pdf text-white text-xl"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="font-bold text-lg mb-2">
+                                <span data-lang="en">📥 Download Your Comprehensive Guide</span>
+                                <span data-lang="es">📥 Descargue Su Guía Completa</span>
+                            </h4>
+                            <p class="text-purple-100 text-sm mb-3">
+                                <span data-lang="en">Get our 14-page Act 60 guide with detailed Chapter 3 coverage, export requirements, eligible services, and compliance strategies.</span>
+                                <span data-lang="es">Obtenga nuestra guía de 14 páginas sobre Ley 60 con cobertura detallada del Capítulo 3, requisitos de exportación, servicios elegibles y estrategias de cumplimiento.</span>
+                            </p>
+                            <a href="Act60_Comprehensive_Guide_2026.pdf" download class="inline-flex items-center gap-2 bg-purple-500 text-white px-5 py-2.5 rounded-lg font-bold hover:bg-purple-600 transition">
+                                <i class="fas fa-download"></i>
+                                <span data-lang="en">Download Free PDF</span>
+                                <span data-lang="es">Descargar PDF Gratis</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <button onclick="resetQuiz()" class="flex-1 bg-slate-800 text-white px-6 py-3 rounded-xl font-bold hover:bg-slate-700 transition">
+                        <i class="fas fa-redo mr-2"></i>
+                        <span data-lang="en">Retake Quiz</span>
+                        <span data-lang="es">Repetir Quiz</span>
+                    </button>
+                    <a href="index.html#contact" class="flex-1 bg-gradient-to-r from-amber-500 to-amber-600 text-white px-6 py-3 rounded-xl font-bold hover:from-amber-600 hover:to-amber-700 transition text-center">
+                        <span data-lang="en">Schedule Consultation</span>
+                        <span data-lang="es">Programar Consulta</span>
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Result: Healthcare -->
+            <div class="result-card bg-gradient-to-br from-red-950 to-slate-900 p-12 rounded-3xl border-2 border-red-500" data-result="healthcare" style="display:none">
+                <div class="text-center mb-8">
+                    <div class="w-24 h-24 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-heartbeat text-white text-4xl"></i>
+                    </div>
+                    <h2 class="text-4xl font-black mb-3">
+                        <span data-lang="en">Qualified Physician Decree</span>
+                        <span data-lang="es">Decreto de Médico Calificado</span>
+                    </h2>
+                    <p class="text-red-200 text-lg">
+                        <span data-lang="en">4% rate (NEW applications halted 2021)</span>
+                        <span data-lang="es">Tasa 4% (solicitudes NUEVAS detenidas 2021)</span>
+                    </p>
+                </div>
+                <div class="bg-red-900/30 border-2 border-red-500 rounded-xl p-4 mb-4">
+                    <p class="font-bold mb-2" data-lang="en">⚠️ FOMB halted new healthcare decrees in 2021</p>
+                    <p class="text-sm" data-lang="en">Alternative: Consider Chapter 3 for telehealth to non-PR patients</p>
+                </div>
+                <!-- Conditional: Other Health -->
+                <div class="conditional-section bg-amber-900/30 border-2 border-amber-500 rounded-xl p-4 mb-4" id="hc-other" style="display:none">
+                    <p class="text-sm" data-lang="en">Your specialty may not qualify. Eligible: MD, DO, DDS, Podiatrist, Audiologist, Chiropractor, Optometrist</p>
+                </div>
+                
+                <!-- Download Guide CTA -->
+                <div class="bg-blue-900/30 border-2 border-blue-500 rounded-xl p-6 mb-6">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-file-pdf text-white text-xl"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="font-bold text-lg mb-2">
+                                <span data-lang="en">📥 Download Your Comprehensive Guide</span>
+                                <span data-lang="es">📥 Descargue Su Guía Completa</span>
+                            </h4>
+                            <p class="text-blue-100 text-sm mb-3">
+                                <span data-lang="en">Get our 14-page Act 60 guide with healthcare professional details, alternative Chapter 3 strategies for telehealth, and complete requirements.</span>
+                                <span data-lang="es">Obtenga nuestra guía de 14 páginas sobre Ley 60 con detalles de profesionales de salud, estrategias alternativas del Capítulo 3 para telesalud y requisitos completos.</span>
+                            </p>
+                            <a href="Act60_Comprehensive_Guide_2026.pdf" download class="inline-flex items-center gap-2 bg-blue-500 text-white px-5 py-2.5 rounded-lg font-bold hover:bg-blue-600 transition">
+                                <i class="fas fa-download"></i>
+                                <span data-lang="en">Download Free PDF</span>
+                                <span data-lang="es">Descargar PDF Gratis</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <button onclick="resetQuiz()" class="flex-1 bg-slate-800 text-white px-6 py-3 rounded-xl font-bold hover:bg-slate-700 transition">
+                        <i class="fas fa-redo mr-2"></i>
+                        <span data-lang="en">Retake Quiz</span>
+                        <span data-lang="es">Repetir Quiz</span>
+                    </button>
+                    <a href="index.html#contact" class="flex-1 bg-gradient-to-r from-amber-500 to-amber-600 text-white px-6 py-3 rounded-xl font-bold hover:from-amber-600 hover:to-amber-700 transition text-center">
+                        <span data-lang="en">Learn More</span>
+                        <span data-lang="es">Más Info</span>
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Result: Not Eligible -->
+            <div class="result-card bg-gradient-to-br from-slate-900 to-slate-800 p-12 rounded-3xl border-2 border-slate-600" data-result="not-eligible" style="display:none">
+                <div class="text-center mb-8">
+                    <div class="w-24 h-24 bg-slate-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-compass text-white text-4xl"></i>
+                    </div>
+                    <h2 class="text-4xl font-black mb-3">
+                        <span data-lang="en">Alternative Tax Strategies</span>
+                        <span data-lang="es">Estrategias Fiscales Alternativas</span>
+                    </h2>
+                    <p class="text-slate-300 text-lg">
+                        <span data-lang="en">Still powerful PR tax optimization options</span>
+                        <span data-lang="es">Aún hay opciones poderosas de optimización fiscal en PR</span>
+                    </p>
+                </div>
+                <div class="bg-blue-900/30 border-2 border-blue-500 rounded-xl p-4 mb-4">
+                    <h4 class="font-bold mb-2" data-lang="en">📊 Optional Tax Method (6-20% on gross)</h4>
+                    <p class="text-sm" data-lang="en">For professionals serving local PR market</p>
+                </div>
+                <div class="bg-green-900/30 border-2 border-green-500 rounded-xl p-4 mb-4">
+                    <h4 class="font-bold mb-2" data-lang="en">💼 S-Corp Optimization (FICA savings)</h4>
+                    <p class="text-sm" data-lang="en">Reasonable salary strategy for PR businesses</p>
+                </div>
+                
+                <!-- Download Guide CTA -->
+                <div class="bg-blue-900/30 border-2 border-blue-500 rounded-xl p-6 mb-6">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-file-pdf text-white text-xl"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="font-bold text-lg mb-2">
+                                <span data-lang="en">📥 Download Your Comprehensive Guide</span>
+                                <span data-lang="es">📥 Descargue Su Guía Completa</span>
+                            </h4>
+                            <p class="text-blue-100 text-sm mb-3">
+                                <span data-lang="en">Get our 14-page Act 60 guide covering ALL chapters, optional tax methods, S-Corp strategies, and other Puerto Rico tax optimization options.</span>
+                                <span data-lang="es">Obtenga nuestra guía de 14 páginas sobre Ley 60 cubriendo TODOS los capítulos, métodos fiscales opcionales, estrategias S-Corp y otras opciones de optimización fiscal de Puerto Rico.</span>
+                            </p>
+                            <a href="Act60_Comprehensive_Guide_2026.pdf" download class="inline-flex items-center gap-2 bg-blue-500 text-white px-5 py-2.5 rounded-lg font-bold hover:bg-blue-600 transition">
+                                <i class="fas fa-download"></i>
+                                <span data-lang="en">Download Free PDF</span>
+                                <span data-lang="es">Descargar PDF Gratis</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <button onclick="resetQuiz()" class="flex-1 bg-slate-700 text-white px-6 py-3 rounded-xl font-bold hover:bg-slate-600 transition">
+                        <i class="fas fa-redo mr-2"></i>
+                        <span data-lang="en">Retake Quiz</span>
+                        <span data-lang="es">Repetir Quiz</span>
+                    </button>
+                    <a href="index.html#contact" class="flex-1 bg-gradient-to-r from-amber-500 to-amber-600 text-white px-6 py-3 rounded-xl font-bold hover:from-amber-600 hover:to-amber-700 transition text-center">
+                        <span data-lang="en">Explore Options</span>
+                        <span data-lang="es">Explorar Opciones</span>
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 border-t border-slate-800 py-8 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <p class="text-slate-400 text-sm mb-4">
+                <span data-lang="en">PuertoRicoLLC.com (Satoshi Ledger LLC) provides tax compliance and accounting services. This quiz is for informational purposes only and does not constitute legal or tax advice. Consult a qualified attorney or CPA for advice specific to your situation.</span>
+                <span data-lang="es">PuertoRicoLLC.com (Satoshi Ledger LLC) proporciona servicios de cumplimiento fiscal y contabilidad. Este cuestionario es solo para fines informativos y no constituye asesoramiento legal o fiscal.</span>
+            </p>
+            <p class="text-slate-500 text-xs">© 2026 Satoshi Ledger LLC d/b/a PuertoRicoLLC.com. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <style>
+        .whatsapp-float {
+            position: fixed; width: 60px; height: 60px; bottom: 40px; right: 40px;
+            background-color: #25d366; color: #FFF; border-radius: 50px;
+            text-align: center; font-size: 30px; box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            z-index: 100; transition: all 0.3s ease; display: flex;
+            align-items: center; justify-content: center;
+        }
+        .whatsapp-float:hover { background-color: #128c7e; transform: scale(1.1); }
+        @media (max-width: 768px) { .whatsapp-float { width: 50px; height: 50px; bottom: 20px; right: 20px; font-size: 26px; } }
+    </style>
+    <a href="https://wa.me/16146952904?text=Hello%2C%20I%27m%20interested%20in%20Act%2060" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Quiz JavaScript Engine -->
+    <script>
+        let answers = {};
+        let questionPath = [];
+        let currentQuestionIndex = 0;
+
+        function getQuestionPath(q1Value) {
+            let path = ['q1', 'q2', 'q3'];
+            if (q1Value === 'investor') {
+                path.push('q4', 'q5', 'q6', 'q11', 'q12', 'q13');
+            } else if (q1Value === 'biz-existing' || q1Value === 'biz-starting') {
+                path.push('q6', 'q7', 'q8', 'q9', 'q12', 'q13');
+            } else if (q1Value === 'healthcare') {
+                path.push('q6', 'q10', 'q9', 'q12', 'q13');
+            } else if (q1Value === 'both') {
+                path.push('q4', 'q5', 'q6', 'q7', 'q8', 'q9', 'q11', 'q12', 'q13');
+            }
+            return path;
+        }
+
+        function startQuiz() {
+            document.getElementById('start-screen').style.display = 'none';
+            document.getElementById('progress-container').classList.remove('hidden');
+            showQuestion('q1');
+        }
+
+        function showQuestion(qId) {
+            document.querySelectorAll('.question-card').forEach(card => card.classList.remove('active'));
+            document.querySelector(`[data-question="${qId.substring(1)}"]`).classList.add('active');
+            updateProgress();
+            document.getElementById('back-btn').classList.toggle('hidden', currentQuestionIndex === 0);
+        }
+
+        function answer(qId, value) {
+            answers[qId] = value;
+            if (qId === 'q1') {
+                questionPath = getQuestionPath(value);
+                currentQuestionIndex = 0;
+            }
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questionPath.length) {
+                showQuestion(questionPath[currentQuestionIndex]);
+            } else {
+                showResult();
+            }
+        }
+
+        function toggleMulti(qId, value, btn) {
+            btn.classList.toggle('selected');
+            const selected = document.querySelectorAll(`#${qId}-options .selected`).length;
+            const continueBtn = document.getElementById(`${qId}-continue`);
+            if (selected > 0) {
+                continueBtn.disabled = false;
+                continueBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+            } else {
+                continueBtn.disabled = true;
+                continueBtn.classList.add('opacity-50', 'cursor-not-allowed');
+            }
+        }
+
+        function submitMulti(qId) {
+            const selectedBtns = document.querySelectorAll(`#${qId}-options .selected`);
+            const values = Array.from(selectedBtns).map(btn => {
+                const text = btn.textContent.trim();
+                if (text.includes('Crypto')) return 'crypto';
+                if (text.includes('Stocks')) return 'stocks';
+                if (text.includes('Real Estate')) return 'real-estate';
+                if (text.includes('Dividends')) return 'dividends';
+                return 'other';
+            });
+            answers[qId] = values;
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questionPath.length) {
+                showQuestion(questionPath[currentQuestionIndex]);
+            } else {
+                showResult();
+            }
+        }
+
+        function goBack() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                showQuestion(questionPath[currentQuestionIndex]);
+            }
+        }
+
+        function updateProgress() {
+            const progress = ((currentQuestionIndex + 1) / questionPath.length) * 100;
+            document.getElementById('progress-bar').style.width = progress + '%';
+            document.getElementById('current-question').textContent = currentQuestionIndex + 1;
+            document.getElementById('current-question-es').textContent = currentQuestionIndex + 1;
+            document.getElementById('total-questions').textContent = questionPath.length;
+            document.getElementById('total-questions-es').textContent = questionPath.length;
+        }
+
+        function showResult() {
+            document.getElementById('progress-container').classList.add('hidden');
+            document.querySelectorAll('.question-card').forEach(card => card.classList.remove('active'));
+            
+            let result = 'not-eligible';
+            const q1 = answers.q1, q2 = answers.q2, q3 = answers.q3;
+            const q4 = answers.q4, q7 = answers.q7, q10 = answers.q10;
+            
+            // Priority logic
+            if (q1 === 'biz-starting' && (q2 === '16-26' || q2 === '27-35') && q3 !== 'us-abroad') {
+                result = 'young-entrepreneur';
+            } else if (q1 === 'both' && q4 !== 'yes') {
+                // Combo only if NOT disqualified by blackout period
+                result = 'chapter2';
+                setTimeout(() => document.getElementById('ch2-combo').classList.add('show'), 100);
+            } else if ((q1 === 'biz-existing' || q1 === 'biz-starting' || q1 === 'both') && (q7 === 'outside-pr' || q7 === 'mixed')) {
+                result = 'chapter3';
+                if (q7 === 'mixed') setTimeout(() => document.getElementById('ch3-mixed').classList.add('show'), 100);
+                if (q1 === 'both') setTimeout(() => document.getElementById('ch3-combo').classList.add('show'), 100);
+            } else if ((q1 === 'investor' || q1 === 'both') && q4 !== 'yes') {
+                // Chapter 2 ONLY if blackout period check is NOT 'yes'
+                result = 'chapter2';
+                if (answers.q5 && answers.q5.includes('crypto')) setTimeout(() => document.getElementById('ch2-crypto').classList.add('show'), 100);
+                if (q4 === 'unsure') setTimeout(() => document.getElementById('ch2-blackout').classList.add('show'), 100);
+                if (answers.q11 === 'renting') setTimeout(() => document.getElementById('ch2-property').classList.add('show'), 100);
+            } else if (q1 === 'healthcare') {
+                result = 'healthcare';
+                if (q10 === 'other-health') setTimeout(() => document.getElementById('hc-other').classList.add('show'), 100);
+            }
+            // If q4 === 'yes' (blackout period), user falls through to 'not-eligible'
+            
+            // Update savings
+            const income = answers.q6;
+            const savingsMap = {
+                'under-100k': {ch2: '$10K-$20K', ch3: '$8K-$15K', ye: '$30K-$90K'},
+                '100k-250k': {ch2: '$20K-$50K', ch3: '$15K-$35K', ye: '$60K-$180K'},
+                '250k-500k': {ch2: '$50K-$100K', ch3: '$30K-$60K', ye: '$100K-$300K'},
+                '500k-1m': {ch2: '$100K-$200K', ch3: '$60K-$120K', ye: '$150K-$300K'},
+                'over-1m': {ch2: '$200K+', ch3: '$120K+', ye: '$150K-$300K'}
+            };
+            const savings = savingsMap[income] || savingsMap['250k-500k'];
+            const ch2El = document.getElementById('ch2-savings');
+            const ch3El = document.getElementById('ch3-savings');
+            const yeEl = document.getElementById('ye-savings');
+            if (ch2El) ch2El.textContent = savings.ch2;
+            if (ch3El) ch3El.textContent = savings.ch3;
+            if (yeEl) yeEl.textContent = savings.ye;
+            
+            document.querySelector(`.result-card[data-result="${result}"]`).style.display = 'block';
+            
+            // Track quiz completion in Google Analytics
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'quiz_completed', {
+                    'result': result,
+                    'income_tier': income,
+                    'path_length': questionPath.length
+                });
+            }
+        }
+
+        function resetQuiz() {
+            answers = {};
+            questionPath = [];
+            currentQuestionIndex = 0;
+            document.querySelectorAll('.question-card, .result-card').forEach(card => {
+                card.classList.remove('active');
+                card.style.display = 'none';
+            });
+            document.querySelectorAll('.conditional-section').forEach(section => section.classList.remove('show'));
+            document.querySelectorAll('.multi-select-btn').forEach(btn => btn.classList.remove('selected'));
+            document.getElementById('start-screen').style.display = 'block';
+            document.getElementById('progress-container').classList.add('hidden');
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            menu.classList.toggle('hidden');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        }
+
+        function setLanguage(lang) {
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                el.style.display = el.getAttribute('data-lang') === lang ? 'inline' : 'none';
+            });
+            document.getElementById('btn-en').classList.toggle('lang-active', lang === 'en');
+            document.getElementById('btn-es').classList.toggle('lang-active', lang === 'es');
+            localStorage.setItem('preferredLang', lang);
+        }
+
+        window.addEventListener('load', () => {
+            const savedLang = localStorage.getItem('preferredLang') || 'en';
+            setLanguage(savedLang);
+        });
+    </script>
+</body>
+</html>

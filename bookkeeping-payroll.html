@@ -3,33 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bookkeeping & Payroll | Satoshi Ledger LLC</title>
+    <title>Bookkeeping & Payroll | PuertoRicoLLC.com</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         .hero-bg { background: linear-gradient(135deg, #020617 0%, #1e3a8a 100%); }
         [data-lang="es"] { display: none; }
-        .lang-active { font-weight: 800; color: #2563eb; border-bottom: 2px solid #2563eb; }
+        .lang-active { font-weight: 800; color: #3A99D8 !important; border-bottom: 2px solid #3A99D8; }
         html { scroll-behavior: smooth; }
     </style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L7DET25V5W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-L7DET25V5W');
+</script>
 </head>
 <body class="bg-slate-50">
     <!-- Navigation -->
-    <nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-black text-blue-900 uppercase tracking-tighter">
-                Satoshi<span class="text-blue-600 font-light">Ledger</span>
-            </a>
-            <div class="flex items-center gap-6">
-                <div class="flex gap-2 text-xs font-bold uppercase tracking-widest border rounded-full px-3 py-1 bg-slate-50">
-                    <button onclick="setLanguage('en')" id="btn-en" class="lang-active cursor-pointer">EN</button>
-                    <span class="text-slate-300">|</span>
-                    <button onclick="setLanguage('es')" id="btn-es" class="cursor-pointer">ES</button>
-                </div>
-                <a href="index.html#contact" class="bg-blue-600 text-white px-6 py-2.5 rounded-lg hover:bg-blue-700 transition font-semibold text-sm">
-                    <span data-lang="en">Get Started</span>
-                    <span data-lang="es">Comenzar</span>
+    <nav class="bg-slate-900 border-b border-slate-800 sticky top-0 z-50 shadow-lg">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="text-2xl font-black uppercase tracking-tighter" style="color:#CC0000">
+                    <span style="color:#CC0000">PuertoRico</span><span style="color:#3A99D8">LLC</span><span style="color:#3A99D8;font-weight:500">.com</span>
                 </a>
+                <div class="hidden md:flex items-center gap-6">
+                    <div class="flex items-center gap-1 text-base font-black uppercase tracking-tighter">
+                        <button onclick="setLanguage('en')" id="btn-en" class="lang-active cursor-pointer">EN</button>
+                        <span class="text-slate-500 text-xs">|</span>
+                        <button onclick="setLanguage('es')" id="btn-es" class="cursor-pointer">ES</button>
+                    </div>
+                    <div class="flex space-x-4 text-sm font-semibold uppercase">
+                        <a href="index.html" class="text-white hover:text-gray-300 transition"><span data-lang="en">Home</span><span data-lang="es">Inicio</span></a>
+                        <a href="act60-mastery.html" class="text-white hover:text-gray-300 transition"><span data-lang="en">Act 60</span><span data-lang="es">Ley 60</span></a>
+                        <a href="llc-formation.html" class="text-white hover:text-gray-300 transition"><span data-lang="en">LLC Setup</span><span data-lang="es">LLC</span></a>
+                        <a href="forensic-audit.html" class="text-white hover:text-gray-300 transition"><span data-lang="en">Audits</span><span data-lang="es">Auditorías</span></a>
+                        <a href="bookkeeping-payroll.html" class="text-white hover:text-gray-300 transition"><span data-lang="en">Accounting</span><span data-lang="es">Contabilidad</span></a>
+                        <a href="blog.html" class="text-white hover:text-gray-300 transition"><span data-lang="en">Blog</span><span data-lang="es">Blog</span></a>
+                        <a href="index.html#contact" class="bg-red-600 text-white px-5 py-2 rounded-lg hover:bg-red-700 transition shadow-sm"><span data-lang="en">Consultation</span><span data-lang="es">Consulta</span></a>
+                    </div>
+                </div>
+                <button onclick="toggleMobileMenu()" class="md:hidden text-2xl text-white"><i class="fas fa-bars" id="menu-icon"></i></button>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-3 pb-4">
+                <a href="index.html" class="block py-2 text-white hover:text-gray-300 transition text-center font-semibold"><span data-lang="en">Home</span><span data-lang="es">Inicio</span></a>
+                <a href="act60-mastery.html" class="block py-2 text-white hover:text-gray-300 transition text-center font-semibold"><span data-lang="en">Act 60</span><span data-lang="es">Ley 60</span></a>
+                <a href="llc-formation.html" class="block py-2 text-white hover:text-gray-300 transition text-center font-semibold"><span data-lang="en">LLC Setup</span><span data-lang="es">LLC</span></a>
+                <a href="forensic-audit.html" class="block py-2 text-white hover:text-gray-300 transition text-center font-semibold"><span data-lang="en">Audits</span><span data-lang="es">Auditorías</span></a>
+                <a href="bookkeeping-payroll.html" class="block py-2 text-white hover:text-gray-300 transition text-center font-semibold"><span data-lang="en">Accounting</span><span data-lang="es">Contabilidad</span></a>
+                <a href="blog.html" class="block py-2 text-white hover:text-gray-300 transition text-center font-semibold"><span data-lang="en">Blog</span><span data-lang="es">Blog</span></a>
+                <a href="index.html#contact" class="block bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition text-center font-bold"><span data-lang="en">Consultation</span><span data-lang="es">Consulta</span></a>
             </div>
         </div>
     </nav>
@@ -52,6 +77,159 @@
         </div>
     </header>
 
+    <!-- Pricing -->
+    <section class="py-20 px-6 bg-slate-900 text-white">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-black mb-12 text-center">
+                <span data-lang="en">Service Packages</span>
+                <span data-lang="es">Paquetes de Servicios</span>
+            </h2>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Starter Package -->
+                <div class="bg-white/5 p-8 rounded-2xl border border-white/10 hover:border-white/20 transition">
+                    <div class="text-4xl font-black text-blue-400 mb-4">$199<span class="text-lg">/mo</span></div>
+                    <h3 class="text-2xl font-bold mb-2">
+                        <span data-lang="en">Starter</span>
+                        <span data-lang="es">Inicial</span>
+                    </h3>
+                    <p class="text-sm text-blue-200 mb-6">
+                        <span data-lang="en">For low-volume entrepreneurs</span>
+                        <span data-lang="es">Para empresarios de bajo volumen</span>
+                    </p>
+                    <ul class="text-sm space-y-3 mb-8">
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-check text-green-400 mt-1"></i>
+                            <span data-lang="en">Up to 2 Bank/CC accounts</span>
+                            <span data-lang="es">Hasta 2 cuentas bancarias/CC</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-check text-green-400 mt-1"></i>
+                            <span data-lang="en">Quarterly Financials</span>
+                            <span data-lang="es">Financieros Trimestrales</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-check text-green-400 mt-1"></i>
+                            <span data-lang="en">Quarterly Tax Calculations</span>
+                            <span data-lang="es">Cálculos Fiscales Trimestrales</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-check text-green-400 mt-1"></i>
+                            <span data-lang="en">Email support</span>
+                            <span data-lang="es">Soporte por correo</span>
+                        </li>
+                    </ul>
+                    <a href="index.html#contact" class="block w-full bg-blue-600 text-white text-center py-3 rounded-xl font-bold hover:bg-blue-700 transition">
+                        <span data-lang="en">Get Started</span>
+                        <span data-lang="es">Comenzar</span>
+                    </a>
+                </div>
+
+                <!-- Full Service (Most Popular) -->
+                <div class="bg-blue-600 p-8 rounded-2xl border-4 border-blue-400 relative transform scale-105 shadow-2xl">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-green-500 text-white px-6 py-2 rounded-full text-xs font-black uppercase tracking-widest">
+                        <span data-lang="en">MOST POPULAR</span>
+                        <span data-lang="es">MÍS POPULAR</span>
+                    </div>
+                    <div class="text-5xl font-black mb-4">$499<span class="text-lg">/mo</span></div>
+                    <h3 class="text-2xl font-bold mb-2">
+                        <span data-lang="en">Full Service</span>
+                        <span data-lang="es">Servicio Completo</span>
+                    </h3>
+                    <p class="text-sm mb-6 opacity-90">
+                        <span data-lang="en">For businesses needing proactive oversight</span>
+                        <span data-lang="es">Para negocios que necesitan supervisión proactiva</span>
+                    </p>
+                    <ul class="text-sm space-y-3 mb-8">
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-check text-white mt-1"></i>
+                            <span data-lang="en">Up to 4 Bank/CC accounts</span>
+                            <span data-lang="es">Hasta 4 cuentas bancarias/CC</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-check text-white mt-1"></i>
+                            <span data-lang="en"><strong>Monthly Financials</strong> (On-Demand)</span>
+                            <span data-lang="es"><strong>Financieros Mensuales</strong> (Bajo Demanda)</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-check text-white mt-1"></i>
+                            <span data-lang="en"><strong>Direct Phone Access</strong></span>
+                            <span data-lang="es"><strong>Acceso Telefónico Directo</strong></span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-check text-white mt-1"></i>
+                            <span data-lang="en">PR Annual Statement filing</span>
+                            <span data-lang="es">Presentación de Declaración Anual PR</span>
+                        </li>
+                    </ul>
+                    <a href="index.html#contact" class="block w-full bg-white text-blue-600 text-center py-4 rounded-xl font-black hover:bg-slate-100 transition shadow-xl text-lg">
+                        <span data-lang="en">Get Started</span>
+                        <span data-lang="es">Comenzar</span>
+                    </a>
+                </div>
+
+                <!-- Premium Package -->
+                <div class="bg-white/5 p-8 rounded-2xl border border-white/10 hover:border-white/20 transition">
+                    <div class="mb-4">
+                        <p class="text-sm text-blue-300 font-semibold uppercase tracking-wide mb-2">
+                            <span data-lang="en">Starting at</span>
+                            <span data-lang="es">Desde</span>
+                        </p>
+                        <div class="text-4xl font-black text-blue-400">$650<span class="text-lg">+/mo</span></div>
+                        <p class="text-xs text-slate-400 mt-1">
+                            <span data-lang="en">Depends on size & volume</span>
+                            <span data-lang="es">Depende del tamaño y volumen</span>
+                        </p>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">
+                        <span data-lang="en">Premium</span>
+                        <span data-lang="es">Premium</span>
+                    </h3>
+                    <p class="text-sm text-blue-200 mb-6">
+                        <span data-lang="en">For scaling enterprises with high volume</span>
+                        <span data-lang="es">Para empresas en crecimiento con alto volumen</span>
+                    </p>
+                    <ul class="text-sm space-y-3 mb-8">
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-check text-green-400 mt-1"></i>
+                            <span data-lang="en"><strong>Unlimited</strong> Accounts</span>
+                            <span data-lang="es">Cuentas <strong>Ilimitadas</strong></span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-check text-green-400 mt-1"></i>
+                            <span data-lang="en">Monthly IVU Filings</span>
+                            <span data-lang="es">Presentaciones IVU Mensuales</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-check text-green-400 mt-1"></i>
+                            <span data-lang="en">Payroll Processing</span>
+                            <span data-lang="es">Procesamiento de Nómina</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-check text-green-400 mt-1"></i>
+                            <span data-lang="en">Monthly Financials</span>
+                            <span data-lang="es">Financieros Mensuales</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-check text-green-400 mt-1"></i>
+                            <span data-lang="en">Priority Support & Advisory Calls</span>
+                            <span data-lang="es">Soporte Prioritario y Llamadas de Asesoría</span>
+                        </li>
+                    </ul>
+                    <a href="index.html#contact" class="block w-full bg-blue-600 text-white text-center py-3 rounded-xl font-bold hover:bg-blue-700 transition">
+                        <span data-lang="en">Contact Us</span>
+                        <span data-lang="es">Contáctenos</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center text-blue-200 text-sm">
+                <p data-lang="en">* All packages include bank reconciliation and tax-ready reports</p>
+                <p data-lang="es">* Todos los paquetes incluyen reconciliación bancaria e informes listos para impuestos</p>
+            </div>
+        </div>
+    </section>
+
     <!-- Monthly Bookkeeping -->
     <section class="py-20 px-6">
         <div class="max-w-5xl mx-auto">
@@ -70,14 +248,14 @@
                         <span data-lang="es">Registro de Transacciones</span>
                     </h3>
                     <ul class="space-y-2 text-slate-700">
-                        <li data-lang="en">✓ Categorize all income & expenses</li>
-                        <li data-lang="es">✓ Categorizar todos los ingresos y gastos</li>
-                        <li data-lang="en">✓ Bank & credit card reconciliation</li>
-                        <li data-lang="es">✓ Reconciliación bancaria y de tarjetas de crédito</li>
-                        <li data-lang="en">✓ Digital receipts management</li>
-                        <li data-lang="es">✓ Gestión de recibos digitales</li>
-                        <li data-lang="en">✓ Accounts payable/receivable tracking</li>
-                        <li data-lang="es">✓ Seguimiento de cuentas por pagar/cobrar</li>
+                        <li data-lang="en">Categorize all income & expenses</li>
+                        <li data-lang="es">Categorizar todos los ingresos y gastos</li>
+                        <li data-lang="en">Bank & credit card reconciliation</li>
+                        <li data-lang="es">Reconciliación bancaria y de tarjetas de crédito</li>
+                        <li data-lang="en">Digital receipts management</li>
+                        <li data-lang="es">Gestión de recibos digitales</li>
+                        <li data-lang="en">Accounts payable/receivable tracking</li>
+                        <li data-lang="es">Seguimiento de cuentas por pagar/cobrar</li>
                     </ul>
                 </div>
 
@@ -90,14 +268,14 @@
                         <span data-lang="es">Informes Financieros</span>
                     </h3>
                     <ul class="space-y-2 text-slate-700">
-                        <li data-lang="en">✓ Monthly Profit & Loss statements</li>
-                        <li data-lang="es">✓ Estados de Pérdidas y Ganancias mensuales</li>
-                        <li data-lang="en">✓ Balance sheets</li>
-                        <li data-lang="es">✓ Hojas de balance</li>
-                        <li data-lang="en">✓ Cash flow analysis</li>
-                        <li data-lang="es">✓ Análisis de flujo de efectivo</li>
-                        <li data-lang="en">✓ Custom reports as needed</li>
-                        <li data-lang="es">✓ Informes personalizados según sea necesario</li>
+                        <li data-lang="en">Monthly Profit & Loss statements</li>
+                        <li data-lang="es">Estados de Pérdidas y Ganancias mensuales</li>
+                        <li data-lang="en">Balance sheets</li>
+                        <li data-lang="es">Hojas de balance</li>
+                        <li data-lang="en">Cash flow analysis</li>
+                        <li data-lang="es">Análisis de flujo de efectivo</li>
+                        <li data-lang="en">Custom reports as needed</li>
+                        <li data-lang="es">Informes personalizados según sea necesario</li>
                     </ul>
                 </div>
 
@@ -110,14 +288,14 @@
                         <span data-lang="es">Apoyo de Preparación de Impuestos</span>
                     </h3>
                     <ul class="space-y-2 text-slate-700">
-                        <li data-lang="en">✓ Quarterly tax estimates</li>
-                        <li data-lang="es">✓ Estimaciones de impuestos trimestrales</li>
-                        <li data-lang="en">✓ Year-end tax package</li>
-                        <li data-lang="es">✓ Paquete fiscal de fin de año</li>
-                        <li data-lang="en">✓ 1099/W-2 preparation</li>
-                        <li data-lang="es">✓ Preparación de 1099/W-2</li>
-                        <li data-lang="en">✓ Puerto Rico & Federal coordination</li>
-                        <li data-lang="es">✓ Coordinación de Puerto Rico y Federal</li>
+                        <li data-lang="en">Quarterly tax estimates</li>
+                        <li data-lang="es">Estimaciones de impuestos trimestrales</li>
+                        <li data-lang="en">Year-end tax package</li>
+                        <li data-lang="es">Paquete fiscal de fin de año</li>
+                        <li data-lang="en">1099/W-2 preparation</li>
+                        <li data-lang="es">Preparación de 1099/W-2</li>
+                        <li data-lang="en">Puerto Rico & Federal coordination</li>
+                        <li data-lang="es">Coordinación de Puerto Rico y Federal</li>
                     </ul>
                 </div>
 
@@ -130,14 +308,14 @@
                         <span data-lang="es">Contabilidad de Activos Digitales</span>
                     </h3>
                     <ul class="space-y-2 text-slate-700">
-                        <li data-lang="en">✓ Cryptocurrency transaction tracking</li>
-                        <li data-lang="es">✓ Seguimiento de transacciones de criptomonedas</li>
-                        <li data-lang="en">✓ Cost basis calculations</li>
-                        <li data-lang="es">✓ Cálculos de base de costo</li>
-                        <li data-lang="en">✓ Exchange integrations</li>
-                        <li data-lang="es">✓ Integraciones de intercambio</li>
-                        <li data-lang="en">✓ IRS Form 8949 support</li>
-                        <li data-lang="es">✓ Apoyo Formulario 8949 del IRS</li>
+                        <li data-lang="en">Cryptocurrency transaction tracking</li>
+                        <li data-lang="es">Seguimiento de transacciones de criptomonedas</li>
+                        <li data-lang="en">Cost basis calculations</li>
+                        <li data-lang="es">Cálculos de base de costo</li>
+                        <li data-lang="en">Exchange integrations</li>
+                        <li data-lang="es">Integraciones de intercambio</li>
+                        <li data-lang="en">IRS Form 8949 support</li>
+                        <li data-lang="es">Apoyo Formulario 8949 del IRS</li>
                     </ul>
                 </div>
             </div>
@@ -170,14 +348,14 @@
                             <span data-lang="es">Ley Federal de Contribuciones al Seguro - Impuestos del Seguro Social y Medicare</span>
                         </p>
                         <ul class="text-sm text-slate-600 space-y-1">
-                            <li data-lang="en">✓ Employee withholding (7.65%)</li>
-                            <li data-lang="es">✓ Retención del empleado (7.65%)</li>
-                            <li data-lang="en">✓ Employer match (7.65%)</li>
-                            <li data-lang="es">✓ Contribución del empleador (7.65%)</li>
-                            <li data-lang="en">✓ Quarterly Form 941 filing</li>
-                            <li data-lang="es">✓ Presentación trimestral Formulario 941</li>
-                            <li data-lang="en">✓ Annual W-2/W-3 preparation</li>
-                            <li data-lang="es">✓ Preparación anual W-2/W-3</li>
+                            <li data-lang="en">Employee withholding (7.65%)</li>
+                            <li data-lang="es">Retención del empleado (7.65%)</li>
+                            <li data-lang="en">Employer match (7.65%)</li>
+                            <li data-lang="es">Contribución del empleador (7.65%)</li>
+                            <li data-lang="en">Quarterly Form 941 filing</li>
+                            <li data-lang="es">Presentación trimestral Formulario 941</li>
+                            <li data-lang="en">Annual W-2/W-3 preparation</li>
+                            <li data-lang="es">Preparación anual W-2/W-3</li>
                         </ul>
                     </div>
 
@@ -192,14 +370,14 @@
                             <span data-lang="es">Ley de Impuesto de Desempleo Estatal - Departamento del Trabajo de PR</span>
                         </p>
                         <ul class="text-sm text-slate-600 space-y-1">
-                            <li data-lang="en">✓ Quarterly wage reports</li>
-                            <li data-lang="es">✓ Informes salariales trimestrales</li>
-                            <li data-lang="en">✓ Rate determination assistance</li>
-                            <li data-lang="es">✓ Asistencia de determinación de tasa</li>
-                            <li data-lang="en">✓ PR Dept of Labor coordination</li>
-                            <li data-lang="es">✓ Coordinación Depto. del Trabajo PR</li>
-                            <li data-lang="en">✓ Chauffeur & disability insurance</li>
-                            <li data-lang="es">✓ Seguro de chofer y discapacidad</li>
+                            <li data-lang="en">Quarterly wage reports</li>
+                            <li data-lang="es">Informes salariales trimestrales</li>
+                            <li data-lang="en">Rate determination assistance</li>
+                            <li data-lang="es">Asistencia de determinación de tasa</li>
+                            <li data-lang="en">PR Dept of Labor coordination</li>
+                            <li data-lang="es">Coordinación Depto. del Trabajo PR</li>
+                            <li data-lang="en">Chauffeur & disability insurance</li>
+                            <li data-lang="es">Seguro de chofer y discapacidad</li>
                         </ul>
                     </div>
                 </div>
@@ -283,14 +461,14 @@
                                 <span data-lang="es">Lo Que Hacemos:</span>
                             </p>
                             <ul class="text-sm text-slate-600 space-y-1">
-                                <li data-lang="en">✓ Prepare and file Annual Statement</li>
-                                <li data-lang="es">✓ Preparar y presentar Declaración Anual</li>
-                                <li data-lang="en">✓ Pay $150 government fee on your behalf</li>
-                                <li data-lang="es">✓ Pagar tarifa gubernamental de $150 en su nombre</li>
-                                <li data-lang="en">✓ Ensure timely filing (no penalties)</li>
-                                <li data-lang="es">✓ Asegurar presentación a tiempo (sin penalidades)</li>
-                                <li data-lang="en">✓ Provide confirmation & receipts</li>
-                                <li data-lang="es">✓ Proporcionar confirmación y recibos</li>
+                                <li data-lang="en">Prepare and file Annual Statement</li>
+                                <li data-lang="es">Preparar y presentar Declaración Anual</li>
+                                <li data-lang="en">Pay $150 government fee on your behalf</li>
+                                <li data-lang="es">Pagar tarifa gubernamental de $150 en su nombre</li>
+                                <li data-lang="en">Ensure timely filing (no penalties)</li>
+                                <li data-lang="es">Asegurar presentación a tiempo (sin penalidades)</li>
+                                <li data-lang="en">Provide confirmation & receipts</li>
+                                <li data-lang="es">Proporcionar confirmación y recibos</li>
                             </ul>
                         </div>
                     </div>
@@ -299,94 +477,6 @@
         </div>
     </section>
 
-    <!-- Pricing -->
-    <section class="py-20 px-6 bg-slate-900 text-white">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-4xl font-black mb-12 text-center">
-                <span data-lang="en">Service Packages</span>
-                <span data-lang="es">Paquetes de Servicios</span>
-            </h2>
-
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Bookkeeping Only -->
-                <div class="bg-white/5 p-8 rounded-2xl border border-white/10">
-                    <h3 class="text-xl font-bold mb-2">
-                        <span data-lang="en">Bookkeeping Only</span>
-                        <span data-lang="es">Solo Contabilidad</span>
-                    </h3>
-                    <div class="text-4xl font-black text-blue-400 my-6">$199<span class="text-lg">/mo</span></div>
-                    <ul class="text-sm space-y-3 mb-8">
-                        <li data-lang="en">✓ Monthly transaction recording</li>
-                        <li data-lang="es">✓ Registro mensual de transacciones</li>
-                        <li data-lang="en">✓ Financial statements</li>
-                        <li data-lang="es">✓ Estados financieros</li>
-                        <li data-lang="en">✓ Bank reconciliation</li>
-                        <li data-lang="es">✓ Reconciliación bancaria</li>
-                        <li data-lang="en">✓ Tax-ready reports</li>
-                        <li data-lang="es">✓ Informes listos para impuestos</li>
-                    </ul>
-                    <a href="index.html#contact" class="block w-full bg-blue-600 text-white text-center py-3 rounded-xl font-bold hover:bg-blue-700 transition">
-                        <span data-lang="en">Get Started</span>
-                        <span data-lang="es">Comenzar</span>
-                    </a>
-                </div>
-
-                <!-- Bookkeeping + Payroll -->
-                <div class="bg-blue-600 p-8 rounded-2xl border-4 border-blue-400 relative">
-                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-green-500 text-white px-4 py-1 rounded-full text-xs font-bold uppercase">
-                        <span data-lang="en">Most Popular</span>
-                        <span data-lang="es">Más Popular</span>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">
-                        <span data-lang="en">Full Service</span>
-                        <span data-lang="es">Servicio Completo</span>
-                    </h3>
-                    <div class="text-4xl font-black my-6">$399<span class="text-lg">/mo</span></div>
-                    <ul class="text-sm space-y-3 mb-8">
-                        <li data-lang="en">✓ Everything in Bookkeeping</li>
-                        <li data-lang="es">✓ Todo en Contabilidad</li>
-                        <li data-lang="en">✓ Payroll processing</li>
-                        <li data-lang="es">✓ Procesamiento de nómina</li>
-                        <li data-lang="en">✓ FICA/SUTA compliance</li>
-                        <li data-lang="es">✓ Cumplimiento FICA/SUTA</li>
-                        <li data-lang="en">✓ PR Annual Statement ($150 fee)</li>
-                        <li data-lang="es">✓ Declaración Anual PR (tarifa $150)</li>
-                    </ul>
-                    <a href="index.html#contact" class="block w-full bg-white text-blue-600 text-center py-3 rounded-xl font-bold hover:bg-slate-100 transition">
-                        <span data-lang="en">Get Started</span>
-                        <span data-lang="es">Comenzar</span>
-                    </a>
-                </div>
-
-                <!-- Premium -->
-                <div class="bg-white/5 p-8 rounded-2xl border border-white/10">
-                    <h3 class="text-xl font-bold mb-2">
-                        <span data-lang="en">Premium</span>
-                        <span data-lang="es">Premium</span>
-                    </h3>
-                    <div class="text-4xl font-black text-blue-400 my-6">$599<span class="text-lg">/mo</span></div>
-                    <ul class="text-sm space-y-3 mb-8">
-                        <li data-lang="en">✓ Everything in Full Service</li>
-                        <li data-lang="es">✓ Todo en Servicio Completo</li>
-                        <li data-lang="en">✓ Crypto/digital assets tracking</li>
-                        <li data-lang="es">✓ Seguimiento cripto/activos digitales</li>
-                        <li data-lang="en">✓ CFO advisory calls</li>
-                        <li data-lang="es">✓ Llamadas de asesoría CFO</li>
-                        <li data-lang="en">✓ Priority support</li>
-                        <li data-lang="es">✓ Soporte prioritario</li>
-                    </ul>
-                    <a href="index.html#contact" class="block w-full bg-blue-600 text-white text-center py-3 rounded-xl font-bold hover:bg-blue-700 transition">
-                        <span data-lang="en">Get Started</span>
-                        <span data-lang="es">Comenzar</span>
-                    </a>
-                </div>
-            </div>
-
-            <div class="mt-12 text-center text-blue-200 text-sm">
-                <p data-lang="en">* Additional fees may apply for multiple entities or complex payroll structures</p>
-                <p data-lang="es">* Pueden aplicar tarifas adicionales para múltiples entidades o estructuras de nómina complejas</p>
-            </div>
-        </div>
     </section>
 
     <!-- CTA -->
@@ -411,17 +501,139 @@
     <footer class="py-12 bg-slate-950 text-white text-center">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-2xl font-black text-white uppercase tracking-tighter mb-2">
-                Satoshi<span class="text-blue-500 font-light">Ledger</span>
+                <span style="color:#CC0000">PuertoRico</span><span style="color:#3A99D8">LLC</span><span style="color:#3A99D8;font-weight:500">.com</span>
             </div>
             <p class="text-xs opacity-30 italic mb-6">
                 <span data-lang="en">Tax compliance and accounting services. Not a law firm.</span>
                 <span data-lang="es">Servicios de contabilidad y cumplimiento fiscal. No es una firma de abogados.</span>
             </p>
-            <p class="text-xs opacity-20">© 2025 Satoshi Ledger LLC</p>
+            <p class="text-xs opacity-20">© 2026 Satoshi Ledger LLC d/b/a PuertoRicoLLC.com</p>
         </div>
     </footer>
 
+    <!-- WhatsApp Floating Button -->
+    <style>
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            z-index: 100;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .whatsapp-float:hover {
+            background-color: #128c7e;
+            transform: scale(1.1);
+            box-shadow: 2px 2px 20px rgba(0,0,0,0.4);
+        }
+
+        .whatsapp-float i {
+            margin-top: 4px;
+        }
+
+        /* Online Status Indicator */
+        .whatsapp-status {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            width: 14px;
+            height: 14px;
+            background-color: #4CAF50;
+            border: 2px solid white;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(76, 175, 80, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(76, 175, 80, 0);
+            }
+        }
+
+        /* Tooltip */
+        .whatsapp-tooltip {
+            position: absolute;
+            right: 70px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: white;
+            color: #333;
+            padding: 8px 15px;
+            border-radius: 8px;
+            white-space: nowrap;
+            font-size: 14px;
+            font-weight: 600;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .whatsapp-float:hover .whatsapp-tooltip {
+            opacity: 1;
+        }
+
+        /* Mobile responsive */
+        @media screen and (max-width: 768px) {
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 26px;
+            }
+            .whatsapp-tooltip {
+                display: none;
+            }
+        }
+    </style>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/16146952904?text=Hello%2C%20I%27m%20interested%20in%20your%20Puerto%20Rico%20tax%20services" 
+       class="whatsapp-float" 
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="Chat on WhatsApp">
+        <span class="whatsapp-status"></span>
+        <i class="fab fa-whatsapp"></i>
+        <span class="whatsapp-tooltip">
+            <span data-lang="en">Chat with us!</span>
+            <span data-lang="es">¡Chatea con nosotros!</span>
+        </span>
+    </a>
+
+
     <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            menu.classList.toggle('hidden');
+            if (!menu.classList.contains('hidden')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        }
+        
         function setLanguage(lang) {
             document.querySelectorAll('[data-lang]').forEach(el => {
                 el.style.display = (el.getAttribute('data-lang') === lang) ? 'inline-block' : 'none';

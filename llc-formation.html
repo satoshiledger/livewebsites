@@ -3,33 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LLC Formation | Satoshi Ledger LLC</title>
+    <title>LLC Formation | PuertoRicoLLC.com</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         .hero-bg { background: linear-gradient(135deg, #020617 0%, #1e3a8a 100%); }
         [data-lang="es"] { display: none; }
-        .lang-active { font-weight: 800; color: #2563eb; border-bottom: 2px solid #2563eb; }
+        .lang-active { font-weight: 800; color: #3A99D8 !important; border-bottom: 2px solid #3A99D8; }
         html { scroll-behavior: smooth; }
     </style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L7DET25V5W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-L7DET25V5W');
+</script>
 </head>
 <body class="bg-slate-50">
     <!-- Navigation -->
-    <nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-black text-blue-900 uppercase tracking-tighter">
-                Satoshi<span class="text-blue-600 font-light">Ledger</span>
-            </a>
-            <div class="flex items-center gap-6">
-                <div class="flex gap-2 text-xs font-bold uppercase tracking-widest border rounded-full px-3 py-1 bg-slate-50">
-                    <button onclick="setLanguage('en')" id="btn-en" class="lang-active cursor-pointer">EN</button>
-                    <span class="text-slate-300">|</span>
-                    <button onclick="setLanguage('es')" id="btn-es" class="cursor-pointer">ES</button>
-                </div>
-                <a href="index.html#contact" class="bg-blue-600 text-white px-6 py-2.5 rounded-lg hover:bg-blue-700 transition font-semibold text-sm">
-                    <span data-lang="en">Get Started</span>
-                    <span data-lang="es">Comenzar</span>
+    <nav class="bg-slate-900 border-b border-slate-800 sticky top-0 z-50 shadow-lg">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="text-2xl font-black uppercase tracking-tighter" style="color:#CC0000">
+                    <span style="color:#CC0000">PuertoRico</span><span style="color:#3A99D8">LLC</span><span style="color:#3A99D8;font-weight:500">.com</span>
                 </a>
+                <div class="hidden md:flex items-center gap-6">
+                    <div class="flex items-center gap-1 text-base font-black uppercase tracking-tighter">
+                        <button onclick="setLanguage('en')" id="btn-en" class="lang-active cursor-pointer">EN</button>
+                        <span class="text-slate-500 text-xs">|</span>
+                        <button onclick="setLanguage('es')" id="btn-es" class="cursor-pointer">ES</button>
+                    </div>
+                    <div class="flex space-x-4 text-sm font-semibold uppercase">
+                        <a href="index.html" class="text-white hover:text-gray-300 transition"><span data-lang="en">Home</span><span data-lang="es">Inicio</span></a>
+                        <a href="act60-mastery.html" class="text-white hover:text-gray-300 transition"><span data-lang="en">Act 60</span><span data-lang="es">Ley 60</span></a>
+                        <a href="llc-formation.html" class="text-white hover:text-gray-300 transition"><span data-lang="en">LLC Setup</span><span data-lang="es">LLC</span></a>
+                        <a href="forensic-audit.html" class="text-white hover:text-gray-300 transition"><span data-lang="en">Audits</span><span data-lang="es">Auditorías</span></a>
+                        <a href="bookkeeping-payroll.html" class="text-white hover:text-gray-300 transition"><span data-lang="en">Accounting</span><span data-lang="es">Contabilidad</span></a>
+                        <a href="blog.html" class="text-white hover:text-gray-300 transition"><span data-lang="en">Blog</span><span data-lang="es">Blog</span></a>
+                        <a href="index.html#contact" class="bg-red-600 text-white px-5 py-2 rounded-lg hover:bg-red-700 transition shadow-sm"><span data-lang="en">Consultation</span><span data-lang="es">Consulta</span></a>
+                    </div>
+                </div>
+                <button onclick="toggleMobileMenu()" class="md:hidden text-2xl text-white"><i class="fas fa-bars" id="menu-icon"></i></button>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-3 pb-4">
+                <a href="index.html" class="block py-2 text-white hover:text-gray-300 transition text-center font-semibold"><span data-lang="en">Home</span><span data-lang="es">Inicio</span></a>
+                <a href="act60-mastery.html" class="block py-2 text-white hover:text-gray-300 transition text-center font-semibold"><span data-lang="en">Act 60</span><span data-lang="es">Ley 60</span></a>
+                <a href="llc-formation.html" class="block py-2 text-white hover:text-gray-300 transition text-center font-semibold"><span data-lang="en">LLC Setup</span><span data-lang="es">LLC</span></a>
+                <a href="forensic-audit.html" class="block py-2 text-white hover:text-gray-300 transition text-center font-semibold"><span data-lang="en">Audits</span><span data-lang="es">Auditorías</span></a>
+                <a href="bookkeeping-payroll.html" class="block py-2 text-white hover:text-gray-300 transition text-center font-semibold"><span data-lang="en">Accounting</span><span data-lang="es">Contabilidad</span></a>
+                <a href="blog.html" class="block py-2 text-white hover:text-gray-300 transition text-center font-semibold"><span data-lang="en">Blog</span><span data-lang="es">Blog</span></a>
+                <a href="index.html#contact" class="block bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition text-center font-bold"><span data-lang="en">Consultation</span><span data-lang="es">Consulta</span></a>
             </div>
         </div>
     </nav>
@@ -71,8 +96,8 @@
                             <span data-lang="es">Artículos de Organización</span>
                         </h3>
                         <p class="text-slate-600 text-sm">
-                            <span data-lang="en">Professional prep & filing with PR Dept of State</span>
-                            <span data-lang="es">Preparación profesional y presentación ante Depto. de Estado PR</span>
+                            <span data-lang="en">Professional prep & filing with PR Dept of State ($250 state filing fee)</span>
+                            <span data-lang="es">Preparación profesional y presentación ante Depto. de Estado PR (tarifa estatal de $250)</span>
                         </p>
                     </div>
                 </div>
@@ -99,12 +124,12 @@
                     </div>
                     <div>
                         <h3 class="font-bold text-lg mb-2">
-                            <span data-lang="en">Federal EIN (FREE)</span>
-                            <span data-lang="es">EIN Federal (GRATIS)</span>
+                            <span data-lang="en">Federal EIN</span>
+                            <span data-lang="es">EIN Federal</span>
                         </h3>
                         <p class="text-slate-600 text-sm">
                             <span data-lang="en">IRS Employer ID Number - included at no cost</span>
-                            <span data-lang="es">Número de Identificación de Empleador del IRS - sin costo</span>
+                            <span data-lang="es">Número de Identificación de Empleador del IRS - incluido sin costo</span>
                         </p>
                     </div>
                 </div>
@@ -135,8 +160,8 @@
                             <span data-lang="es">Servicio de Agente Registrado</span>
                         </h3>
                         <p class="text-slate-600 text-sm">
-                            <span data-lang="en">$125/year - Required for all PR LLCs</span>
-                            <span data-lang="es">$125/año - Requerido para todas las LLCs de PR</span>
+                            <span data-lang="en">$125/year - Recommended for privacy (protects your personal address)</span>
+                            <span data-lang="es">$125/año - Recomendado para privacidad (protege su dirección personal)</span>
                         </p>
                     </div>
                 </div>
@@ -233,7 +258,7 @@
                 <div class="flex justify-between items-center">
                     <h3 class="text-2xl font-black">
                         <span data-lang="en">Total One-Time Setup</span>
-                        <span data-lang="es">Configuración Total Única</span>
+                        <span data-lang="es">Configuración Total Íšnica</span>
                     </h3>
                     <p class="text-5xl font-black text-blue-600">$625</p>
                 </div>
@@ -422,17 +447,139 @@
     <footer class="py-12 bg-slate-950 text-white text-center">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-2xl font-black text-white uppercase tracking-tighter mb-2">
-                Satoshi<span class="text-blue-500 font-light">Ledger</span>
+                <span style="color:#CC0000">PuertoRico</span><span style="color:#3A99D8">LLC</span><span style="color:#3A99D8;font-weight:500">.com</span>
             </div>
             <p class="text-xs opacity-30 italic mb-6">
                 <span data-lang="en">Tax compliance and accounting services. Not a law firm.</span>
                 <span data-lang="es">Servicios de contabilidad y cumplimiento fiscal. No es una firma de abogados.</span>
             </p>
-            <p class="text-xs opacity-20">© 2025 Satoshi Ledger LLC</p>
+            <p class="text-xs opacity-20">© 2026 Satoshi Ledger LLC d/b/a PuertoRicoLLC.com</p>
         </div>
     </footer>
 
+    <!-- WhatsApp Floating Button -->
+    <style>
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            z-index: 100;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .whatsapp-float:hover {
+            background-color: #128c7e;
+            transform: scale(1.1);
+            box-shadow: 2px 2px 20px rgba(0,0,0,0.4);
+        }
+
+        .whatsapp-float i {
+            margin-top: 4px;
+        }
+
+        /* Online Status Indicator */
+        .whatsapp-status {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            width: 14px;
+            height: 14px;
+            background-color: #4CAF50;
+            border: 2px solid white;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(76, 175, 80, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(76, 175, 80, 0);
+            }
+        }
+
+        /* Tooltip */
+        .whatsapp-tooltip {
+            position: absolute;
+            right: 70px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: white;
+            color: #333;
+            padding: 8px 15px;
+            border-radius: 8px;
+            white-space: nowrap;
+            font-size: 14px;
+            font-weight: 600;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .whatsapp-float:hover .whatsapp-tooltip {
+            opacity: 1;
+        }
+
+        /* Mobile responsive */
+        @media screen and (max-width: 768px) {
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 26px;
+            }
+            .whatsapp-tooltip {
+                display: none;
+            }
+        }
+    </style>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/16146952904?text=Hello%2C%20I%27m%20interested%20in%20your%20Puerto%20Rico%20tax%20services" 
+       class="whatsapp-float" 
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="Chat on WhatsApp">
+        <span class="whatsapp-status"></span>
+        <i class="fab fa-whatsapp"></i>
+        <span class="whatsapp-tooltip">
+            <span data-lang="en">Chat with us!</span>
+            <span data-lang="es">¡Chatea con nosotros!</span>
+        </span>
+    </a>
+
+
     <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            menu.classList.toggle('hidden');
+            if (!menu.classList.contains('hidden')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        }
+        
         function setLanguage(lang) {
             document.querySelectorAll('[data-lang]').forEach(el => {
                 el.style.display = (el.getAttribute('data-lang') === lang) ? 'inline-block' : 'none';
