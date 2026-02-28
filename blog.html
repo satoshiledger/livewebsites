@@ -140,14 +140,8 @@
             <!-- Articles Grid -->
             <div id="articles-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
 
-            <!-- Load More Button -->
-            <div id="load-more-wrap" class="mt-12 text-center hidden">
-                <button onclick="loadMore()" class="bg-slate-900 text-white px-8 py-4 rounded-xl font-bold hover:bg-slate-800 transition shadow-lg">
-                    <span data-lang="en">Load More Articles</span>
-                    <span data-lang="es">Cargar M&aacute;s Art&iacute;culos</span>
-                    <i class="fas fa-chevron-down ml-2"></i>
-                </button>
-            </div>
+            <!-- Pagination -->
+            <div id="pagination" class="mt-12 flex items-center justify-center gap-2"></div>
         </div>
     </section>
 
@@ -337,10 +331,10 @@
     ];
 
     // ============================================================
-    // RENDERING ENGINE
+    // RENDERING ENGINE — Paginated (6 per page)
     // ============================================================
     const PER_PAGE = 6;
-    let visibleCount = PER_PAGE;
+    let currentPage = 1;
     let currentFilter = 'all';
 
     function getFiltered() {
@@ -348,17 +342,23 @@
         return articles.filter(a => a.category === currentFilter);
     }
 
+    function totalPages() {
+        return Math.max(1, Math.ceil(getFiltered().length / PER_PAGE));
+    }
+
     function renderArticles() {
         const filtered = getFiltered();
-        const grid = document.getElementById('articles-grid');
-        const wrap = document.getElementById('load-more-wrap');
-        const countEl = document.getElementById('article-count');
-        const toShow = filtered.slice(0, visibleCount);
+        const pages = totalPages();
+        if (currentPage > pages) currentPage = pages;
+        const start = (currentPage - 1) * PER_PAGE;
+        const toShow = filtered.slice(start, start + PER_PAGE);
         const lang = localStorage.getItem('preferredLang') || 'en';
+        const grid = document.getElementById('articles-grid');
+        const countEl = document.getElementById('article-count');
 
         countEl.textContent = lang === 'es'
-            ? 'Mostrando ' + toShow.length + ' de ' + filtered.length + ' art\u00edculos'
-            : 'Showing ' + toShow.length + ' of ' + filtered.length + ' articles';
+            ? 'P\u00e1gina ' + currentPage + ' de ' + pages + ' (' + filtered.length + ' art\u00edculos)'
+            : 'Page ' + currentPage + ' of ' + pages + ' (' + filtered.length + ' articles)';
 
         grid.innerHTML = toShow.map(function(a) {
             return '<article class="blog-card bg-white rounded-2xl shadow-lg overflow-hidden border border-slate-100">'
@@ -390,20 +390,46 @@
                 + '</article>';
         }).join('');
 
-        wrap.classList.toggle('hidden', toShow.length >= filtered.length);
+        renderPagination(pages);
         setLanguage(lang);
+    }
+
+    function renderPagination(pages) {
+        const el = document.getElementById('pagination');
+        if (pages <= 1) { el.innerHTML = ''; return; }
+        let html = '';
+
+        // Previous
+        html += currentPage > 1
+            ? '<button onclick="goToPage(' + (currentPage - 1) + ')" class="w-10 h-10 rounded-lg border-2 border-slate-200 flex items-center justify-center hover:bg-slate-100 transition"><i class="fas fa-chevron-left text-sm text-slate-600"></i></button>'
+            : '<button disabled class="w-10 h-10 rounded-lg border-2 border-slate-100 flex items-center justify-center opacity-30"><i class="fas fa-chevron-left text-sm text-slate-300"></i></button>';
+
+        // Page numbers
+        for (let i = 1; i <= pages; i++) {
+            html += i === currentPage
+                ? '<button class="w-10 h-10 rounded-lg bg-blue-600 text-white font-bold flex items-center justify-center">' + i + '</button>'
+                : '<button onclick="goToPage(' + i + ')" class="w-10 h-10 rounded-lg border-2 border-slate-200 text-slate-700 font-semibold flex items-center justify-center hover:bg-blue-50 hover:border-blue-300 transition">' + i + '</button>';
+        }
+
+        // Next
+        html += currentPage < pages
+            ? '<button onclick="goToPage(' + (currentPage + 1) + ')" class="w-10 h-10 rounded-lg border-2 border-slate-200 flex items-center justify-center hover:bg-slate-100 transition"><i class="fas fa-chevron-right text-sm text-slate-600"></i></button>'
+            : '<button disabled class="w-10 h-10 rounded-lg border-2 border-slate-100 flex items-center justify-center opacity-30"><i class="fas fa-chevron-right text-sm text-slate-300"></i></button>';
+
+        el.innerHTML = html;
+    }
+
+    function goToPage(page) {
+        currentPage = page;
+        renderArticles();
+        document.getElementById('articles-grid').scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
     function filterPosts(category, btn) {
         currentFilter = category;
-        visibleCount = PER_PAGE;
+        currentPage = 1;
         document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
         btn.classList.add('active');
-        renderArticles();
-    }
-
-    function loadMore() {
-        visibleCount += PER_PAGE;
         renderArticles();
     }
 
