@@ -1,0 +1,9 @@
+# Redirect /services to homepage services section
+Redirect 301 /services https://puertoricollc.com/#services
+
+# Enable clean URLs (serve .html files without extension)
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.+)$ $1.html [L]
